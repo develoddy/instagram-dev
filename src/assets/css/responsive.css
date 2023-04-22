@@ -1,105 +1,177 @@
-/** 
-* ================================= 
-*    62. Responsive CSS Start 
-* =================================
-**/
 
-/* ========= min and max scss for 1200 to 1366 screen ========= */
-@media (max-width: 1800px) {
-    body {
-        background-color: aqua;
+/*@media (max-width: 1800px) {}
+@media screen and (max-width: 1660px) {}
+@media screen and (max-width: 1600px) {}
+@media screen and (max-width: 1660px) and (min-width: 1200px) {}
+@media (max-width: 1280px) {}
+@media screen and (max-width: 1580px) and (min-width: 1200px) {}
+@media screen and (max-width: 1445px) and (min-width: 1410px) {}
+@media (max-width: 1470px) {}
+@media screen and (max-width: 1410px) and (min-width: 1367px) {}
+@media screen and (max-width: 1366px) and (min-width: 1200px) {}
+@media only screen and (max-width: 1366px) {}
+@media only screen and (max-width: 1366px) and (min-width: 1200px) {}
+@media only screen and (max-width: 1199.98px) {}
+@media only screen and (max-width: 1199px) and (min-width: 992px) {}
+@media only screen and (max-width: 991.98px) {}
+@media only screen and (max-width: 991px) and (min-width: 768px) {}
+@media only screen and (max-width: 810px) {}
+@media only screen and (max-width: 767.98px) {}
+@media only screen and (max-width: 767px) and (min-width: 576px) {}
+@media only screen and (max-width: 710px) {}
+@media only screen and (max-width: 630px) {}
+@media only screen and (max-width: 575.98px) {}
+@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 420px) {}
+@media only screen and (max-width: 360px) {}
+@media only screen and (min-width: 576px) {}
+@media (width: 768px) and (height: 1024px) {}*/
+
+/*@import url("./root.css");
+@import url("./responsive.css");*/
+
+
+@media (min-width: 1264px) and (max-width: 1919px) {
+    .x1o5hw5a.x1o5hw5a {
+        width: var(--nav-medium-width);
+    }
+
+    .x17snn68.x17snn68 {
+        width: calc(100% - var(--nav-medium-width));
     }
 }
 
-@media screen and (max-width: 1660px) {
-    body {
-        background-color: greenyellow;
+@media (min-width: 1264px) {
+    .xs3sg5q.xs3sg5q {
+        padding-right: 12px;
+    }
+    .xdoji71.xdoji71 {
+        align-items: center;
+    }
+    .x9k3k5o.x9k3k5o {
+        padding-top: 12px;
+    }
+    .x1wj20lx.x1wj20lx {
+        width: 100%;
+    }
+    .x1dejxi8.x1dejxi8 {
+        flex-direction: row;
+    }
+    .x12ldp4w.x12ldp4w {
+        padding-left: 12px;
+    }
+    .x11hdxyr.x11hdxyr {
+        padding-bottom: 12px;
+    }
+    .xzzcqpx.xzzcqpx {
+        display: flex;
     }
 }
-@media screen and (max-width: 1600px) {
-
-    body {
-        background-color: lightskyblue;
+@media (min-height: 600px) {
+    .xo237n4.xo237n4 {
+        margin-top: 4px;
     }
-
-}
-@media screen and (max-width: 1660px) and (min-width: 1200px) {
-    
-}
-@media (max-width: 1280px) {
-
-}
-@media screen and (max-width: 1580px) and (min-width: 1200px) {
-
-}
-@media screen and (max-width: 1445px) and (min-width: 1410px) {
-
-}
-@media (max-width: 1470px) {
-
-}
-@media screen and (max-width: 1410px) and (min-width: 1367px) {
-
-}
-@media screen and (max-width: 1366px) and (min-width: 1200px) {
-
-}
-@media only screen and (max-width: 1366px) {
-
-}
-@media only screen and (max-width: 1366px) and (min-width: 1200px) {
-
-}
-@media only screen and (max-width: 1199.98px) {
-
-}
-@media only screen and (max-width: 1199px) and (min-width: 992px) {
-   
-}
-@media only screen and (max-width: 991.98px) {
-
-}
-@media only screen and (max-width: 991px) and (min-width: 768px) {
-
-}
-@media only screen and (max-width: 810px) {
-
-}
-@media only screen and (max-width: 767.98px) {
-
-}
-@media only screen and (max-width: 767px) and (min-width: 576px) {
-
-}
-@media only screen and (max-width: 710px) {
-    body {
-        background-color: white;
+    .x6pnmvc.x6pnmvc {
+        margin-bottom: 4px;
     }
 }
-@media only screen and (max-width: 630px) {
-
+@media (min-width: 768px) {
+    .xl5mz7h.xl5mz7h {
+        justify-content: flex-end;
+    }
+    .xhuyl8g.xhuyl8g {
+        width: 100%;
+    }
 }
-@media only screen and (max-width: 575.98px) {
-
-}
-@media only screen and (max-width: 480px) {
-
-}
-@media only screen and (max-width: 420px) {
-
-}
-@media only screen and (max-width: 360px) {
-
-}
-@media only screen and (min-width: 576px) {
-
-}
-@media (width: 768px) and (height: 1024px) {
-
+@media (min-width: 1920px) {
+    .xaeubzz.xaeubzz {
+        width: var(--nav-wide-width);
+    }
+    .x6osk4m.x6osk4m {
+        width: calc(100% - var(--nav-wide-width));
+    }
 }
 
-/** 
-* ================================= 
-*    62. Responsive CSS Start Ends
-* =================================
-**/
+@media (min-width: 640px) {
+    ._ab6k {
+        border-radius: 8px;
+        margin-bottom: 12px;
+    }
+}
+
+
+@media (min-width: 876px) {
+    ._ab8b {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 38px 0;
+    }
+    ._ab8b ._ab8c {
+        max-width: 100%;
+    }
+    ._ab8b ._ab8c ._ab8e {
+        margin-right: 0;
+    }
+    ._ab8b ._ab8d {
+        margin-right: 16px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1263px) {
+    .x1porb0y.x1porb0y {
+        width: calc(100% - var(--nav-narrow-width));
+    }
+}
+
+@supports (padding: env(safe-area-inset-bottom, 0)) {
+    .x6w1myc.x6w1myc {
+        background-color: rgb(var(--ig-primary-background));
+    }
+}
+@supports (padding: env(safe-area-inset-bottom, 0)) {
+    .x1jeouym.x1jeouym {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+
+@media (max-width: 767px) {
+    .x14k21rp.x14k21rp {
+        max-height: calc(100% - var(--revamp-nav-bottom-toolbar-height));
+        background-color: rgb(var(--ig-primary-background));
+    }
+    .x10o80wk.x10o80wk {
+        flex-grow: 1;
+    }
+    .xxfw5ft.xxfw5ft {
+        position: relative;
+    }
+    .xleuxlb.xleuxlb {
+        height: var(--revamp-nav-bottom-toolbar-height);
+    }
+    .x1mh60rb.x1mh60rb {
+        width: 100%;
+    }
+    .x1f91t4q.x1f91t4q {
+        z-index: 1;
+    }
+    .xzauu7c.xzauu7c {
+        margin-left: 0;
+    }
+    .xif99yt.xif99yt {
+        justify-content: center;
+    }
+    .x1lhsz42.x1lhsz42 {
+        margin-bottom: 0;
+    }
+    .x1dn74xm.x1dn74xm {
+        display: flex;
+    }
+    .x172qv1o.x172qv1o {
+        margin-top: 0;
+    }
+    .x10djquj.x10djquj {
+        margin-right: 0;
+    }
+}
