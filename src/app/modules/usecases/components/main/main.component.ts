@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
 
   @ViewChild('asParent') asParent: ElementRef;
   @ViewChild('asIx9f619') asIx9f619: ElementRef;
-
+  @ViewChild('asIxvb8j5') asIxvb8j5: ElementRef;
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -62,8 +62,9 @@ export class MainComponent implements OnInit {
   }
 
   /**
-   * @description Controlador de cambio de tamaño del 
-   * width de la pantalla.
+   * Controlador de cambio de tamaño del width de la pantalla.
+   * Se obtiene el ancho de la ventana con windows.innerWidth.
+   * Tambien se determina el tamaño y el ancho con nombre.
    * @param
    * @return
    */
@@ -126,18 +127,18 @@ export class MainComponent implements OnInit {
       if( asParent.classList.contains('x9f619') ) {
         this.render2.removeClass(asParent, 'x1q0g3np')
         this.render2.addClass(asParent, 'xdt5ytf');
-        // $ix9f619.addClass("xg7h5cd xh8yej3 x1vjfegm x1ey2m1c x80663w x1jeouym x6w1myc").removeClass("xeq5yr9 x1dr59a3  x13vifvy x1n327nk");
-
-        // x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1 xeq5yr9 x1dr59a3 xixxii4 x13vifvy x1n327nk
         
-        this.render2.removeClass(asIx9f619, 'xeq5yr9 x1dr59a3 x13vifvy x1n327nk');
-
+        this.removeOrAddSpecifiedClasses('xg7h5cd xh8yej3 x1vjfegm x1ey2m1c x80663w x1jeouym x6w1myc', asIx9f619, 'addClass');
+        this.removeOrAddSpecifiedClasses('xeq5yr9 x1dr59a3 x13vifvy x1n327nk', asIx9f619, 'removeClass');
       } 
 
     } else {
       if( asParent.classList.contains('x9f619') ) {
         this.render2.removeClass(asParent, 'xdt5ytf')
         this.render2.addClass(asParent, 'x1q0g3np');
+
+        this.removeOrAddSpecifiedClasses('xeq5yr9 x1dr59a3 x13vifvy x1n327nk xaw8158 xtuw4uo', asIx9f619, 'addClass');
+        this.removeOrAddSpecifiedClasses('xg7h5cd xh8yej3 x1vjfegm x1ey2m1c x80663w x1jeouym x6w1myc', asIx9f619, 'removeClass');
       }
     }
     this.mobileView = true;
@@ -150,6 +151,25 @@ export class MainComponent implements OnInit {
   renderDesktopView( iw:number ) {
     console.log('render desktop view : ' + iw);
     this.mobileView = false;
+  }
+
+  /**
+   * Se agrega o se borra varias clases de un elemento.
+   * @param classes 
+   * @param selector 
+   * @param option 
+   */
+  private removeOrAddSpecifiedClasses( classes: string, selector: any, option: string ) {
+    switch ( option ) {
+      case 'addClass':
+        classes.split(' ').forEach((className: string) => { this.render2.addClass(selector, className); });
+        break;
+      case 'removeClass':
+        classes.split(' ').forEach((className: string) => { this.render2.removeClass(selector, className); });
+        break;
+      default: console.log('error..');
+        break;
+    }
   }
 
   ngOnDestroy() {
