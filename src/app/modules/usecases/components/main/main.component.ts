@@ -48,7 +48,6 @@ export class MainComponent implements OnInit {
   /**
    * Detectar la redimenzion de la pantalla.
    * con un clear timeout. 
-   * ç
    */
   private resizeWindows() {
     this.resizeObservable$ = fromEvent(window, 'resize');
@@ -111,18 +110,26 @@ export class MainComponent implements OnInit {
 
   /**
    * Se renderiza para aplicaciones tablet.
-   * @param iw 
+   * @param iw
    */
   renderTabletView( iw:number ) {
     console.log('render tablet view : ' + iw);
+    const asParent = this.asParent.nativeElement;
     if ( iw <= 767 ) {
-      const asParent = this.asParent.nativeElement;
-      if(asParent.classList.contains('x9f619')) {
-        
+      /**
+       * Se modifica las clases del elemento padre para realizar 
+       * un cambio en el nav vertifical.
+       */
+      if( asParent.classList.contains('x9f619') ) {
+        this.render2.removeClass(asParent, 'x1q0g3np')
+        this.render2.addClass(asParent, 'xdt5ytf');
+      } 
+      
+    } else {
+      if( asParent.classList.contains('x9f619') ) {
+        this.render2.removeClass(asParent, 'xdt5ytf')
+        this.render2.addClass(asParent, 'x1q0g3np');
       }
-      
-      
-      //this.render2.setStyle(rx9f619, 'color', 'red');
     }
     this.mobileView = true;
   }
