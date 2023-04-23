@@ -22,6 +22,8 @@ export class MainComponent implements OnInit {
   };
 
   @ViewChild('asParent') asParent: ElementRef;
+  @ViewChild('asIx9f619') asIx9f619: ElementRef;
+
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -113,8 +115,9 @@ export class MainComponent implements OnInit {
    * @param iw
    */
   renderTabletView( iw:number ) {
-    console.log('render tablet view : ' + iw);
     const asParent = this.asParent.nativeElement;
+    const asIx9f619 = this.asIx9f619.nativeElement; 
+
     if ( iw <= 767 ) {
       /**
        * Se modifica las clases del elemento padre para realizar 
@@ -123,8 +126,14 @@ export class MainComponent implements OnInit {
       if( asParent.classList.contains('x9f619') ) {
         this.render2.removeClass(asParent, 'x1q0g3np')
         this.render2.addClass(asParent, 'xdt5ytf');
+        // $ix9f619.addClass("xg7h5cd xh8yej3 x1vjfegm x1ey2m1c x80663w x1jeouym x6w1myc").removeClass("xeq5yr9 x1dr59a3  x13vifvy x1n327nk");
+
+        // x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1 xeq5yr9 x1dr59a3 xixxii4 x13vifvy x1n327nk
+        
+        this.render2.removeClass(asIx9f619, 'xeq5yr9 x1dr59a3 x13vifvy x1n327nk');
+
       } 
-      
+
     } else {
       if( asParent.classList.contains('x9f619') ) {
         this.render2.removeClass(asParent, 'xdt5ytf')
