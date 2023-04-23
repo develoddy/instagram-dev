@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
     large: 800,
   };
 
-  @ViewChild('rx9f619') rx9f619: ElementRef;
+  @ViewChild('asParent') asParent: ElementRef;
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -34,8 +34,7 @@ export class MainComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    const rx9f619 = this.rx9f619.nativeElement;
-    this.render2.setStyle(rx9f619, 'color', 'red');
+    
   }
 
   ngOnInit() {
@@ -48,7 +47,8 @@ export class MainComponent implements OnInit {
 
   /**
    * Detectar la redimenzion de la pantalla.
-   * con un clear timeout.
+   * con un clear timeout. 
+   * ç
    */
   private resizeWindows() {
     this.resizeObservable$ = fromEvent(window, 'resize');
@@ -116,7 +116,13 @@ export class MainComponent implements OnInit {
   renderTabletView( iw:number ) {
     console.log('render tablet view : ' + iw);
     if ( iw <= 767 ) {
+      const asParent = this.asParent.nativeElement;
+      if(asParent.classList.contains('x9f619')) {
+        
+      }
       
+      
+      //this.render2.setStyle(rx9f619, 'color', 'red');
     }
     this.mobileView = true;
   }
