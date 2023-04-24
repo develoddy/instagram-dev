@@ -33,6 +33,10 @@ export class MainComponent implements OnInit {
   @ViewChild('as006') as006: ElementRef; 
   @ViewChild('as007') as007: ElementRef;
 
+  @ViewChild('asSummary') asSummary: ElementRef;
+  @ViewChild('asSectionFeed') asSectionFeed: ElementRef;
+  
+
   public tempAsIx2lah0s: any;
   public tempAsIxh8yej3: any;
   public tempAsIxl5mz7h: any;
@@ -138,6 +142,8 @@ export class MainComponent implements OnInit {
     * previousSibling
    * @param iw
    */
+
+  public csb: any;
   renderTabletView( iw:number ) {
     const asParent    = this.asParent.nativeElement;
     const asIx9f619   = this.asIx9f619.nativeElement;
@@ -150,6 +156,33 @@ export class MainComponent implements OnInit {
     const as003       = this.as003.nativeElement;
     const as006       = this.as006.nativeElement;
     const as007       = this.as007.nativeElement;
+
+    if ( iw < 1161 ) {
+      if( this.csb ) {
+
+        /**
+         *   @ViewChild('asSummary') asSummary: ElementRef;
+             @ViewChild('asSectionFeed') asSectionFeed: ElementRef;
+         */
+      }
+    }
+
+    /*
+    if (nw < 1161) {
+          if ($csb) {
+              $cs.remove();
+              $ps.removeClass("_akm0");
+              $cbs.removeClass("_akmr");
+          } else {
+              $csb = $cs.detach();
+              $ps.removeClass("_akm0");
+              $cbs.removeClass("_akmr");
+          }
+      } else {
+          $ps.append($csb);
+          $ps.addClass("_akm0");
+          $cbs.addClass("_akmr");
+      }
 
     /**
      * Se modifica las clases del elemento padre para realizar 

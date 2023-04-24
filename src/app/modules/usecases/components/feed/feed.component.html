@@ -1,41 +1,56 @@
 <section class="x78zum5 xdt5ytf x1iyjqo2 x6ikm8r xg6iff7">
-    <main class="x78zum5 xdt5ytf x1iyjqo2 x182iqb8 xvbhtw8" role="main">
-        <div>
-            <section class="_aalv _akmq _akm0">
-                <!-- === Feed Start === -->
-                    <div class="_aam1 _akej _akmr">
-                        <div class="_ab6o _ab6q"></div>
-                        <!-- Stories start -->
-                            <app-stories></app-stories>        
-                        <!-- / Stories end -->
+    <!-- === Main start === -->
+        <main class="x78zum5 xdt5ytf x1iyjqo2 x182iqb8 xvbhtw8" role="main">
+            <div>
+                <section class="_aalv _akmq _akm0" #asSectionFeed>
 
-                        <!-- Post Start -->        
-                            <app-posts></app-posts>
-                        <!-- / Post end -->
-                    </div>
-                <!-- / === Feed End === -->
+                    <!-- *** -->
+                    <!-- *** -->
 
-                <!-- === Summary Start  ==== -->
-                    <div class="_aak6 _aak9">
-                        <!-- <app-summary></app-summary> -->
-                        <app-linkprofile></app-linkprofile>
-                        <app-suggestions></app-suggestions>
-                        <app-privacy></app-privacy>
-                    </div>
-                <!-- === Summary End  ==== -->
+                    <!-- === Feed Start === -->
+                        <div class="_aam1 _akej _akmr">
+                            <div class="_ab6o _ab6q"></div>
+                            <!-- Stories start -->
+                                <app-stories></app-stories>        
+                            <!-- / Stories end -->
 
-                <!-- === Boton flotante de actualizar el feed start === -->
-                    <div class="xixxii4 x17qophe xds687c">
-                        <app-refreshfeed></app-refreshfeed>
-                    </div>
-                <!-- / === Boton flotante de actualizar el feed end === -->
-            </section>
-        </div>
-    </main>
+                            <!-- Post Start -->        
+                                <app-posts></app-posts>
+                            <!-- / Post end -->
+                        </div>
+                    <!-- / === Feed End === -->
+
+                    <!-- *** -->
+                    <!-- *** -->
+
+                    <!-- === Summary Start  ==== -->
+                        <div class="_aak6 _aak9" #asSummary>
+                            <app-linkprofile></app-linkprofile>
+                            <app-suggestions></app-suggestions>
+                            <app-privacy></app-privacy>
+                        </div>
+                    <!-- === Summary End  ==== -->
+
+                    <!-- *** -->
+                    <!-- *** -->
+
+                    <!-- === Boton flotante de actualizar el feed start === -->
+                        <div class="xixxii4 x17qophe xds687c">
+                            <app-refreshfeed></app-refreshfeed>
+                        </div>
+                    <!-- / === Boton flotante de actualizar el feed end === -->
+                </section>
+            </div>
+        </main>
+    <!-- === / Main end === -->
+
+    <!-- *** -->
+    <!-- *** -->
 
     <!-- === Footer Start Start === -->
         <div style="order: 5;">
             <app-footerall></app-footerall>
         </div>
     <!-- === / Footer Start End === -->
+
 </section>
