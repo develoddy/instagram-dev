@@ -19,7 +19,8 @@ import * as fromComponents from './components';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    ...fromComponents.components
   ]
   
 })

@@ -272,7 +272,7 @@ export class MainComponent implements OnInit {
 
   /**
    * Esta función se encarga de agregar varios children en el 
-   * elemento padre selecccionado
+   * elemento padre selecccionado.
    * @param parenet 
    * @param children 
    */
@@ -286,7 +286,7 @@ export class MainComponent implements OnInit {
     }
   }
 
-  // Destrucir el servicio despues de resizar el ancho de la pantalla
+  // Destruye el servicio despues de resizar el ancho de la pantalla.
   ngOnDestroy() {
     this.resizeSubscription$.unsubscribe();
   }
