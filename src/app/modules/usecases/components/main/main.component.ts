@@ -42,6 +42,7 @@ export class MainComponent implements OnInit {
       @ViewChild("asParentMain") asParentMain: ElementRef;
       @ViewChild("asMorenav") asMorenav: ElementRef;
       @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
+      @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
       
       
       public tempAsIx2lah0s: any;
@@ -96,8 +97,7 @@ export class MainComponent implements OnInit {
       }
 
       /**
-       * Detectar la redimenzion de la pantalla.
-       * con un clear timeout.
+       * Resize windows.
        */
       private resizeWindows() {
             this.resizeObservable$ = fromEvent(window, "resize");
@@ -204,11 +204,10 @@ export class MainComponent implements OnInit {
              */
             if (iw <= 767) {
                   if (asParent.classList.contains("x1q0g3np")) {
-                        // #asParent
+                        
                         this.render2.addClass(asParent, "xdt5ytf");
                         this.render2.removeClass(asParent, "x1q0g3np");
 
-                        // #asIx9f619
                         this.removeOrAddSpecifiedClasses(
                               asIx9f619,
                               "xg7h5cd xh8yej3 x1vjfegm x1ey2m1c x80663w x1jeouym x6w1myc",
@@ -220,7 +219,6 @@ export class MainComponent implements OnInit {
                               "removeClass"
                         );
 
-                        // #asIxvb8j5
                         this.removeOrAddSpecifiedClasses(
                               asIxvb8j5,
                               "xvbhtw8 xh8yej3",
@@ -232,7 +230,6 @@ export class MainComponent implements OnInit {
                               "removeClass"
                         );
 
-                        // #asIx1cy8zhl
                         this.removeOrAddSpecifiedClasses(
                               asIx1cy8zhl,
                               "xh8yej3 x1q0g3np x1n2onr6 xaw8158 xtuw4uo",
@@ -274,11 +271,11 @@ export class MainComponent implements OnInit {
                   }
             } else {
                   if (asParent.classList.contains("xdt5ytf")) {
-                        // asParent
+                     
                         this.render2.removeClass(asParent, "xdt5ytf");
                         this.render2.addClass(asParent, "x1q0g3np");
 
-                        // asIx9f619
+                       
                         this.removeOrAddSpecifiedClasses(
                               asIx9f619,
                               "xeq5yr9 x1dr59a3 x13vifvy x1n327nk xaw8158 xtuw4uo",
@@ -290,7 +287,7 @@ export class MainComponent implements OnInit {
                               "removeClass"
                         );
 
-                        // asIxvb8j5
+                       
                         this.removeOrAddSpecifiedClasses(
                               asIxvb8j5,
                               "xvb8j5 x1vjfegm",
@@ -302,7 +299,6 @@ export class MainComponent implements OnInit {
                               "removeClass"
                         );
 
-                        // #asIx1cy8zhl
                         this.removeOrAddSpecifiedClasses(
                               asIx1cy8zhl,
                               "x1cy8zhl xdt5ytf x1gvbg2u x1y1aw1k xn6708d xx6bls6 x1ye3gou xvbhtw8 x1xgvd2v",
@@ -318,16 +314,13 @@ export class MainComponent implements OnInit {
                          * Se modifica los children para ocultar el nav verticial
                          * y se muetre en forma horizontal en el pie de la aplicatión.
                          */
-                        // add asIx2lah0s
                         this.appendChilds(asIxh8yej3, asIx1cy8zhl);
                         this.render2.appendChild(asIx1cy8zhl, asIx2lah0s);
 
-                        // add asIxh8yej3
                         this.render2.insertBefore(asIxh8yej3, as002, as003);
                         this.render2.insertBefore(asIxh8yej3, as006, as007);
                         this.render2.appendChild(asIx1cy8zhl, asIxh8yej3);
 
-                        // add asIxl5mz7h
                         this.render2.appendChild(asIx1cy8zhl, asIxl5mz7h);
                   }
             }
@@ -417,10 +410,30 @@ export class MainComponent implements OnInit {
 
       // Agrega o borra el elemento ShoeMoreNav en el Nav.
       public addOrRemoveMoreNav() {
+            const iw = window.innerWidth;
+            console.log("DEBUG: Get width screen -> " + iw);
+
+           
+            
             const asIx78zum5 = this.asIx78zum5.nativeElement;
             const asMorenav = this.asMorenav.nativeElement;
             const countChildNodes = asIx78zum5.childNodes.length;
+            const asMoreBoddy = this.asMoreBoddy.nativeElement;
             if ( countChildNodes < 2 ) {
+                  this.render2.removeStyle(asMoreBoddy, 'transform');
+                  if ( iw < 1264 ) {
+                        console.log("es 1263...");
+                        
+                        // transform: translate(60px, 657px) translate(0px, -100%);
+                        this.render2.removeStyle(asMoreBoddy, 'transform');
+                        this.render2.setStyle(asMoreBoddy, 'transform', 'translate(60px, 657px) translate(0px, -100%)');
+                  } else {
+                        if ( iw > 1263 ) {
+                              this.render2.removeStyle(asMoreBoddy, 'transform');
+                              this.render2.setStyle(asMoreBoddy, 'transform', 'translate(12px, 688px) translate(0px, -100%)');
+                        }
+                  }
+                  //this.render2.setStyle(asMoreBoddy, 'transform', 'translate(13px, 805px) translate(0px, -100%)');
                   this.render2.appendChild(
                         asIx78zum5, 
                         this.tempAsMorenav
