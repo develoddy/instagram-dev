@@ -92,13 +92,14 @@ export class MorenavComponent implements OnInit {
   private render(iw:number) {
     const asIx78zum5 = this.asIx78zum5.nativeElement;
     if ( iw < 1264 ) {
-      console.log("MORESHOW:::: IF");
       this.render2.removeClass(asIx78zum5, 'x91k8ka');
       this.render2.removeClass(asIx78zum5, 'x1anpbxc');
       this.render2.addClass(asIx78zum5, 'x11x68ut');
     } else {
-      console.log("MORESHOW:::: ELSE");
+      this.render2.addClass(asIx78zum5, 'x91k8ka');
+      this.render2.addClass(asIx78zum5, 'x1anpbxc');
+      this.render2.removeClass(asIx78zum5, 'x11x68ut');
     }
-    // cambiar [ x78zum5 x91k8ka x1anpbxc ] por 1263: x78zum5 x11x68ut 
+    
   }
 }
