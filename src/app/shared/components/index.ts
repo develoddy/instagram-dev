@@ -6,6 +6,10 @@ import { RefreshfeedComponent } from "./main/feed/refreshfeed/refreshfeed.compon
 import { StoriesComponent } from "./main/feed/stories/stories.component";
 // --- Import Feed End ---
 
+// --- Nav Start ---
+import { MorenavComponent } from "./main/nav/morenav/morenav.component";
+// --- Nav END ---
+
 // --- import Summary Start ---
 import { LinkprofileComponent } from "./main/summary/linkprofile/linkprofile.component";
 import { PrivacyComponent } from "./main/summary/privacy/privacy.component";
@@ -23,7 +27,8 @@ export const components : any[] = [
     LinkprofileComponent,
     SuggestionsComponent,
     PrivacyComponent,
-    FooterallComponent
+    FooterallComponent,
+    MorenavComponent
 ];
 
 // --- Export Start ---
@@ -41,3 +46,7 @@ export * from './main/summary/privacy/privacy.component';
 // --- Export Footer Start
 export * from './main/footer/footerall/footerall.component';
 // --- Export Footer End
+
+// --- Export Nav Start ---
+export * from './main/nav/morenav/morenav.component';
+// --- Export Nav End ---

@@ -5,9 +5,8 @@
             <div class="x9f619 x1n2onr6 x1ja2u2z">
                 <div class="x78zum5 xdt5ytf x1n2onr6 x1ja2u2z">
                     <div class="x78zum5 xdt5ytf x1n2onr6">
-                        <div class="x78zum5 xdt5ytf x1n2onr6 xat3117 xxzkxad">
+                        <div class="x78zum5 xdt5ytf x1n2onr6 xat3117 xxzkxad" #asIx78zum5>
                             <div class="x78zum5 xdt5ytf x10cihs4 x1t2pt76 x1n2onr6 x1ja2u2z">
-
                                 <div #asParent class="x9f619 xnz67gz x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x1qjc9v5 x1oa3qoh x1qughib" id="r293q1" style="height: 100%;">
                                     <!-- Nav start -->
                                     <div #asIx9f619 class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1 xeq5yr9 x1dr59a3 xixxii4 x13vifvy x1n327nk"
@@ -411,10 +410,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="xl5mz7h xhuyl8g" #asIxl5mz7h id="ixl5mz7h">
+                                                        <div class="xl5mz7h xhuyl8g" #asIxl5mz7h id="ixl5mz7h" (click)="addOrRemoveMoreNav()">
                                                             <div class="x1n2onr6">
                                                                 <a
-                                                                    href=""
                                                                     class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd"
                                                                 >
                                                                     <div
@@ -444,10 +442,7 @@
                                                 </div>
 
                                                 <!-- Barra lateral de búsqueda -->
-                                                <!-- [ngStyle]="{'color':'red', 'font-weight':'bold'}" -->
-                                                <!-- <div class="x10l6tqk x1u3tz30 x1ja2u2z" style="transform: translateX(0%); transition: color 0.8s linear 0.2s;" #asSideSearch> -->
                                                 <div class="x10l6tqk x1u3tz30 x1ja2u2z" #asSideSearch>
-                                                    <!-- <div class="x10l6tqk x1u3tz30 x1ja2u2z" [ngStyle]="{'transform': 'translateX(' + this.count + '%)'}" #asSideSearch> -->
                                                     <div class="xvbhtw8 xvb8j5 x9f619 x78zum5 xdt5ytf x1dr59a3 x1odjw0f xish69e x1y1aw1k x4uap5 xwib8y2 xkhd6sd xzmilaz x168nmei xoqspk4 x12v9rci xo71vjh x1n2onr6 x1zvrr1">
                                                         <div class="xh8yej3 x5yr21d x78zum5 xdt5ytf x10wlt62" style="opacity: 1;">
                                                             
@@ -476,6 +471,19 @@
                                     <!-- / Main feed end -->
                                 </div>
                             </div>
+
+                            <!-- Show More Start -->
+                            <div #asMorenav>
+                                <div>
+                                    <div>
+                                        <div class="xu96u03 xm80bdy x10l6tqk x13vifvy" style="position: fixed; transform: translate(13px, 805px) translate(0px, -100%);">
+                                            <app-morenav></app-morenav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- / Show More End -->
+
                         </div>
                     </div>
                 </div>

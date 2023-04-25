@@ -40,7 +40,10 @@ export class MainComponent implements OnInit {
       @ViewChild("asParentSearch") asParentSearch: ElementRef;
       @ViewChild("asSideSearch") asSideSearch: ElementRef;
       @ViewChild("asParentMain") asParentMain: ElementRef;
-
+      @ViewChild("asMorenav") asMorenav: ElementRef;
+      @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
+      
+      
       public tempAsIx2lah0s: any;
       public tempAsIxh8yej3: any;
       public tempAsIxl5mz7h: any;
@@ -49,6 +52,7 @@ export class MainComponent implements OnInit {
       public temp002: any;
       public temp006: any;
       public tempAsSideSearch: any;
+      public tempAsMorenav: any;
 
       constructor(
             public sanitizer: DomSanitizer,
@@ -69,15 +73,26 @@ export class MainComponent implements OnInit {
             this.resizeWindows();
       }
 
+      /**
+       * Se inicializa y se prepara los elementos.
+       * Se empieza a borrar todos elementos que no son usados cuando arranca la aplicación
+       * routerLink]="['search']"
+       * @param
+       * @returns
+       */
       setupAfterView() {
-            // --- Configuración de la barra latera de búsqueda. ---
-            //[routerLink]="['search']"
+            
+            // --- Configuración de la barra lateral de búsqueda. ---
             const asSideSearch = this.asSideSearch.nativeElement;
             const asParentSearch = this.asParentSearch.nativeElement;
             this.tempAsSideSearch = asSideSearch;
             this.render2.removeChild(asParentSearch, asSideSearch);
 
-            // ---
+            // --- Configuración de la ventana showmore. ---
+            const asIx78zum5 = this.asIx78zum5.nativeElement;
+            const asMorenav = this.asMorenav.nativeElement;
+            this.tempAsMorenav = asMorenav;
+            this.render2.removeChild(asIx78zum5, asMorenav);
       }
 
       /**
@@ -138,7 +153,7 @@ export class MainComponent implements OnInit {
       }
 
       /**
-       * Se rederiza para aplicaciones moviles.
+       * Se renderiza para aplicaciones moviles.
        * @param iw
        */
       renderMobileView(iw: number) {
@@ -353,8 +368,8 @@ export class MainComponent implements OnInit {
        * @param children
        */
       private appendChilds(parenet: any, children: any) {
-            if (children.childNodes.length > 0) {
-                  while (children.childNodes.length > 0) {
+            if ( children.childNodes.length > 0 ) {
+                  while ( children.childNodes.length > 0 ) {
                         this.render2.appendChild(
                               parenet,
                               children.childNodes[0]
@@ -365,21 +380,60 @@ export class MainComponent implements OnInit {
             }
       }
 
-      /**
-       * Mostrar barra latera de búsqueda.
-       */
+    
+      // Agrega o borra la barra lateral de la búsqueda en el Nav.
       public addOrRemoveSideSearchWindow() {
             const asParentSearch = this.asParentSearch.nativeElement;
-            const countChildNodes = asParentSearch.childNodes.length;
-            if ( countChildNodes < 2 ) {
+            const countSideSearchChildNodes = asParentSearch.childNodes.length;
+            if ( countSideSearchChildNodes < 2 ) {
+
+                  /**
+                   * Se comprueba si antes de abrir la barra lateral
+                   * existe abierto la ventana de showMoreNav, en caso de que esté
+                   * abierto, entonces se procede a borrarlo de la vista.
+                   */
+                  const asMorenav = this.asMorenav.nativeElement;
+                  const asIx78zum5 = this.asIx78zum5.nativeElement;
+                  const countMoreChildNodes = asIx78zum5.childNodes.length;
+
+                  if ( countMoreChildNodes > 1 ) {
+                        this.render2.removeChild(
+                              asIx78zum5, 
+                              asMorenav
+                        );
+                  }
+
+                  /**
+                   * En caso de que que el elemento showMorenav no 
+                   * exista en la vista, entonces se abre normalmente la 
+                   * barra laatera de búsqueda.
+                   */
                   this.addSideSearch();
+
             } else {
                   this.removeSideSearch();
             }
       }
 
-      
-      // Add Sidebar Search.
+      // Agrega o borra el elemento ShoeMoreNav en el Nav.
+      public addOrRemoveMoreNav() {
+            const asIx78zum5 = this.asIx78zum5.nativeElement;
+            const asMorenav = this.asMorenav.nativeElement;
+            const countChildNodes = asIx78zum5.childNodes.length;
+            if ( countChildNodes < 2 ) {
+                  this.render2.appendChild(
+                        asIx78zum5, 
+                        this.tempAsMorenav
+                  );
+            } else {
+                  this.render2.removeChild(
+                        asIx78zum5, 
+                        asMorenav
+                  );
+            }
+      }
+
+      // Agrega el elemento de la barra de búsqueda en el Nav.
       private addSideSearch() {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
@@ -401,12 +455,18 @@ export class MainComponent implements OnInit {
             );
 
             let transformX = 0;
-            this.render2.setStyle(asSideSearch, 'transform', `translateX(${ transformX }%)`);
+            this.render2.setStyle(
+                  asSideSearch, 'transform', 
+                  `translateX(${ transformX }%)`
+            );
             
-            this.render2.appendChild(asParentSearch, this.tempAsSideSearch);
+            this.render2.appendChild(
+                  asParentSearch, 
+                  this.tempAsSideSearch
+            );
       }
 
-      // Remove Side Search
+      // Bora el elemento de la barra de búsqueda en el Nav.
       private removeSideSearch() {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
@@ -433,10 +493,15 @@ export class MainComponent implements OnInit {
             );
 
             this.render2.removeChild(asParentSearch, asSideSearch);
-            
       }
 
-      // Remove barra lateral mediante click global.
+  
+      /**
+       * Esta función detecta los click en el componente Main, y 
+       * se aplica la logica acorde a los que el usuario va 
+       * abriendo o cerrando elementos en la 
+       * vista del Nav.
+       */
       private removeSidebarByGlobalClick() {
             const asSideSearch = this.asSideSearch.nativeElement;
             const asParentSearch = this.asParentSearch.nativeElement;
@@ -444,31 +509,49 @@ export class MainComponent implements OnInit {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
             this.render2.listen(asParentMain, "click", (event) => {
-                  const countChildNodes = asParentSearch.childNodes.length;
-                  if (countChildNodes > 1) {
-                        this.render2.removeStyle(asIxvb8j5, "transform");
-                        this.render2.setStyle(
-                              asIxvb8j5,
-                              "transform",
-                              "translateX(0px)"
-                        );
 
-                        this.removeOrAddSpecifiedClasses(
-                              asIx1cy8zhl,
-                              "x1o5hw5a xaeubzz",
-                              "addClass"
-                        );
-                        this.render2.removeStyle(asIx1cy8zhl, "transform");
-                        this.render2.setStyle(
-                              asIx1cy8zhl,
-                              "transform",
-                              "translateX(0px)"
-                        );
+                  // -- Borra el elemento de la barra lateral de búsqueda del Nav.
 
-                        this.render2.removeChild(asParentSearch, asSideSearch);
-                  }
+                        const countSideSearchChildNodes = asParentSearch.childNodes.length;
+                        if (countSideSearchChildNodes > 1) {
+                              this.render2.removeStyle(asIxvb8j5, "transform");
+                              this.render2.setStyle(
+                                    asIxvb8j5,
+                                    "transform",
+                                    "translateX(0px)"
+                              );
+
+                              this.removeOrAddSpecifiedClasses(
+                                    asIx1cy8zhl,
+                                    "x1o5hw5a xaeubzz",
+                                    "addClass"
+                              );
+
+                              this.render2.removeStyle(asIx1cy8zhl, "transform");
+
+                              this.render2.setStyle(
+                                    asIx1cy8zhl,
+                                    "transform",
+                                    "translateX(0px)"
+                              );
+
+                              this.render2.removeChild(asParentSearch, asSideSearch);
+                        }
+
+                  // -- Borrar el elemento showMorenav del Nav.
+
+                        const asMorenav = this.asMorenav.nativeElement;
+                        const asIx78zum5 = this.asIx78zum5.nativeElement;
+                        const countMoreChildNodes = asIx78zum5.childNodes.length;
+                        if ( countMoreChildNodes > 1 ) {
+                              this.render2.removeChild(
+                                    asIx78zum5, 
+                                    asMorenav
+                              );
+                        }
             });
       }
+
 
       // Destruye el servicio despues de resizar el ancho de la pantalla.
       ngOnDestroy() {
