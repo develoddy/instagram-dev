@@ -128,26 +128,34 @@ export class MainComponent implements OnInit {
    */
   renderMobileView(iw: number) {
         console.log('DEBUG: render mobile view MAIN : ' + iw);
-        
+        this.render(iw);
         this.mobileView = true;
   }
 
   /**
    * Se renderiza para aplicaciones tablet.
-   * Mover bloque de div.
-   * guardando como copia lo que se borra para despues recuperarlo.
-   * childNodes
-   * parentNode
-   * firstChild
-   * lastchild
-   * nextSibling
-   * previousSibling
    * @param iw
    */
-
-  public csb: any;
   renderTabletView(iw: number) {
         console.log('DEBUG: render Tablet view MAIN : ' + iw);
+        this.render(iw);
+  }
+
+  /**
+   * Se renderiza para aplicaciones desktop.
+   * @param iw
+   */
+  renderDesktopView(iw: number) {
+        console.log('DEBUG: render desktop view MAIN: ' + iw);
+        this.render(iw);
+        this.mobileView = false;
+  }
+
+  /**
+   * Esta función se encarga de renderizar para diferentes pantallas.
+   * @param iw 
+   */
+  private render(iw: number) {
         const asParent = this.asParent.nativeElement;
         const asIx9f619 = this.asIx9f619.nativeElement;
         const asIxvb8j5 = this.asIxvb8j5.nativeElement;
@@ -298,14 +306,8 @@ export class MainComponent implements OnInit {
         }
   }
 
-  /**
-   * Se renderiza para aplicaciones desktop.
-   * @param iw
-   */
-  renderDesktopView(iw: number) {
-        console.log('DEBUG: render desktop view MAIN: ' + iw);
-        this.mobileView = false;
-  }
+
+
 
   /**
    * Se agrega o se borra varias clases de un elemento.

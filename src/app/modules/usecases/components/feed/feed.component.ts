@@ -86,27 +86,42 @@ export class FeedComponent implements OnInit {
         }
   }
 
-  // Redenreizado para movil.
+  /**
+   * Se rederiza para aplicaciones moviles.
+   * @param iw
+   */
   renderMobileView(iw: number) {
         console.log("DEBUG: render mobile view FEED: " + iw);
+        this.render(iw);
         this.mobileView = true;
   }
 
-  // Redenreizado para tablet.
+  /**
+   * Se renderiza para aplicaciones tablet.
+   * @param iw
+   */
   renderTabletView(iw: number) {
         console.log("DEBUG: render tablet view FEED : " + iw);
-        
+        this.render(iw);
         this.mobileView = false;
   }
 
   /**
-   * Renderizado para desktop.
-   * Esta funcion se encarga de hacer unos cambios en el componente Summary
-   * de remover y agregar cuando dependiendo del ancho de la pantalla.
+   * Se renderiza para aplicaciones desktop.
    * @param iw
    */
   renderDesktopView(iw: number) {
         console.log("DEBUG: render  desktop view FEED: " + iw);
+        this.render(iw);
+        this.mobileView = false;
+  }
+
+  /**
+   * Esta funcion se encarga de hacer unos cambios en el componente Summary
+   * de remover y agregar cuando dependiendo del ancho de la pantalla.
+   * @param iw 
+   */
+  private render(iw: number) {
         const asSummary = this.asSummary.nativeElement;
         const asSectionFeed = this.asSectionFeed.nativeElement;
         const asFeed = this.asFeed.nativeElement;
@@ -117,21 +132,23 @@ export class FeedComponent implements OnInit {
           
               //if (asSectionFeed.classList.contains("_aalv")) {
                     if (this.temAsSummary) {
-                          //this.temAsSummary = asSummary;
-                          this.render2.removeChild(
-                            asSectionFeed,
-                            asSummary
-                          );
-                          this.temAsSummary = null;
+                          console.log("DEBUG: IF.. this.temAsSummary");
+                          this.temAsSummary = asSummary;
+                          // this.render2.removeChild(
+                          //   asSectionFeed,
+                          //   asSummary
+                          // );
+                          //this.temAsSummary = null;
                           this.render2.removeClass(asSectionFeed, "_akm0");
                           this.render2.removeClass(asFeed, "_akmr");
                           
                     } else {
+                          console.log("DEBUG: ELSE.. this.temAsSummary");
                           this.temAsSummary = asSummary;
-                          /*this.render2.removeChild(
+                          this.render2.removeChild(
                                 asSectionFeed,
                                 asSummary
-                          );*/
+                          );
                           this.render2.removeClass(asSectionFeed, "_akm0");
                           this.render2.removeClass(asFeed, "_akmr");
                     }
@@ -139,15 +156,17 @@ export class FeedComponent implements OnInit {
         } else {
           console.log("DEBUG: ELSE..");
               if (this.temAsSummary) {
+                console.log("ELSE... this.temAsSummary");
+                
                     this.render2.addClass(asSectionFeed, "_akm0");
                     this.render2.addClass(asFeed, "_akmr");
                     this.render2.appendChild(
                           asSectionFeed,
                           this.temAsSummary
                     );
+                    this.temAsSummary = null;
               }
         }
-        this.mobileView = false;
   }
 
   /**

@@ -1751,12 +1751,12 @@ h6 {
     border-bottom: 1px solid rgb(var(--post-separator));
     border-radius: 4px;
 }
-._aggb {
-    margin: 8px 4px 8px 5px;
-}
 ._aaqx {
     margin: 8px 4px 8px 12px;
     padding: unset;
+}
+._aggb {
+    margin: 8px 4px 8px 5px;
 }
 ._aarg {
     cursor: pointer;
@@ -2589,4 +2589,13 @@ a._aaqk:visited {
 
 .x9jhf4c:hover {
     background-color: #ccc6;
+}
+
+._agh1 {
+    padding: 0;
+    margin-right: -8px;
+}
+._aasn {
+    justify-content: center;
+    padding-right: 4px;
 }
