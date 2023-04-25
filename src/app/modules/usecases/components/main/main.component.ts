@@ -37,7 +37,6 @@ export class MainComponent implements OnInit {
       @ViewChild("as003") as003: ElementRef;
       @ViewChild("as006") as006: ElementRef;
       @ViewChild("as007") as007: ElementRef;
-
       @ViewChild("asParentSearch") asParentSearch: ElementRef;
       @ViewChild("asSideSearch") asSideSearch: ElementRef;
       @ViewChild("asParentMain") asParentMain: ElementRef;
@@ -301,12 +300,9 @@ export class MainComponent implements OnInit {
                         );
 
                         /**
-                         *
                          * Se modifica los children para ocultar el nav verticial
                          * y se muetre en forma horizontal en el pie de la aplicatión.
-                         *
                          */
-
                         // add asIx2lah0s
                         this.appendChilds(asIxh8yej3, asIx1cy8zhl);
                         this.render2.appendChild(asIx1cy8zhl, asIx2lah0s);
@@ -382,7 +378,8 @@ export class MainComponent implements OnInit {
             }
       }
 
-      //
+      
+      // Add Sidebar Search.
       private addSideSearch() {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
@@ -403,10 +400,13 @@ export class MainComponent implements OnInit {
                   "translateX(263px)"
             );
 
+            let transformX = 0;
+            this.render2.setStyle(asSideSearch, 'transform', `translateX(${ transformX }%)`);
+            
             this.render2.appendChild(asParentSearch, this.tempAsSideSearch);
       }
 
-      //
+      // Remove Side Search
       private removeSideSearch() {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
