@@ -411,17 +411,25 @@ export class MainComponent implements OnInit {
       // Agrega o borra el elemento ShoeMoreNav en el Nav.
       public addOrRemoveMoreNav() {
             const iw = window.innerWidth;
+            console.log("DEBUG: iw: " + iw);
+            
             const asIx78zum5 = this.asIx78zum5.nativeElement;
             const asMorenav = this.asMorenav.nativeElement;
             const countChildNodes = asIx78zum5.childNodes.length;
             const asMoreBoddy = this.asMoreBoddy.nativeElement;
             if ( countChildNodes < 2 ) {
                   this.render2.removeStyle(asMoreBoddy, 'transform');
-                  if ( iw < 800 ) {
+                  if ( iw > 1440 ) {
                         this.render2.removeStyle(asMoreBoddy, 'transform');
-                        this.render2.setStyle(asMoreBoddy, 'transform', 'translate(60px, 657px) translate(0px, -100%)');
+                        this.render2.setStyle(asMoreBoddy, 'transform', 'translate(12px, 805px) translate(0px, -100%)');
                   } else {
-                        this.render2.setStyle(asMoreBoddy, 'transform', 'translate(12px, 688px) translate(0px, -100%)');
+                        if ( iw < 1081 ) {
+                              this.render2.removeStyle(asMoreBoddy, 'transform');
+                              this.render2.setStyle(asMoreBoddy, 'transform', 'translate(60px, 1764px) translate(0px, -100%)');
+                        } else {
+                              this.render2.removeStyle(asMoreBoddy, 'transform');
+                              this.render2.setStyle(asMoreBoddy, 'transform', 'translate(60px, 744px) translate(0px, -100%)'); //688
+                        }
                   }
                   this.render2.appendChild(
                         asIx78zum5, 

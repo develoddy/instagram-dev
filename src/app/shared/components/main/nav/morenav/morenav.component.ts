@@ -16,6 +16,9 @@ export class MorenavComponent implements OnInit {
   
   @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
   @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
+  @ViewChild("asIx10l6tqk") asIx10l6tqk: ElementRef;
+  @ViewChild("asIxgf5ljw") asIxgf5ljw: ElementRef;
+  
   
   
   constructor(private render2: Renderer2) {}
@@ -91,14 +94,48 @@ export class MorenavComponent implements OnInit {
   // Render
   private render(iw:number) {
     const asIx78zum5 = this.asIx78zum5.nativeElement;
+    const asIx10l6tqk = this.asIx10l6tqk.nativeElement;
+    const asIxgf5ljw = this.asIxgf5ljw.nativeElement;
+
     if ( iw < 1264 ) {
       this.render2.removeClass(asIx78zum5, 'x91k8ka');
       this.render2.removeClass(asIx78zum5, 'x1anpbxc');
       this.render2.addClass(asIx78zum5, 'x11x68ut');
+
+      // --
+      this.render2.removeClass(asIx10l6tqk, 'x11f4b5y');
+      this.render2.removeClass(asIx10l6tqk, 'x1ey2m1c');
+      this.render2.removeClass(asIx10l6tqk, 'x17adc0v');
+      this.render2.addClass(asIx10l6tqk, 'xmbx2d0');
+      this.render2.addClass(asIx10l6tqk, 'x17qophe');
+      this.render2.addClass(asIx10l6tqk, 'xyorhqc');
+
+      // --
+      this.render2.removeClass(asIxgf5ljw, 'xdlhfag');
+      this.render2.removeClass(asIxgf5ljw, 'x1rbgqaq');
+      this.render2.removeClass(asIxgf5ljw, 'xqd3l62');
+      this.render2.addClass(asIxgf5ljw, 'x1cu5jd9');
+      this.render2.addClass(asIxgf5ljw, 'xr6gfmr');
+
     } else {
       this.render2.addClass(asIx78zum5, 'x91k8ka');
       this.render2.addClass(asIx78zum5, 'x1anpbxc');
       this.render2.removeClass(asIx78zum5, 'x11x68ut');
+
+      // --
+      this.render2.removeClass(asIx10l6tqk, 'xmbx2d0');
+      this.render2.removeClass(asIx10l6tqk, 'x17qophe');
+      this.render2.removeClass(asIx10l6tqk, 'xyorhqc');
+      this.render2.addClass(asIx10l6tqk, 'x11f4b5y');
+      this.render2.addClass(asIx10l6tqk, 'x1ey2m1c');
+      this.render2.addClass(asIx10l6tqk, 'x17adc0v');
+
+      // --
+      this.render2.removeClass(asIxgf5ljw, 'x1cu5jd9');
+      this.render2.removeClass(asIxgf5ljw, 'xr6gfmr');
+      this.render2.addClass(asIxgf5ljw, 'xdlhfag');
+      this.render2.addClass(asIxgf5ljw, 'x1rbgqaq');
+      this.render2.addClass(asIxgf5ljw, 'xqd3l62');
     }
     
   }
