@@ -15,16 +15,6 @@ import { fromEvent, Observable, Subscription } from "rxjs";
       styleUrls: ["./main.component.css"],
 })
 export class MainComponent implements OnInit {
-      public cssUrl: string;
-      resizeObservable$: Observable<Event>;
-      resizeSubscription$: Subscription;
-      mobileView = false;
-      public resizeId: any;
-      private screen: any = {
-            small: 0,
-            medium: 400,
-            large: 800,
-      };
 
       @ViewChild("asParent") asParent: ElementRef;
       @ViewChild("asIx9f619") asIx9f619: ElementRef;
@@ -43,8 +33,8 @@ export class MainComponent implements OnInit {
       @ViewChild("asMorenav") asMorenav: ElementRef;
       @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
       @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
-      
-      
+
+      public cssUrl: string;
       public tempAsIx2lah0s: any;
       public tempAsIxh8yej3: any;
       public tempAsIxl5mz7h: any;
@@ -54,12 +44,13 @@ export class MainComponent implements OnInit {
       public temp006: any;
       public tempAsSideSearch: any;
       public tempAsMorenav: any;
+      public resizeId: any;
+      private screen: any = { small: 0, medium: 400, large: 800 };
+      resizeObservable$: Observable<Event>;
+      resizeSubscription$: Subscription;
+      mobileView = false;
 
-      constructor(
-            public sanitizer: DomSanitizer,
-            public scripts: ScriptsService,
-            private render2: Renderer2
-      ) {}
+      constructor(public sanitizer: DomSanitizer, public scripts: ScriptsService, private render2: Renderer2) {}
 
       ngAfterViewInit() {
             this.setupAfterView();
@@ -82,23 +73,26 @@ export class MainComponent implements OnInit {
        * @returns
        */
       setupAfterView() {
-            
-            // --- Configuración de la barra lateral de búsqueda. ---
+            // Configuración de la barra lateral de búsqueda.
             const asSideSearch = this.asSideSearch.nativeElement;
             const asParentSearch = this.asParentSearch.nativeElement;
             this.tempAsSideSearch = asSideSearch;
-            this.render2.removeChild(asParentSearch, asSideSearch);
+            this.render2.removeChild(
+                  asParentSearch, 
+                  asSideSearch
+            );
 
-            // --- Configuración de la ventana showmore. ---
+            // Configuración de la ventana ShowMore. 
             const asIx78zum5 = this.asIx78zum5.nativeElement;
             const asMorenav = this.asMorenav.nativeElement;
             this.tempAsMorenav = asMorenav;
-            this.render2.removeChild(asIx78zum5, asMorenav);
+            this.render2.removeChild(
+                  asIx78zum5, 
+                  asMorenav
+            );
       }
 
-      /**
-       * Resize windows.
-       */
+      // Redimensionar el ancho de la pantalla.
       private resizeWindows() {
             this.resizeObservable$ = fromEvent(window, "resize");
             this.resizeSubscription$ = this.resizeObservable$.subscribe((e) => {
@@ -110,16 +104,14 @@ export class MainComponent implements OnInit {
       }
 
       /**
-       * Controlador de cambio de tamaño del width de la pantalla.
-       * Se obtiene el ancho de la ventana con windows.innerWidth.
+       * Controlador de cambio de tamaño del ancho de la pantalla.
+       * Se obtiene el ancho de la pantalla con windows.innerWidth.
        * Tambien se determina el tamaño y el ancho con nombre.
        * @param
        * @return
        */
       public resizeHandler() {
-            // Obtener ancho de ventana.
             const screenWidth = window.innerWidth;
-            // Determinar el tamaño y el ancho con nombre.
             let size = null;
             let iw = null;
             for (let s in this.screen) {
@@ -198,10 +190,7 @@ export class MainComponent implements OnInit {
             const as006 = this.as006.nativeElement;
             const as007 = this.as007.nativeElement;
 
-            /**
-             * Se modifica las clases del elemento padre para realizar
-             * un cambio en el nav vertifical.
-             */
+            // Se modifica las clases del elemento padre para realizar un cambio en el nav vertifical.
             if (iw <= 767) {
                   if (asParent.classList.contains("x1q0g3np")) {
                         
@@ -241,10 +230,7 @@ export class MainComponent implements OnInit {
                               "removeClass"
                         );
 
-                        /**
-                         * Se modifica los children para ocultar el nav verticial
-                         * y se muetre en forma horizontal en el pie de la aplicatión.
-                         */
+                        // Se configura el Nav para mostrarse en el pie de la aplicación
                         if (this.tempAsIx2lah0s || this.tempAsIxl5mz7h) {
                               this.tempAsIx2lah0s = asIx2lah0s;
                               this.tempAsIxl5mz7h = asIxl5mz7h;
@@ -275,7 +261,6 @@ export class MainComponent implements OnInit {
                         this.render2.removeClass(asParent, "xdt5ytf");
                         this.render2.addClass(asParent, "x1q0g3np");
 
-                       
                         this.removeOrAddSpecifiedClasses(
                               asIx9f619,
                               "xeq5yr9 x1dr59a3 x13vifvy x1n327nk xaw8158 xtuw4uo",
@@ -287,7 +272,6 @@ export class MainComponent implements OnInit {
                               "removeClass"
                         );
 
-                       
                         this.removeOrAddSpecifiedClasses(
                               asIxvb8j5,
                               "xvb8j5 x1vjfegm",
@@ -310,17 +294,12 @@ export class MainComponent implements OnInit {
                               "removeClass"
                         );
 
-                        /**
-                         * Se modifica los children para ocultar el nav verticial
-                         * y se muetre en forma horizontal en el pie de la aplicatión.
-                         */
+                        // Se configura el Nav para mostrarse de forma vertical enla aplicación.
                         this.appendChilds(asIxh8yej3, asIx1cy8zhl);
                         this.render2.appendChild(asIx1cy8zhl, asIx2lah0s);
-
                         this.render2.insertBefore(asIxh8yej3, as002, as003);
                         this.render2.insertBefore(asIxh8yej3, as006, as007);
                         this.render2.appendChild(asIx1cy8zhl, asIxh8yej3);
-
                         this.render2.appendChild(asIx1cy8zhl, asIxl5mz7h);
                   }
             }
@@ -360,7 +339,10 @@ export class MainComponent implements OnInit {
        * @param parenet
        * @param children
        */
-      private appendChilds(parenet: any, children: any) {
+      private appendChilds(
+            parenet: any, 
+            children: any
+      ) {
             if ( children.childNodes.length > 0 ) {
                   while ( children.childNodes.length > 0 ) {
                         this.render2.appendChild(
@@ -381,7 +363,7 @@ export class MainComponent implements OnInit {
             if ( countSideSearchChildNodes < 2 ) {
 
                   /**
-                   * Se comprueba si antes de abrir la barra lateral
+                   * Se comprueba si antes de abrir la barra lateral,
                    * existe abierto la ventana de showMoreNav, en caso de que esté
                    * abierto, entonces se procede a borrarlo de la vista.
                    */
@@ -399,7 +381,7 @@ export class MainComponent implements OnInit {
                   /**
                    * En caso de que que el elemento showMorenav no 
                    * exista en la vista, entonces se abre normalmente la 
-                   * barra laatera de búsqueda.
+                   * barra lateral de búsqueda.
                    */
                   this.addSideSearch();
 
@@ -411,24 +393,41 @@ export class MainComponent implements OnInit {
       // Agrega o borra el elemento ShoeMoreNav en el Nav.
       public addOrRemoveMoreNav() {
             const iw = window.innerWidth;
-            console.log("DEBUG: iw: " + iw);
-            
             const asIx78zum5 = this.asIx78zum5.nativeElement;
             const asMorenav = this.asMorenav.nativeElement;
-            const countChildNodes = asIx78zum5.childNodes.length;
             const asMoreBoddy = this.asMoreBoddy.nativeElement;
+
+            const countChildNodes = asIx78zum5.childNodes.length;
+            
+            // Se comprueba si existe ShowMore, en caso de no existir entonces entra
+            // por el if e intentará agregar a la vista.
             if ( countChildNodes < 2 ) {
                   this.render2.removeStyle(asMoreBoddy, 'transform');
+
                   if ( iw > 1440 ) {
                         this.render2.removeStyle(asMoreBoddy, 'transform');
-                        this.render2.setStyle(asMoreBoddy, 'transform', 'translate(12px, 805px) translate(0px, -100%)');
+                        this.render2.setStyle(
+                              asMoreBoddy, 
+                              'transform', 
+                              'translate(12px, 805px) translate(0px, -100%)'
+                        );
+                        
                   } else {
                         if ( iw < 1081 ) {
                               this.render2.removeStyle(asMoreBoddy, 'transform');
-                              this.render2.setStyle(asMoreBoddy, 'transform', 'translate(60px, 1764px) translate(0px, -100%)');
+                              this.render2.setStyle(
+                                    asMoreBoddy, 
+                                    'transform', 
+                                    'translate(60px, 1764px) translate(0px, -100%)'
+                              );
+
                         } else {
                               this.render2.removeStyle(asMoreBoddy, 'transform');
-                              this.render2.setStyle(asMoreBoddy, 'transform', 'translate(60px, 744px) translate(0px, -100%)'); //688
+                              this.render2.setStyle(
+                                    asMoreBoddy, 
+                                    'transform', 
+                                    'translate(60px, 744px) translate(0px, -100%)'
+                              ); 
                         }
                   }
                   this.render2.appendChild(
@@ -508,9 +507,8 @@ export class MainComponent implements OnInit {
   
       /**
        * Esta función detecta los click en el componente Main, y 
-       * se aplica la logica acorde a los que el usuario va 
-       * abriendo o cerrando elementos en la 
-       * vista del Nav.
+       * se aplica la logica acorde a lo que el usuario va 
+       * abriendo o cerrando el sidebar de búsqueda en la vista del Nav.
        */
       private removeSidebarByGlobalClick() {
             const asSideSearch = this.asSideSearch.nativeElement;
@@ -518,52 +516,52 @@ export class MainComponent implements OnInit {
             const asParentMain = this.asParentMain.nativeElement;
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
+
+            // Detectar eventos o click en la parte del component Main.
             this.render2.listen(asParentMain, "click", (event) => {
 
-                  // -- Borra el elemento de la barra lateral de búsqueda del Nav.
+                  // Borra el elemento de la barra lateral de búsqueda del Nav.
+                  const countSideSearchChildNodes = asParentSearch.childNodes.length;
+                  if ( countSideSearchChildNodes > 1 ) {
+                        this.render2.removeStyle(asIxvb8j5, "transform");
+                        this.render2.setStyle(
+                              asIxvb8j5,
+                              "transform",
+                              "translateX(0px)"
+                        );
 
-                        const countSideSearchChildNodes = asParentSearch.childNodes.length;
-                        if (countSideSearchChildNodes > 1) {
-                              this.render2.removeStyle(asIxvb8j5, "transform");
-                              this.render2.setStyle(
-                                    asIxvb8j5,
-                                    "transform",
-                                    "translateX(0px)"
-                              );
+                        this.removeOrAddSpecifiedClasses(
+                              asIx1cy8zhl,
+                              "x1o5hw5a xaeubzz",
+                              "addClass"
+                        );
 
-                              this.removeOrAddSpecifiedClasses(
-                                    asIx1cy8zhl,
-                                    "x1o5hw5a xaeubzz",
-                                    "addClass"
-                              );
+                        this.render2.removeStyle(asIx1cy8zhl, "transform");
 
-                              this.render2.removeStyle(asIx1cy8zhl, "transform");
+                        this.render2.setStyle(
+                              asIx1cy8zhl,
+                              "transform",
+                              "translateX(0px)"
+                        );
 
-                              this.render2.setStyle(
-                                    asIx1cy8zhl,
-                                    "transform",
-                                    "translateX(0px)"
-                              );
+                        this.render2.removeChild(asParentSearch, asSideSearch);
+                  }
 
-                              this.render2.removeChild(asParentSearch, asSideSearch);
-                        }
-
-                  // -- Borrar el elemento showMorenav del Nav.
-
-                        const asMorenav = this.asMorenav.nativeElement;
-                        const asIx78zum5 = this.asIx78zum5.nativeElement;
-                        const countMoreChildNodes = asIx78zum5.childNodes.length;
-                        if ( countMoreChildNodes > 1 ) {
-                              this.render2.removeChild(
-                                    asIx78zum5, 
-                                    asMorenav
-                              );
-                        }
+                  // Borrar el elemento showMorenav del Nav.
+                  const asMorenav = this.asMorenav.nativeElement;
+                  const asIx78zum5 = this.asIx78zum5.nativeElement;
+                  const countMoreChildNodes = asIx78zum5.childNodes.length;
+                  if ( countMoreChildNodes > 1 ) {
+                        this.render2.removeChild(
+                              asIx78zum5, 
+                              asMorenav
+                        );
+                  }
             });
       }
 
 
-      // Destruye el servicio despues de resizar el ancho de la pantalla.
+      // Destruye el servicio despues de Redimensionar el ancho de la pantalla.
       ngOnDestroy() {
             this.resizeSubscription$.unsubscribe();
       }
