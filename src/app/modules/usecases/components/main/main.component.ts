@@ -33,7 +33,7 @@ export class MainComponent implements OnInit {
       @ViewChild("asMorenav") asMorenav: ElementRef;
       @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
       @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
-
+      
       public cssUrl: string;
       public tempAsIx2lah0s: any;
       public tempAsIxh8yej3: any;
@@ -44,6 +44,7 @@ export class MainComponent implements OnInit {
       public temp006: any;
       public tempAsSideSearch: any;
       public tempAsMorenav: any;
+      
       public resizeId: any;
       private screen: any = { small: 0, medium: 400, large: 800 };
       resizeObservable$: Observable<Event>;
@@ -517,12 +518,20 @@ export class MainComponent implements OnInit {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
 
+            
+
             // Detectar eventos o click en la parte del component Main.
-            this.render2.listen(asParentMain, "click", (event) => {
+            this.render2.listen(asParentMain, "click", (event) => { 
+                  console.log(event);
+                  
+                  console.log("Posición del ratón\nx: " + event.screenX + "\ny: " + event.screenY);
+                  console.log("Posición del ratón\nx: " + event.x + "\ny: " + event.y);
 
                   // Borra el elemento de la barra lateral de búsqueda del Nav.
                   const countSideSearchChildNodes = asParentSearch.childNodes.length;
                   if ( countSideSearchChildNodes > 1 ) {
+                        console.log("If");
+                        
                         this.render2.removeStyle(asIxvb8j5, "transform");
                         this.render2.setStyle(
                               asIxvb8j5,

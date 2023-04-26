@@ -2587,7 +2587,7 @@ a._aaqk:visited {
     color: rgb(var(--ig-primary-text));
 }
 
-.x9jhf4c:hover {
+#ix9jhf4c:hover {
     background-color: #ccc6;
 }
 
@@ -2775,4 +2775,134 @@ a._aaqk:visited {
 }
 .x1cu5jd9 {
     bottom: calc(50% - 8px);
+}
+
+
+/* flotante info user*/
+.xfbpl4g {
+    animation-duration: .35s;
+}
+.xa3vuyk {
+    animation-timing-function: ease-out;
+}
+.x127lhb5 {
+    animation-name: xekv6nw-B;
+}
+.xfr5jun {
+    top: 8px;
+}
+.x1rj4ezl {
+    box-shadow: 0 5px 23px rgba(0,0,0,.2);
+}
+.x1mu97ne {
+    width: 366px;
+}
+.x1dh5ka {
+    grid-template-rows: 64px 40px min-content;
+}
+.x19g8pj0 {
+    grid-row-gap: 16px;
+}
+.xrvj5dj {
+    display: grid;
+}
+.xjv0b96 {
+    grid-column-gap: 8px;
+}
+.x1wdtju6 {
+    grid-template-columns: 64px 1fr;
+}
+.xmix8c7 {
+    height: 18px;
+}
+._a6hd._a6hd, ._a6hd._a6hd:hover {
+    text-decoration: none;
+}
+
+.xl565be {
+    font-size: var(--system-16-font-size);
+}
+.x1xlr1w8 {
+    font-weight: 700;
+}
+.x1rva8in {
+    width: 262px;
+}
+.x8l38fb {
+    grid-column-gap: 3px;
+}
+.x1rp53t7 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.x1swvt13 {
+    padding-left: 16px;
+}
+.x1ncir08 {
+    max-width: 200px;
+}
+.x9jhf4c {
+    border-bottom-left-radius: 8px;
+}
+.x9bdzbf {
+    color: rgb(var(--web-always-white));
+}
+.x1tu34mt {
+    background-color: rgb(var(--ig-primary-button));
+}
+.x10w6t97 {
+    height: 32px;
+}
+._acaq {
+    width: 100%;
+}
+._acap, a._acap, a._acap:visited {
+    border: none;
+    border-radius: 8px;
+    color: rgb(var(--web-always-white));
+    position: relative;
+}
+._acat, a._acat, a._acat:visited {
+    border: none;
+    color: rgb(var(--web-always-black));
+    background-color: rgb(var(--ig-secondary-button-background));
+}
+button._acat:hover {
+    background-color: rgb(var(--ig-secondary-button-hover ));
+}
+
+.x1e558r4 {
+    padding-left: 4px;
+}
+.x150jy0e {
+    padding-right: 4px;
+}
+._a9_u {
+    display: block;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+}
+._act0 {
+    border: 0;
+    flex-shrink: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+._9ys7 {
+    background-repeat: no-repeat;
+    background-position: 0 -369px;
+    height: 18px;
+    width: 18px;
+}
+
+
+._9zkj, ._a3ds, ._a3dt, ._a3du, ._a3dv, ._a3dw, ._9-b3, ._9znl, ._9z-6, ._a3dx, ._a3dy, ._a3dz, ._a3d-, ._a3d_, ._a3e0, ._9zm4, ._a3e1, ._a3e2, ._a3e3, ._a3e4, ._a3e5, ._a3e6, ._a3e7, ._a3e8, ._a3e9, ._a3ea, ._9_57, ._9_n5, ._9-y3, ._a3eb, ._a3ec, ._a3ed, ._a3ee, ._a04s, ._9zlu, ._9-yp, ._a3ef, ._a3eg, ._9_wm, ._a3eh, ._a3ei, ._9-j_, ._a3ej, ._a3ek, ._9_ij, ._9_d_, ._9_e1, ._9-mm, ._9_cx, ._9zm0, ._9zfi, ._9-ub, ._a3el, ._9-7-, ._9-1a, ._a3em, ._9zrp, ._a3en, ._9zz9, ._a3eo, ._9zmr, ._9-8d, ._9zhi, ._a3ep, ._9zs0, ._9-j-, ._a3eq, ._9zli, ._9_4y, ._9zm2, ._9zfj, ._9zlg, ._a3er, ._9-lv, ._9_ug, ._9_sh, ._9_sj, ._9-k0, ._9z-c, ._9_35, ._9_hh, ._a3es, ._a3et, ._a3eu, ._9-v-, ._9_4d, ._9zlh, ._a3ev, ._a3ew, ._a3ex, ._a3ey, ._9ys7, ._9ys8, ._9_7m, ._9_fv, ._a3ez {
+    background-image: url(./assets/img/TJztmXpWTmS.png);
+}
+
+.x1tu34mt:hover {
+    background-color: rgb(var(--ig-primary-button-hover));
 }

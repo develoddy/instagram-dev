@@ -8,18 +8,15 @@ import { fromEvent, Observable, Subscription } from "rxjs";
 })
 export class MorenavComponent implements OnInit {
   
-  resizeObservable$: Observable<Event>;
-  resizeSubscription$: Subscription;
-  mobileView = false;
-  public resizeId: any;
-  private screen: any = { small: 0, medium: 400, large: 800};
-  
   @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
   @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
   @ViewChild("asIx10l6tqk") asIx10l6tqk: ElementRef;
   @ViewChild("asIxgf5ljw") asIxgf5ljw: ElementRef;
-  
-  
+  resizeObservable$: Observable<Event>;
+  resizeSubscription$: Subscription;
+  mobileView = false;
+  public resizeId: any;
+  private screen: any = { small: 0, medium: 400, large: 800 };
   
   constructor(private render2: Renderer2) {}
 
@@ -35,8 +32,8 @@ export class MorenavComponent implements OnInit {
 
   private resizeWindows() {
     this.resizeObservable$ = fromEvent(window, "resize");
-    this.resizeSubscription$ = this.resizeObservable$.subscribe((e) => {
-          clearTimeout(this.resizeId);
+    this.resizeSubscription$ = this.resizeObservable$.subscribe(( e ) => {
+          clearTimeout( this.resizeId );
           this.resizeId = setTimeout(() => {
                 this.resizeHandler();
           }, 10);
@@ -48,13 +45,13 @@ export class MorenavComponent implements OnInit {
     let size = null;
     let iw = null;
     for ( let s in this.screen ) {
-          if (screenWidth >= this.screen[s]) size = s; iw = screenWidth;
+          if ( screenWidth >= this.screen[ s ] ) size = s; iw = screenWidth;
     }
     this.mediaQuery(size!, iw!);
   }
 
-  public mediaQuery(size: string, iw: number) {
-    switch (size) {
+  public mediaQuery( size: string, iw: number ) {
+    switch ( size ) {
           case "small":
                 this.renderMobileView(iw);
                 break;
