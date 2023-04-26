@@ -22,7 +22,6 @@ export class PostsComponent {
 
   
   setupAfterView() {
-    // Remove Ventana de información del usuario.
     const asParentInfoUser = this.asParentInfoUser.nativeElement;
     const asInfoUser = this.asInfoUser.nativeElement;
     this.tempAsInfoUser = asInfoUser;
@@ -33,7 +32,6 @@ export class PostsComponent {
   }
 
 
-  // transform: translate(127px, 231px)
   public clientX = 0; 
   public clientY = 0;
   @HostListener('mousemove', ['$event']) onMouseMove(event:any) {
@@ -62,16 +60,22 @@ export class PostsComponent {
 
 
 
-  // ---- Remove and Add ---
+  // add info user
   addInfoUser() {
     const asParentInfoUser = this.asParentInfoUser.nativeElement;
     const asInfoUser = this.asInfoUser.nativeElement;
 
     let totalChildrenNodes = asParentInfoUser.childNodes.length;
     if ( totalChildrenNodes == 0 ) {
-      this.render2.removeStyle(asInfoUser, 'transform');
-      this.render2.setStyle(asInfoUser, 'transform', 'translate('+this.clientX+'px, '+this.clientY+'px)')
-      // this.render2.setStyle(asInfoUser, 'transform', 'translate('+this.clientX+'px, 231px)');
+      this.render2.removeStyle(
+        asInfoUser, 
+        'transform'
+      );
+      this.render2.setStyle(
+        asInfoUser, 
+        'transform', 
+        'translate('+this.clientX+'px, '+this.clientY+'px)'
+      );
       this.render2.appendChild(
         asParentInfoUser, 
         this.tempAsInfoUser
@@ -80,7 +84,8 @@ export class PostsComponent {
       console.log("DEBUG: PostsComponent mouseEnter()-addInfoUser error..");
     }
   }
-  
+
+  // remove info user
   removeInfoUser() {
     const asParentInfoUser = this.asParentInfoUser.nativeElement;
     const asInfoUser = this.asInfoUser.nativeElement;
