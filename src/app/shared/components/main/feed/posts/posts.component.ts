@@ -7,21 +7,28 @@ import { Component, ElementRef, HostBinding, HostListener, Input, Renderer2, Vie
 })
 export class PostsComponent {
 
-  @ViewChild("asParentInfoUser") asParentInfoUser: ElementRef;
+  /*@ViewChild("asParentInfoUser") asParentInfoUser: ElementRef;
   @ViewChild("asInfoUser") asInfoUser: ElementRef;
-  @ViewChild("asUsernameElementRef") asUsernameElementRef: ElementRef;
+  @ViewChild("asUsernameElementRef") asUsernameElementRef: ElementRef;*/
+
+  public showWindowsInfo: boolean;
   
   public tempAsInfoUser:any;
 
-  @Input('mouse') message : string = "Default message"; 
-  constructor(private render2: Renderer2) {}
+  constructor(private render2: Renderer2) {
+    this.showWindowsInfo = false;
+  }
 
   ngAfterViewInit() {
-    this.setupAfterView();
+    //this.setupAfterView();
+  }
+
+  showImg(hover: boolean) {
+    this.showWindowsInfo = hover;
   }
 
   
-  setupAfterView() {
+  /*setupAfterView() {
     const asParentInfoUser = this.asParentInfoUser.nativeElement;
     const asInfoUser = this.asInfoUser.nativeElement;
     this.tempAsInfoUser = asInfoUser;
@@ -29,75 +36,72 @@ export class PostsComponent {
           asParentInfoUser,  
           asInfoUser
     );
-  }
+  }*/
 
-
-  public clientX = 0; 
-  public clientY = 0;
-  @HostListener('mousemove', ['$event']) onMouseMove(event:any) {
-
-    const {currentTarget: svg, pageX, pageY} = event;
-    const coords = svg.getBoundingClientRect();
-    console.log(coords);
-    console.log("Posición client del ratón\nBottom: " + coords.bottom + "\nHeight: " + coords.height);
-    console.log("Posición client del ratón\npageX: " + pageX + "\npageY: " + pageY);
-    console.log("pageX - coords.x : " + (pageX - coords.x));
-    console.log("pageY - coords.y : " + (pageY - coords.y));
-    console.log("pageY + 61 : " + (pageY));
-    this.clientX = 82;
-    this.clientY = (pageY+53)-7;
-  }
+  // public clientX = 0; 
+  // public clientY = 0;
+  // @HostListener('mousemove', ['$event']) onMouseMove(event:any) {
+  //   const {currentTarget: svg, pageX, pageY} = event;
+  //   const coords = svg.getBoundingClientRect();
+  //   console.log(coords);
+  //   console.log("Posición client del ratón\npageX: " + pageX + "\npageY: " + pageY);
+  //   console.log("pageX - coords.x : " + (pageX - coords.x));
+  //   console.log("pageY - coords.y : " + (pageY - coords.y));
+  //   console.log("pageY + 61 : " + (pageY));
+  //   this.clientX = 82;
+  //   this.clientY = (pageY+53)-7;
+  // }
 
   // add info user
   mouseenter() {
-    this.addInfoUser();
+    //this.addInfoUser();
   }
 
   // remove info user
   mouseleave() {
-   this.removeInfoUser();
+    //this.removeInfoUser();
   }
 
 
 
   // add info user
   addInfoUser() {
-    const asParentInfoUser = this.asParentInfoUser.nativeElement;
-    const asInfoUser = this.asInfoUser.nativeElement;
+    // const asParentInfoUser = this.asParentInfoUser.nativeElement;
+    // const asInfoUser = this.asInfoUser.nativeElement;
 
-    let totalChildrenNodes = asParentInfoUser.childNodes.length;
-    if ( totalChildrenNodes == 0 ) {
-      this.render2.removeStyle(
-        asInfoUser, 
-        'transform'
-      );
-      this.render2.setStyle(
-        asInfoUser, 
-        'transform', 
-        'translate('+this.clientX+'px, '+this.clientY+'px)'
-      );
-      this.render2.appendChild(
-        asParentInfoUser, 
-        this.tempAsInfoUser
-      );
-    } else {
-      console.log("DEBUG: PostsComponent mouseEnter()-addInfoUser error..");
-    }
+    // let totalChildrenNodes = asParentInfoUser.childNodes.length;
+    // if ( totalChildrenNodes == 0 ) {
+    //   this.render2.removeStyle(
+    //     asInfoUser, 
+    //     'transform'
+    //   );
+    //   this.render2.setStyle(
+    //     asInfoUser, 
+    //     'transform', 
+    //     'translate('+this.clientX+'px, '+this.clientY+'px)'
+    //   );
+    //   this.render2.appendChild(
+    //     asParentInfoUser, 
+    //     this.tempAsInfoUser
+    //   );
+    // } else {
+    //   console.log("DEBUG: PostsComponent mouseEnter()-addInfoUser error..");
+    // }
   }
 
   // remove info user
   removeInfoUser() {
-    const asParentInfoUser = this.asParentInfoUser.nativeElement;
-    const asInfoUser = this.asInfoUser.nativeElement;
+    // const asParentInfoUser = this.asParentInfoUser.nativeElement;
+    // const asInfoUser = this.asInfoUser.nativeElement;
 
-    let totalChildrenNodes = asParentInfoUser.childNodes.length;
-    if ( totalChildrenNodes != 0 ) {
-      this.render2.removeChild(
-        asParentInfoUser,  
-        asInfoUser
-      );
-    } else {
-      console.log("DEBUG: PostsComponent mouseleave() error..");
-    }
+    // let totalChildrenNodes = asParentInfoUser.childNodes.length;
+    // if ( totalChildrenNodes != 0 ) {
+    //   this.render2.removeChild(
+    //     asParentInfoUser,  
+    //     asInfoUser
+    //   );
+    // } else {
+    //   console.log("DEBUG: PostsComponent mouseleave() error..");
+    // }
   }
 }

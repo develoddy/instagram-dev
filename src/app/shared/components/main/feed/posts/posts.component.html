@@ -55,8 +55,11 @@
                                                                 <div class="xt0psk2">
                                                                     <div class="xt0psk2">
                                                                         <!-- (mouseenter)="mouseenter('changeText=true')" (mouseout)="mouseout('changeText=false')" style="border: 1px solid red;"-->
+                                                                        <!-- (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" -->
                                                                         <a  
-                                                                            (mouseenter)="mouseenter()" (mouseleave)="mouseleave()"
+                                                                        (mouseover)="showImg(true)"
+                                                                        (mouseleave)="showImg(false)"
+                                                                            
                                                                             #asUsernameElementRef
                                                                             href=""
                                                                             class="x1i10hfl xjqpnuy xa49m3k xqeqjp1 x2hbi6w xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1q0g3np x1lku1pv x1a2a7pz x6s0dn4 xjyslct x1ejq31n xd10rxx x1sy0etr x17r0tee x9f619 x1ypdohk x1i0vuye xwhw2v2 xl56j7k x17ydfre x1f6kntn x2b8uid xlyipyv x87ps6o x14atkfc x1d5wrs8 x972fbf xcfux6l x1qhh985 xm0m39n xm3z3ea x1x8b98j x131883w x16mih1h xt7dq6l xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 xjbqb8w x1n5bzlp xqnirrm xj34u2y x568u83 x3nfvp2"
@@ -466,9 +469,9 @@
 
 <!-- Información flotante start -->
 <div >
-    <div #asParentInfoUser (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-        <!-- <div class="xu96u03 xm80bdy x10l6tqk x13vifvy xfbpl4g x127lhb5 xa3vuyk"  style="transform: translate(127px, 231px); border: 1px solid blue;" #asInfoUser > -->
-        <div class="xu96u03 xm80bdy x10l6tqk x13vifvy xfbpl4g x127lhb5 xa3vuyk"  style="border: 1px solid blue;" #asInfoUser >
+    <div #asParentInfoUser (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" *ngIf="this.showWindowsInfo">
+        <div class="xu96u03 xm80bdy x10l6tqk x13vifvy xfbpl4g x127lhb5 xa3vuyk"  style="transform: translate(127px, 231px); border: 1px solid blue;" #asInfoUser >
+        <!-- <div class="xu96u03 xm80bdy x10l6tqk x13vifvy xfbpl4g x127lhb5 xa3vuyk"  style="border: 1px solid blue;" #asInfoUser > -->
             <div class="xvbhtw8 x1lq5wgf xgqcy7u x30kzoy x9jhf4c x1rj4ezl x1n2onr6 xfr5jun xexx8yu x4uap5 x18d9i69 xkhd6sd">
                 <div class="x6s0dn4 xrvj5dj x19g8pj0 x1dh5ka xyamay9 x1l90r2v x1mu97ne">
                     <div>
