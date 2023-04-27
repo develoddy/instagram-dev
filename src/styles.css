@@ -2906,3 +2906,58 @@ button._acat:hover {
 .x1tu34mt:hover {
     background-color: rgb(var(--ig-primary-button-hover));
 }
+
+/* Hover... */
+.onhover-dropdown {
+    cursor: pointer;
+    position: relative;
+  }
+.onhover-show-div {
+    top: 80px;
+    position: absolute;
+    z-index: 8;
+    background-color: #fff;
+    transition: all linear 0.3s;
+}
+.onhover-show-div {
+    box-shadow: 0 0 20px rgba(89, 102, 122, 0.1);
+    transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+    left: 0;
+  }
+.onhover-dropdown:hover .onhover-show-div {
+    opacity: 1;
+    transform: translateY(0px);
+    visibility: visible;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  
+  
+  /*.onhover-dropdown:hover .onhover-show-div:before {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #fff;
+    content: "";
+    top: -7px;
+    position: absolute;
+    left: 10px;
+    z-index: 2;
+  }
+  .onhover-dropdown:hover .onhover-show-div:after {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #d7e2e9;
+    content: "";
+    top: -7px;
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+  }*/
+

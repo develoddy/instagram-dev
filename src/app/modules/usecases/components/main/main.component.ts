@@ -522,10 +522,9 @@ export class MainComponent implements OnInit {
 
             // Detectar eventos o click en la parte del component Main.
             this.render2.listen(asParentMain, "click", (event) => { 
-                  console.log(event);
-                  
-                  console.log("Posición del ratón\nx: " + event.screenX + "\ny: " + event.screenY);
-                  console.log("Posición del ratón\nx: " + event.x + "\ny: " + event.y);
+                  //console.log(event);
+                  //console.log("Posición del ratón\nx: " + event.screenX + "\ny: " + event.screenY);
+                  //console.log("Posición del ratón\nx: " + event.x + "\ny: " + event.y);
 
                   // Borra el elemento de la barra lateral de búsqueda del Nav.
                   const countSideSearchChildNodes = asParentSearch.childNodes.length;

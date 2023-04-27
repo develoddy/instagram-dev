@@ -20,6 +20,10 @@ import { SuggestionsComponent } from "./main/summary/suggestions/suggestions.com
 import { FooterallComponent } from "./main/footer/footerall/footerall.component";
 // --- Import footer End ---
 
+// -- Utilidades start --
+import { DisplayProfileComponent } from "./util/over/display-profile/display-profile.component";
+// -- Utilidades end --
+
 export const components : any[] = [
     StoriesComponent,
     PostsComponent,
@@ -28,7 +32,8 @@ export const components : any[] = [
     SuggestionsComponent,
     PrivacyComponent,
     FooterallComponent,
-    MorenavComponent
+    MorenavComponent,
+    DisplayProfileComponent
 ];
 
 // --- Export Start ---
@@ -50,3 +55,7 @@ export * from './main/footer/footerall/footerall.component';
 // --- Export Nav Start ---
 export * from './main/nav/morenav/morenav.component';
 // --- Export Nav End ---
+
+// -- Utilidades start --
+export * from './util/over/display-profile/display-profile.component';
+// -- Utilidades end -
