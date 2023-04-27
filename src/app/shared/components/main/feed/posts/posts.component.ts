@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-posts',
@@ -7,6 +7,35 @@ import { Component, ElementRef, HostBinding, HostListener, Input, OnInit, Render
 })
 export class PostsComponent implements OnInit {
   
+  @Output() mouseOverEvent = new EventEmitter();
+
+  ngOnInit() {}
+
+  mouseOver(id:string) {
+
+    // Hay que pensar si el over lo pasaos al feed.component
+    console.log("id: " + id);
+    this.mouseOverEvent.emit({id:id})
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /*
   @ViewChild("asParentPost") asParentPost: ElementRef;
   @ViewChild("asUsernameElementRef") asUsernameElementRef: ElementRef;
@@ -25,7 +54,7 @@ export class PostsComponent implements OnInit {
   //   this.render2.removeChild(asParentDisplay, asChildrenDisplay);
   // }
 
-  ngOnInit() {}
+  
   // public clienteX = 0;//82;
   // public clienteY= 0;//255;
 

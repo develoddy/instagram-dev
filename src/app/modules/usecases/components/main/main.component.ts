@@ -52,7 +52,7 @@ export class MainComponent implements OnInit {
       resizeSubscription$: Subscription;
       mobileView = false;
 
-      public display = false;
+      public displayViewinfoProfile = false;
       public displayShowMore = false;
       public displaySideSearch = false;
 
@@ -420,8 +420,6 @@ export class MainComponent implements OnInit {
                   // Borra el elemento de la barra lateral de búsqueda del Nav.
                   const countSideSearchChildNodes = asParentSearch.childNodes.length;
                   if ( countSideSearchChildNodes > 1 ) {
-                        console.log("If");
-                        
                         this.render2.removeStyle(asIxvb8j5, "transform");
                         this.render2.setStyle(
                               asIxvb8j5,

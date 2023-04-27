@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, OnInit, Output, Renderer2, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-display-profile',
@@ -6,9 +6,12 @@ import { Component, ElementRef, HostListener, OnInit, Renderer2, ViewChildren } 
   styleUrls: ['./display-profile.component.css']
 })
 export class DisplayProfileComponent implements OnInit  {
+
+  
   constructor(private render2: Renderer2) {}
-  ngOnInit(){
-  }
+  ngOnInit(){}
+
+ 
 
   //ngOnInit() {
   //}
