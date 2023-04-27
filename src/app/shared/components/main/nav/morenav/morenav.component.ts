@@ -69,7 +69,7 @@ export class MorenavComponent implements OnInit {
 
   // Se renderiza para aplicaciones moviles.
   renderMobileView(iw: number) {
-    console.log("DEBUG: render mobile view MAIN : " + iw);
+    //console.log("DEBUG: render mobile view MAIN : " + iw);
     //this.render(iw);
     this.mobileView = true;
   }
@@ -77,13 +77,13 @@ export class MorenavComponent implements OnInit {
 
   // Se renderiza para aplicaciones tablet.
   renderTabletView(iw: number) {
-      console.log("DEBUG: render Tablet view MAIN : " + iw);
+      //console.log("DEBUG: render Tablet view MAIN : " + iw);
       //this.render(iw);
   }
 
   // Se renderiza para aplicaciones desktop.
   renderDesktopView(iw: number) {
-      console.log("DEBUG: render desktop view MAIN: " + iw);
+      //console.log("DEBUG: render desktop view MAIN: " + iw);
       this.render(iw);
       this.mobileView = false;
   }

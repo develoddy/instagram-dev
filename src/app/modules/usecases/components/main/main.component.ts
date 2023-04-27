@@ -150,7 +150,7 @@ export class MainComponent implements OnInit {
        * @param iw
        */
       renderMobileView(iw: number) {
-            console.log("DEBUG: render mobile view MAIN : " + iw);
+            //console.log("DEBUG: render mobile view MAIN : " + iw);
             this.render(iw);
             this.mobileView = true;
       }
@@ -160,7 +160,7 @@ export class MainComponent implements OnInit {
        * @param iw
        */
       renderTabletView(iw: number) {
-            console.log("DEBUG: render Tablet view MAIN : " + iw);
+            //console.log("DEBUG: render Tablet view MAIN : " + iw);
             this.render(iw);
       }
 
@@ -169,7 +169,7 @@ export class MainComponent implements OnInit {
        * @param iw
        */
       renderDesktopView(iw: number) {
-            console.log("DEBUG: render desktop view MAIN: " + iw);
+            //console.log("DEBUG: render desktop view MAIN: " + iw);
             this.render(iw);
             this.mobileView = false;
       }

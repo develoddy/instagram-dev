@@ -6,27 +6,100 @@ import { Component, ElementRef, HostBinding, HostListener, Input, OnInit, Render
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
-
   
-  // @ViewChild("asInfoUser") asInfoUser: ElementRef;
-  
-  
-  @ViewChild("asSuperParentPost") asSuperParentPost: ElementRef;
+  /*
   @ViewChild("asParentPost") asParentPost: ElementRef;
   @ViewChild("asUsernameElementRef") asUsernameElementRef: ElementRef;
-  @ViewChild("asProfileImageRef") asProfileImageRef: ElementRef;
-  @ViewChild("asParentInfoUser") asParentInfoUser: ElementRef;
+  */
+
+  @ViewChild("asSuperParentPost") asSuperParentPost: ElementRef;
   
-
-  public display: boolean;
-  public pageX = 0;
-  public pageY = 0;
-
-  constructor(private render2: Renderer2) {
-    this.display = false;
-  }
+  @ViewChild("asParentDisplay") asParentDisplay: ElementRef;
+  @ViewChild("asChildrenDisplay") asChildrenDisplay: ElementRef;
+  @ViewChild("asProfileImageRef") asProfileImageRef: ElementRef;
+  
+  constructor(private render2: Renderer2) {}
 
   ngAfterViewInit() {
+    const asParentDisplay = this.asParentDisplay.nativeElement;
+    const asChildrenDisplay = this.asChildrenDisplay.nativeElement;
+
+    this.render2.removeChild(asParentDisplay, asChildrenDisplay);
+  }
+
+  ngOnInit() {}
+
+  public clienteX = 0;//82;
+  public clienteY= 0
+  ;//255;
+  mouseOver() {
+    // transform: translate(82px, 255px);
+    const asSuperParentPost = this.asSuperParentPost.nativeElement;
+    const asParentDisplay = this.asParentDisplay.nativeElement;
+    const asChildrenDisplay = this.asChildrenDisplay.nativeElement;
+    const asProfileImageRef = this.asProfileImageRef.nativeElement;
+
+    
+    const coords1 = asSuperParentPost.getBoundingClientRect();
+    console.log(asSuperParentPost);
+    console.log("distancia al borde superior del viewport (coords1.top) .....: " + coords1.top);
+    console.log("distancia al borde derecho del viewport (coords1.right)) ......: " + coords1.right);
+    console.log("distancia al borde inferior del viewport (coords1.bottom) .....: " + coords1.bottom);
+    console.log("distancia al borde izquierdo del viewport (oords1.left).....: " + coords1.left);
+    console.log("ancho del elemento.....: " + coords1.width);
+    console.log("alto del elemento.....: " + coords1.height);
+    console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords1.right - coords1.width ).....: " + (coords1.right - coords1.width) );
+    console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords1.bottom - coords1.height ).....: " + (coords1.bottom - coords1.height ) );
+    console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) .....: " + (coords1.top + scrollY ) );
+    console.log("[==================================================]");
+    
+    const coords2 = asProfileImageRef.getBoundingClientRect();
+    console.log(asProfileImageRef);
+    console.log("distancia al borde superior del viewport (coords1.top) .....: " + coords2.top);
+    console.log("distancia al borde derecho del viewport (coords2.right)) ......: " + coords2.right);
+    console.log("distancia al borde inferior del viewport (coords2.bottom) .....: " + coords2.bottom);
+    console.log("distancia al borde izquierdo del viewport (oords1.left).....: " + coords2.left);
+    console.log("ancho del elemento.....: " + coords2.width);
+    console.log("alto del elemento.....: " + coords2.height);
+    console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords2.right - coords2.width ).....: " + (coords2.right - coords2.width) );
+    console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords2.bottom - coords2.height ).....: " + (coords2.bottom - coords2.height ) );
+    console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) .....: " + (coords2.top + scrollY ) );
+
+    console.log("Distancia al borde izquierdo del SuperParentPost (coords2.left - coords1.left)....: " + (coords2.left - coords1.left));
+    console.log(coords2);
+    
+
+    
+
+    this.clienteX = (coords2.left - coords1.left); //86
+    this.clienteY = coords2.clienteY; //(coords2.left - coords1.left)
+    
+    
+    
+
+    // add display
+    this.render2.setStyle(asChildrenDisplay, 'transform', 'translate('+this.clienteX+'px,'+this.clienteY+'px)');
+    this.render2.appendChild(asParentDisplay, asChildrenDisplay);
+    
+  }
+
+  mouseLeave() {
+    /*const asParentDisplay = this.asParentDisplay.nativeElement;
+    const asChildrenDisplay = this.asChildrenDisplay.nativeElement;
+
+    this.render2.removeChild(asParentDisplay, asChildrenDisplay);*/
+  }
+
+
+
+
+
+
+
+
+
+
+  /*ngAfterViewInit() {
 
     const asSuperParentPost = this.asSuperParentPost.nativeElement;
     console.log(asSuperParentPost);
@@ -88,10 +161,10 @@ export class PostsComponent implements OnInit {
     console.log("Distancia al borde izquierdo del SuperParentPost (coords4.left - coords1.left)....: " + (coords4.left - coords1.left));
     console.log("Distancia al borde izquierdo del SuperParentPost (coords4.left - coords1.left)....: " + (coords4.top - coords1.top));
     
-  }
+  }*/
 
 
-  ngOnInit() {}
+ 
 
 
 
@@ -144,26 +217,6 @@ export class PostsComponent implements OnInit {
       */
   //}
 
-
-
-  mouseenter(hover: boolean) {
-    
-    //const asParentInfoUser = this.asParentInfoUser.nativeElement; 
-    //const asInfoUser = this.asInfoUser.nativeElement;
-    
-    // if( hover ) {
-    //   this.display = hover;
-      
-    // } else {
-    //   this.display = !hover;
-    // }
-
-    //this.render2.setStyle(asInfoUser,  'transform', 'translate(82px, '+this.pageY+'px)');
-  }
-
-  removeDisplay(hover:boolean) {
-    this.display = hover;
-  }
 
 
 
