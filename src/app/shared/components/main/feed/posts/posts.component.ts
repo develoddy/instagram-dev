@@ -25,8 +25,8 @@ export class PostsComponent implements OnInit {
 
 	private targetElement: HTMLElement | null;
 
-  /*@ViewChild('asProfileImageRef') asProfileImageRef:ElementRef;
-  @ViewChild('asUsernameElementRef') asUsernameElementRef:ElementRef;
+  @ViewChild('asProfileImageRef') asProfileImageRef:ElementRef;
+ /* @ViewChild('asUsernameElementRef') asUsernameElementRef:ElementRef;
   @ViewChild('asChildrenDisplay') asChildrenDisplay:ElementRef;
   @Output() mouseOverEvent = new EventEmitter();*/
 
@@ -75,6 +75,11 @@ export class PostsComponent implements OnInit {
 				top: rect.top,
 				width: rect.width
 			};
+
+      console.log("TargetOverlay..");
+      console.log(this.targetOverlay);
+      
+      
 		}
 	}
 
@@ -109,20 +114,8 @@ export class PostsComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   mouseOver(hover:boolean) {
-    /*const asProfileImageRef = this.asProfileImageRef.nativeElement;
+    const asProfileImageRef = this.asProfileImageRef.nativeElement;
     const coords2 = asProfileImageRef.getBoundingClientRect();
     console.log(asProfileImageRef);
     console.log("distancia al borde superior del viewport (coords1.top) .....: " + coords2.top);
@@ -134,9 +127,13 @@ export class PostsComponent implements OnInit {
     console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords2.right - coords2.width ).....: " + (coords2.right - coords2.width) );
     console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords2.bottom - coords2.height ).....: " + (coords2.bottom - coords2.height ) );
     console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) .....: " + (coords2.top + scrollY ) );
-    this.clientX = 82;
-    this.clientY =  582;
-    this.displayViewInfoProfile = hover;*/
+    console.log("Corrds.X : " + coords2.x);
+    console.log("Corrds.Y : " + coords2.y);
+    this.clientX = coords2.left / 2;
+    this.clientY = coords2.bottom / 2;
+    //this.clientX = 82;
+    //this.clientY =  582;
+    this.displayViewInfoProfile = hover;
   }
 
   mouseOverUsername(hover:boolean) {
