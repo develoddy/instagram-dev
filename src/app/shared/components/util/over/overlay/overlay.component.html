@@ -1,0 +1,53 @@
+<div
+			class="target"
+			[style.opacity]="1"
+			[style.top.px]="fixedTop"
+			[style.right.px]="fixedRight"
+			[style.bottom.px]="fixedBottom"
+			[style.left.px]="fixedLeft">
+		</div>
+		<div
+			class="vertical-offset"
+			[style.opacity]="( ( fixedTop > 30 ) ? 1 : 0 )"
+			[style.top.px]="0"
+			[style.right.px]="fixedRight"
+			[style.left.px]="fixedLeft"
+			[style.height.px]="fixedTop">
+			<span class="size">
+				{{ fixedTop }}
+			</span>
+		</div>
+		<div
+			class="vertical-offset"
+			[style.opacity]="( ( fixedBottom > 30 ) ? 1 : 0 )"
+			[style.right.px]="fixedRight"
+			[style.bottom.px]="0"
+			[style.left.px]="fixedLeft"
+			[style.height.px]="fixedBottom">
+			<span class="size">
+				{{ fixedBottom }}
+			</span>
+		</div>
+		
+		<div
+			class="horizontal-offset"
+			[style.opacity]="( ( fixedRight > 50 ) ? 1 : 0 )"
+			[style.top.px]="top"
+			[style.right.px]="0"
+			[style.bottom.px]="fixedBottom"
+			[style.width.px]="fixedRight">
+			<span class="size">
+				{{ fixedRight }}
+			</span>
+		</div>
+		<div
+			class="horizontal-offset"
+			[style.opacity]="( ( fixedLeft > 50 ) ? 1 : 0 )"
+			[style.top.px]="fixedTop"
+			[style.bottom.px]="fixedBottom"
+			[style.left.px]="0"
+			[style.width.px]="fixedLeft">
+			<span class="size">
+				{{ fixedLeft }}
+			</span>
+		</div>

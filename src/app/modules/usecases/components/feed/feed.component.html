@@ -1,18 +1,19 @@
+
 <section class="x78zum5 xdt5ytf x1iyjqo2 x6ikm8r xg6iff7" style="border: 2px solid lightseagreen;">
     <!-- === Main start === -->
         <main class="x78zum5 xdt5ytf x1iyjqo2 x182iqb8 xvbhtw8" role="main">
             <div>
                 <section class="_aalv _akmq _akm0" #asSectionFeed>
 
-                    <!-- === Feed Start === -->
-                        <div class="_aam1 _akej _akmr" #asFeed>
+                    <!-- === Feed Start _aam1 _akej _akmr === -->
+                        <div class="_aam1 _akej _akmr" #asFeed style="transform: none;">
                             <div class="_ab6o _ab6q"></div>
                             <!-- Stories start -->
-                                <app-stories></app-stories>        
+                                <app-stories></app-stories>
                             <!-- / Stories end -->
 
                             <!-- Post Start -->        
-                                <app-posts></app-posts>
+                                <app-posts (mouseOverEvent)="this.mouseOverHeaderPost($event)" ></app-posts>
                             <!-- / Post end -->
                         </div>
                     <!-- / === Feed End === -->
@@ -46,9 +47,9 @@
     <!-- -- -->
 
     <!-- === Footer Start Start === -->
-        <div style="order: 5;">
+        <!-- <div style="order: 5;">
             <app-footerall></app-footerall>
-        </div>
+        </div> -->
     <!-- === / Footer Start End === -->
 
 </section>

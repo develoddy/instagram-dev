@@ -22,6 +22,8 @@ import { FooterallComponent } from "./main/footer/footerall/footerall.component"
 
 // -- Utilidades start --
 import { DisplayProfileComponent } from "./util/over/display-profile/display-profile.component";
+import { OverlayComponent } from "./util/over/overlay/overlay.component";
+import { from } from "rxjs";
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -33,7 +35,8 @@ export const components : any[] = [
     PrivacyComponent,
     FooterallComponent,
     MorenavComponent,
-    DisplayProfileComponent
+    DisplayProfileComponent,
+    OverlayComponent
 ];
 
 // --- Export Start ---
@@ -59,3 +62,5 @@ export * from './main/nav/morenav/morenav.component';
 // -- Utilidades start --
 export * from './util/over/display-profile/display-profile.component';
 // -- Utilidades end -
+
+export * from './util/over/overlay/overlay.component';

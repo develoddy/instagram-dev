@@ -4,12 +4,14 @@ import { SharedModule } from '@shared/shared.module';
 import { MainComponent } from './components/main/main.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { SearchComponent } from './components/search/search.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     FeedComponent,
-    SearchComponent
+    SearchComponent,
+    ProfileComponent
   ],
   imports: [
     SharedModule,

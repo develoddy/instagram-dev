@@ -1,11 +1,15 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   OnInit,
+  Output,
   Renderer2,
   ViewChild,
+  ViewChildren,
 } from "@angular/core";
 import { fromEvent, Observable, Subscription } from "rxjs";
+import { MainComponent } from "../main/main.component";
 
 @Component({
   selector: "app-feed",
@@ -18,7 +22,6 @@ export class FeedComponent implements OnInit {
       @ViewChild("asSectionFeed") asSectionFeed: ElementRef;
       @ViewChild("asFeed") asFeed: ElementRef;
      
-
       resizeObservable$: Observable<Event>;
       resizeSubscription$: Subscription;
       mobileView = false;
@@ -27,21 +30,24 @@ export class FeedComponent implements OnInit {
       public temAsSummary: any;
       public tempAsSectionFeed: any;
 
+     
       constructor(private render2: Renderer2) {}
 
       ngAfterViewInit() {
-            //this.setupAfterView();
+            
       }
 
       ngOnInit() {
             this.setupView();
       }
 
-      setupAfterView() {
-      }
-
       setupView() {
             this.resizeWindows();
+      }
+      
+      @Output() mouseOverEvent = new EventEmitter();
+      mouseOverHeaderPost(event:any) {
+            this.mouseOverEvent.emit({id:event.id})
       }
 
       /**

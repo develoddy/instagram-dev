@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '',
     component: SkeletonComponent,
     children: [{
-      path: 'app', loadChildren: () => import('./modules/usecases/usecases.module').then( (m) => m.UsecasesModule)
+      path: '', loadChildren: () => import('./modules/usecases/usecases.module').then( (m) => m.UsecasesModule)
     }]
   },
 ];

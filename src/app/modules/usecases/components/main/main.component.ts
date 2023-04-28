@@ -1,4 +1,5 @@
 import {
+      AfterViewInit,
       Component,
       ElementRef,
       OnInit,
@@ -6,15 +7,17 @@ import {
       ViewChild,
 } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
+import { Router } from "@angular/router";
 import { ScriptsService } from "@data/services/api/scripts.service";
 import { fromEvent, Observable, Subscription } from "rxjs";
+import { FeedComponent } from "../feed/feed.component";
 
 @Component({
       selector: "app-main",
       templateUrl: "./main.component.html",
       styleUrls: ["./main.component.css"],
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, AfterViewInit {
 
       @ViewChild("asParent") asParent: ElementRef;
       @ViewChild("asIx9f619") asIx9f619: ElementRef;
@@ -51,12 +54,10 @@ export class MainComponent implements OnInit {
       resizeObservable$: Observable<Event>;
       resizeSubscription$: Subscription;
       mobileView = false;
-
-      public displayViewinfoProfile = false;
       public displayShowMore = false;
       public displaySideSearch = false;
 
-      constructor(public sanitizer: DomSanitizer, public scripts: ScriptsService, private render2: Renderer2) {}
+      constructor(public sanitizer: DomSanitizer, public scripts: ScriptsService, private render2: Renderer2, private router: Router) {}
 
       ngAfterViewInit() {
             this.setupAfterView();
@@ -64,8 +65,11 @@ export class MainComponent implements OnInit {
       }
 
       ngOnInit() {
+            
             this.setupView();
       }
+
+      navigateToProfile() {}
 
       setupView() {
             this.resizeWindows();

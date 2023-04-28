@@ -1,22 +1,165 @@
-import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnInit, Output, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+
+interface Overlay {
+	left: number;
+	height: number;
+	top: number;
+	width: number;
+}
+
+var TRACER_CLASS = "-+-+-+-+-+-+-+-target-element-+-+-+-+-+-+-+-";
 
 @Component({
   selector: 'app-posts',
+  host: {
+		"(document:click)": "handleClick( $event )",
+		"(window:keydown.Esc)": "reset()",
+		"(window:resize)": "reset()"
+	},
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
   
-  @Output() mouseOverEvent = new EventEmitter();
+  public targetOverlay: Overlay | null;
 
+	private targetElement: HTMLElement | null;
+
+  /*@ViewChild('asProfileImageRef') asProfileImageRef:ElementRef;
+  @ViewChild('asUsernameElementRef') asUsernameElementRef:ElementRef;
+  @ViewChild('asChildrenDisplay') asChildrenDisplay:ElementRef;
+  @Output() mouseOverEvent = new EventEmitter();*/
+
+
+  public displayViewInfoProfile : boolean;
+  constructor(private render2: Renderer2) {
+    this.displayViewInfoProfile = false;
+  }
+
+  public clientY = 0;
+  public clientX = 0;
+  ngAfterViewInit() {}
   ngOnInit() {}
 
-  mouseOver(id:string) {
+ 
 
-    // Hay que pensar si el over lo pasaos al feed.component
-    console.log("id: " + id);
-    this.mouseOverEvent.emit({id:id})
+  // I handle the mouse click on the document.
+	public handleClick( event: MouseEvent ) : void {
+
+		// If we have an existing element, remove the tracer class.
+		// --
+		// NOTE: This class serves no functional purpose other than to indicate where in
+		// the DOM tree the selected target lives. This will show up in the Elements pane
+		// of the Chrome Dev Tools, and will clearly illustrate the journey of the
+		// selection as the user continues to click within a single DOM branch.
+		if ( this.targetElement ) {
+
+			this.targetElement.classList.remove( TRACER_CLASS );
+
+		}
+
+		this.targetElement = this.getNextTarget( event );
+		this.targetOverlay = null;
+
+		if ( this.targetElement ) {
+
+			this.targetElement.classList.add( TRACER_CLASS );
+
+			// The bounding client rectangle contains the FIXED location of the given
+			// element within the browser's viewport.
+			var rect = this.targetElement.getBoundingClientRect();
+			
+			this.targetOverlay = {
+				height: rect.height,
+				left: rect.left,
+				top: rect.top,
+				width: rect.width
+			};
+		}
+	}
+
+  // I reset the state, clearing the target element and overlay.
+	public reset() : void {
+		this.targetElement = null;
+		this.targetOverlay = null;
+	}
+
+  // ---
+	// PRIVATE METHODS.
+	// ---
+
+	// I get the next target element based on the given mouse click event.
+	private getNextTarget( event: MouseEvent ) : HTMLElement | null {
+
+		var target = ( event.target as HTMLElement );
+
+		// If we have an existing target element and the user clicked below the target
+		// element but within the same DOM branch, let's move up one level in the DOM
+		// tree.
+		if ( this.targetElement && this.targetElement.contains( target ) ) {
+
+			return( this.targetElement.parentElement || null );
+
+		}
+
+		// Otherwise, just use the user's click target.
+		return( target );
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  mouseOver(hover:boolean) {
+    /*const asProfileImageRef = this.asProfileImageRef.nativeElement;
+    const coords2 = asProfileImageRef.getBoundingClientRect();
+    console.log(asProfileImageRef);
+    console.log("distancia al borde superior del viewport (coords1.top) .....: " + coords2.top);
+    console.log("distancia al borde derecho del viewport (coords2.right)) ......: " + coords2.right);
+    console.log("distancia al borde inferior del viewport (coords2.bottom) .....: " + coords2.bottom);
+    console.log("distancia al borde izquierdo del viewport (oords1.left).....: " + coords2.left);
+    console.log("ancho del elemento.....: " + coords2.width);
+    console.log("alto del elemento.....: " + coords2.height);
+    console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords2.right - coords2.width ).....: " + (coords2.right - coords2.width) );
+    console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords2.bottom - coords2.height ).....: " + (coords2.bottom - coords2.height ) );
+    console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) .....: " + (coords2.top + scrollY ) );
+    this.clientX = 82;
+    this.clientY =  582;
+    this.displayViewInfoProfile = hover;*/
   }
+
+  mouseOverUsername(hover:boolean) {
+    /*const asUsernameElementRef = this.asUsernameElementRef.nativeElement;
+    const coords2 = asUsernameElementRef.getBoundingClientRect();
+    console.log(asUsernameElementRef);
+    console.log("distancia al borde superior del viewport (coords1.top) .....: " + coords2.top);
+    console.log("distancia al borde derecho del viewport (coords2.right)) ......: " + coords2.right);
+    console.log("distancia al borde inferior del viewport (coords2.bottom) .....: " + coords2.bottom);
+    console.log("distancia al borde izquierdo del viewport (oords1.left).....: " + coords2.left);
+    console.log("ancho del elemento.....: " + coords2.width);
+    console.log("alto del elemento.....: " + coords2.height);
+    console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords2.right - coords2.width ).....: " + (coords2.right - coords2.width) );
+    console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords2.bottom - coords2.height ).....: " + (coords2.bottom - coords2.height ) );
+    console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) .....: " + (coords2.top + scrollY ) );
+
+    this.clientX = 82;
+    this.clientY = 582; //(coords2.top + scrollY) + 70;
+    this.displayViewInfoProfile = hover;
+    */
+  }
+
+
 
 
 
@@ -46,7 +189,7 @@ export class PostsComponent implements OnInit {
   @ViewChild("asChildrenDisplay") asChildrenDisplay: ElementRef;
   @ViewChild("asProfileImageRef") asProfileImageRef: ElementRef;*/
   
-  //constructor(private render2: Renderer2) {}
+ 
 
   // ngAfterViewInit() {
   //   const asParentDisplay = this.asParentDisplay.nativeElement;
