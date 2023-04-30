@@ -2,6 +2,7 @@
 
 // --- Import Feed Start ---
 import { PostsComponent } from "./main/feed/posts/posts.component";
+import { ArticlepostComponent } from "./main/feed/posts/articlepost/articlepost.component";
 import { RefreshfeedComponent } from "./main/feed/refreshfeed/refreshfeed.component";
 import { StoriesComponent } from "./main/feed/stories/stories.component";
 // --- Import Feed End ---
@@ -36,12 +37,14 @@ export const components : any[] = [
     FooterallComponent,
     MorenavComponent,
     DisplayProfileComponent,
-    OverlayComponent
+    OverlayComponent,
+    ArticlepostComponent
 ];
 
 // --- Export Start ---
 export * from './main/feed/stories/stories.component';
 export * from './main/feed/posts/posts.component';
+export * from './main/feed/posts/articlepost/articlepost.component';
 export * from './main/feed/refreshfeed/refreshfeed.component';
 // --- Export End ---
 

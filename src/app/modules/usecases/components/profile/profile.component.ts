@@ -4,6 +4,7 @@ interface Overlay {
 	left: number;
 	height: number;
 	top: number;
+	bottom: number;
 	width: number;
 }
 
@@ -55,8 +56,12 @@ export class ProfileComponent {
 				height: rect.height,
 				left: rect.left,
 				top: rect.top,
+				bottom: rect.bottom,
 				width: rect.width
 			};
+
+			console.log("DEBUG: handleClick() - TargetOverlay..");
+      		console.log(this.targetOverlay);
 		}
 	}
 

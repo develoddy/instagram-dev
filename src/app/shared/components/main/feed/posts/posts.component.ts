@@ -25,11 +25,7 @@ export class PostsComponent implements OnInit {
 
 	private targetElement: HTMLElement | null;
 
-  @ViewChild('asProfileImageRef') asProfileImageRef:ElementRef;
- /* @ViewChild('asUsernameElementRef') asUsernameElementRef:ElementRef;
-  @ViewChild('asChildrenDisplay') asChildrenDisplay:ElementRef;
-  @Output() mouseOverEvent = new EventEmitter();*/
-
+  
 
   public displayViewInfoProfile : boolean;
   constructor(private render2: Renderer2) {
@@ -76,7 +72,7 @@ export class PostsComponent implements OnInit {
 				width: rect.width
 			};
 
-      console.log("TargetOverlay..");
+      console.log("DEBUG: handleClick() - TargetOverlay..");
       console.log(this.targetOverlay);
       
       
@@ -102,7 +98,6 @@ export class PostsComponent implements OnInit {
 		// element but within the same DOM branch, let's move up one level in the DOM
 		// tree.
 		if ( this.targetElement && this.targetElement.contains( target ) ) {
-
 			return( this.targetElement.parentElement || null );
 
 		}
@@ -114,49 +109,73 @@ export class PostsComponent implements OnInit {
 
 
 
-  mouseOver(hover:boolean) {
-    const asProfileImageRef = this.asProfileImageRef.nativeElement;
-    const coords2 = asProfileImageRef.getBoundingClientRect();
-    console.log(asProfileImageRef);
-    console.log("distancia al borde superior del viewport (coords1.top) .....: " + coords2.top);
-    console.log("distancia al borde derecho del viewport (coords2.right)) ......: " + coords2.right);
-    console.log("distancia al borde inferior del viewport (coords2.bottom) .....: " + coords2.bottom);
-    console.log("distancia al borde izquierdo del viewport (oords1.left).....: " + coords2.left);
-    console.log("ancho del elemento.....: " + coords2.width);
-    console.log("alto del elemento.....: " + coords2.height);
-    console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords2.right - coords2.width ).....: " + (coords2.right - coords2.width) );
-    console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords2.bottom - coords2.height ).....: " + (coords2.bottom - coords2.height ) );
-    console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) .....: " + (coords2.top + scrollY ) );
-    console.log("Corrds.X : " + coords2.x);
-    console.log("Corrds.Y : " + coords2.y);
-    this.clientX = coords2.left / 2;
-    this.clientY = coords2.bottom / 2;
-    //this.clientX = 82;
-    //this.clientY =  582;
+
+
+
+
+
+
+
+
+
+
+
+
+  //mouseOver(hover:boolean, option: string) {
+  mouseOver(event:any) {
+    const ref = event.ref.nativeElement;
+    switch ( event.option ) {
+      case 'img-profile-header':
+        this.showInfoProfile(event.hover, 82, event.ref, 40);
+        break;
+
+      case 'span-username-header':
+        this.showInfoProfile(event.hover, 124, event.ref, 20);
+        break;
+
+      case 'span-username-content':
+        console.log(event.ref);
+        
+        this.showInfoProfile(event.hover, 82, event.ref, 20);
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  showInfoProfile(hover:boolean, clientX:number, objcRef:ElementRef, extraTop: number) {
+    //const asProfileImageRef = this.asProfileImageRef.nativeElement;
+    const ref = objcRef.nativeElement;
+    const coords = ref.getBoundingClientRect();
+    console.log(coords);
+    console.log(ref);
+    console.log("distancia al borde superior del viewport (coords.top) .....: " + coords.top);
+    console.log("distancia al borde derecho del viewport (coords.right)) ......: " + coords.right);
+    console.log("distancia al borde inferior del viewport (coords.bottom) .....: " + coords.bottom);
+    console.log("distancia al borde izquierdo del viewport (oords.left).....: " + coords.left);
+    console.log("coords.width.....: " + coords.width);
+    console.log("coords.height.....: " + coords.height);
+    console.log("coords.x.....: " + coords.x);
+    console.log("coords.y.....: " + coords.y);
+    console.log("coords.bottom .....: " + coords.bottom);
+    console.log("coords.top .....: " + coords.top);
+    console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords.right - coords2.width ).....: " + (coords.right - coords.width) );
+    console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords.bottom - coords.height ).....: " + (coords.bottom - coords.height ) );
+    console.log("scrollY: " + scrollY);
+    console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) (coords.top + scrollY ) .....: " + (coords.bottom - scrollY ) );
+   
+    // // transform: translate(694px, 1340px) translate(0px, -100%);
+    
+    this.clientX = clientX;
+    //this.clientY = (coords.top + scrollY) + extraTop;
+    this.clientY = scrollY + coords.bottom;
     this.displayViewInfoProfile = hover;
   }
 
-  mouseOverUsername(hover:boolean) {
-    /*const asUsernameElementRef = this.asUsernameElementRef.nativeElement;
-    const coords2 = asUsernameElementRef.getBoundingClientRect();
-    console.log(asUsernameElementRef);
-    console.log("distancia al borde superior del viewport (coords1.top) .....: " + coords2.top);
-    console.log("distancia al borde derecho del viewport (coords2.right)) ......: " + coords2.right);
-    console.log("distancia al borde inferior del viewport (coords2.bottom) .....: " + coords2.bottom);
-    console.log("distancia al borde izquierdo del viewport (oords1.left).....: " + coords2.left);
-    console.log("ancho del elemento.....: " + coords2.width);
-    console.log("alto del elemento.....: " + coords2.height);
-    console.log("distancia del borde derecho del elemento al borde derecho del viewport ( coords2.right - coords2.width ).....: " + (coords2.right - coords2.width) );
-    console.log("distancia del borde inferior del elemento al borde inferior del viewport ( coords2.bottom - coords2.height ).....: " + (coords2.bottom - coords2.height ) );
-    console.log("distancia del borde superior del elemento al inicio del documento (cuando se ha hecho scroll) .....: " + (coords2.top + scrollY ) );
-
-    this.clientX = 82;
-    this.clientY = 582; //(coords2.top + scrollY) + 70;
+  mouseOverDisplay(hover:boolean) {
     this.displayViewInfoProfile = hover;
-    */
   }
-
-
 
 
 
