@@ -6,33 +6,36 @@ import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular
   styleUrls: ['./articlepost.component.css']
 })
 export class ArticlepostComponent {
-
-
   @ViewChild('asProfileImageHeaderRef') asProfileImageHeaderRef:ElementRef;
   @ViewChild('asUsernameHeaderElementRef') asUsernameHeaderElementRef:ElementRef;
   @ViewChild('asUsernameContentElementRef') asUsernameContentElementRef:ElementRef;
-  
   @Output() mouseOverEvent = new EventEmitter();
   @Output() mouseOveliEvent = new EventEmitter();
 
   mouseover(hover:boolean, option:string) {
-
-    console.log("DEBUG: Article.component");
-    console.log();
-    
-    
     if ( option == 'img-profile-header' ) {
-      this.sendDataToPost(hover, option, this.asProfileImageHeaderRef);
+      this.sendDataToPost(
+        hover, 
+        option, 
+        this.asProfileImageHeaderRef
+      );
     }
 
     if ( option == 'span-username-header' ) {
-      this.sendDataToPost(hover, option, this.asUsernameHeaderElementRef);
+      this.sendDataToPost(
+        hover, 
+        option, 
+        this.asUsernameHeaderElementRef
+      );
     }
 
     if ( option == 'span-username-content' ) {
-      this.sendDataToPost(hover, option, this.asUsernameContentElementRef);
+      this.sendDataToPost(
+        hover, 
+        option, 
+        this.asUsernameContentElementRef
+      );
     }
-
   }
 
   sendDataToPost(hover: boolean, option:string, ref:ElementRef) {
