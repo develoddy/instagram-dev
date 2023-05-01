@@ -43,6 +43,14 @@ export class FeedComponent implements OnInit {
 
       setupView() {
             this.resizeWindows();
+            //this.loadWindows();
+
+      }
+
+      loadWindows() {
+            let iw = window.innerWidth;
+            this.render(iw);
+
       }
       
       @Output() mouseOverEvent = new EventEmitter();

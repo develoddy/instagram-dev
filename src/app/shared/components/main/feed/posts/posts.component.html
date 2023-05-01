@@ -14,14 +14,15 @@
 </div>
 <!-- / Post End -->
 
+<!-- Overlay Start -->
 <app-overlay
 *ngIf="targetOverlay"
 [height]="targetOverlay.height"
 [left]="targetOverlay.left"
 [top]="targetOverlay.top"
 [width]="targetOverlay.width">
-<!-- J48HHA -->
 </app-overlay>
+<!-- / Overlay End -->
 
 <!-- / Información flotante star -->
 <div>
@@ -37,4 +38,12 @@
     </div>
 </div> 
 <!-- / Información flotante end -->
+
+ <!-- Display option posts start -->
+ <div>
+    <div>
+        <app-option-post></app-option-post>
+    </div>
+</div>
+<!-- Display option posts end -->
 

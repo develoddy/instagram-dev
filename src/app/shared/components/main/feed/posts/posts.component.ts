@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnInit, Output, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { MainComponent } from '@modules/usecases/components/main/main.component';
 
 interface Overlay {
 	left: number;
@@ -20,6 +21,8 @@ var TRACER_CLASS = "-+-+-+-+-+-+-+-target-element-+-+-+-+-+-+-+-";
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit {
+
+  @ViewChild(MainComponent) child:MainComponent;
   
   public targetOverlay: Overlay | null;
 	private targetElement: HTMLElement | null;
@@ -33,8 +36,15 @@ export class PostsComponent implements OnInit {
     this.displayViewInfoProfile = false;
   }
 
-  ngAfterViewInit() {}
-  ngOnInit() {}
+  ngAfterViewInit() {
+    console.log("DEBUG: Post.component load..");
+    
+     console.log(this.child.prueba);
+      
+  }
+  ngOnInit() {
+    console.log(this.child.prueba);
+  }
 
   // I handle the mouse click on the document.
 	public handleClick( event: MouseEvent ) : void {
@@ -102,7 +112,7 @@ export class PostsComponent implements OnInit {
           event.hover, 
           82, 
           event.ref, 
-          40);
+          60);
         break;
 
       case 'span-username-header':
@@ -110,14 +120,15 @@ export class PostsComponent implements OnInit {
           event.hover, 
           124, 
           event.ref, 
-          20);
+          50);
         break;
 
       case 'span-username-content':
         this.showInfoProfile(
           event.hover, 
           82, 
-          event.ref, 20);
+          event.ref, 
+          50);
         break;
       default: console.log("DEBUG: error mouseOver..");
         break;
@@ -142,7 +153,7 @@ export class PostsComponent implements OnInit {
     console.log("scrollY: " + scrollY);
     // // transform: translate(694px, 1340px) translate(0px, -100%);
     this.clientX = clientX;
-    this.clientY = scrollY + coords.bottom;
+    this.clientY = (scrollY + coords.bottom) + extraTop;
     this.displayViewInfoProfile = hover;
   }
 

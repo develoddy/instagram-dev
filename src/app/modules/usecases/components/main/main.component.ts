@@ -57,7 +57,11 @@ export class MainComponent implements OnInit, AfterViewInit {
       public displayShowMore = false;
       public displaySideSearch = false;
 
-      constructor(public sanitizer: DomSanitizer, public scripts: ScriptsService, private render2: Renderer2, private router: Router) {}
+      public prueba: string;
+
+      constructor(public sanitizer: DomSanitizer, public scripts: ScriptsService, private render2: Renderer2, private router: Router) {
+            this.prueba = "hola mundo.";
+      }
 
       ngAfterViewInit() {
             this.setupAfterView();
