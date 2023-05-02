@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 import { ScriptsService } from "@data/services/api/scripts.service";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { FeedComponent } from "../feed/feed.component";
+import { FiltroService } from "@data/services/api/filtro.service";
 
 @Component({
       selector: "app-main",
@@ -59,9 +60,13 @@ export class MainComponent implements OnInit, AfterViewInit {
 
       public prueba: string;
 
-      constructor(public sanitizer: DomSanitizer, public scripts: ScriptsService, private render2: Renderer2, private router: Router) {
-            this.prueba = "hola mundo.";
-      }
+      constructor(
+            public sanitizer: DomSanitizer, 
+            public scripts: ScriptsService, 
+            private render2: Renderer2, 
+            private router: Router, 
+            public filter: FiltroService
+      ) { }
 
       ngAfterViewInit() {
             this.setupAfterView();
@@ -69,12 +74,11 @@ export class MainComponent implements OnInit, AfterViewInit {
       }
 
       ngOnInit() {
-            
             this.setupView();
       }
 
-      navigateToProfile() {}
 
+      // Arranca la aplicación.
       setupView() {
             this.resizeWindows();
       }

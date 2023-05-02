@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { FiltroService } from '@data/services/api/filtro.service';
 
 @Component({
   selector: 'app-articlepost',
@@ -11,6 +12,10 @@ export class ArticlepostComponent {
   @ViewChild('asUsernameContentElementRef') asUsernameContentElementRef:ElementRef;
   @Output() mouseOverEvent = new EventEmitter();
   @Output() mouseOveliEvent = new EventEmitter();
+
+  constructor( private filter: FiltroService ) {
+
+  }
 
   mouseover(hover:boolean, option:string) {
     if ( option == 'img-profile-header' ) {
@@ -46,4 +51,7 @@ export class ArticlepostComponent {
     });
   }
 
+  public showOption() {
+    this.filter.displayOptionPost();
+  }
 }

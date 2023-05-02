@@ -1,11 +1,7 @@
 <div id="mount_0_0_9V">
     <div>
         <div>
-            <!-- Cambiar : 
-                x9f619 x1n2onr6 x1ja2u2z
-                x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck 
-            -->
-            <div class="x9f619 x1n2onr6 x1ja2u2z">
+            <div [ngClass]="this.filter.optionPost ? 'x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck' : 'x9f619 x1n2onr6 x1ja2u2z' ">
                 <div class="x78zum5 xdt5ytf x1n2onr6 x1ja2u2z">
                     <div class="x78zum5 xdt5ytf x1n2onr6">
                         <div class="x78zum5 xdt5ytf x1n2onr6 xat3117 xxzkxad" #asIx78zum5>
@@ -473,6 +469,23 @@
                                 </div>
                             </div>
                             
+                            <!-- Show info profile start -->
+                            <div>
+                                <div>
+                                    <ng-container *ngIf="this.filter.displayInfoProfile">
+                                        <div>
+                                            <div 
+                                            [ngStyle]="{'transform':this.filter.displayInfoProfile ? 'translate('+this.filter.clientX+'px, '+this.filter.clientY+'px)' : 'translate('+this.filter.clientX+'px, '+this.filter.clientY+'px)' }"
+                                            class="xu96u03 xm80bdy x10l6tqk x13vifvy xfbpl4g x127lhb5 xa3vuyk" 
+                                            style="transform: translate(699px, 207px);">
+                                                <app-display-profile></app-display-profile>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div> 
+                            <!-- / Show info profile end -->
+
                             <!-- Show More Start -->
                             <div *ngIf="this.displayShowMore">
                                 <div>
@@ -490,11 +503,13 @@
             </div>
 
             <!-- Display option posts start -->
-            <!-- <div>
+            <div>
                 <div>
-                    <app-option-post></app-option-post>
+                    <ng-container *ngIf="this.filter.optionPost">
+                        <app-option-post></app-option-post>
+                    </ng-container>
                 </div>
-            </div> -->
+            </div>
             <!-- Display option posts end -->
 
         </div>

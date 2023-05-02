@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnInit, Output, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { FiltroService } from '@data/services/api/filtro.service';
 import { MainComponent } from '@modules/usecases/components/main/main.component';
 
 interface Overlay {
@@ -22,8 +23,6 @@ var TRACER_CLASS = "-+-+-+-+-+-+-+-target-element-+-+-+-+-+-+-+-";
 })
 export class PostsComponent implements OnInit {
 
-  @ViewChild(MainComponent) child:MainComponent;
-  
   public targetOverlay: Overlay | null;
 	private targetElement: HTMLElement | null;
   public displayViewInfoProfile : boolean;
@@ -31,20 +30,15 @@ export class PostsComponent implements OnInit {
   public clientX = 0;
 
   constructor(
-    private render2: Renderer2
+    private render2: Renderer2,
+    private filter: FiltroService
   ) {
     this.displayViewInfoProfile = false;
   }
 
-  ngAfterViewInit() {
-    console.log("DEBUG: Post.component load..");
-    
-     console.log(this.child.prueba);
-      
-  }
-  ngOnInit() {
-    console.log(this.child.prueba);
-  }
+  ngAfterViewInit() {}
+  
+  ngOnInit() {}
 
   // I handle the mouse click on the document.
 	public handleClick( event: MouseEvent ) : void {
@@ -105,7 +99,8 @@ export class PostsComponent implements OnInit {
    * @param event 
    */
   mouseOver( event:any ) {
-    const ref = event.ref.nativeElement;
+    this.filter.mouseOver(event);
+    /*const ref = event.ref.nativeElement;
     switch ( event.option ) {
       case 'img-profile-header':
         this.showInfoProfile(
@@ -132,7 +127,7 @@ export class PostsComponent implements OnInit {
         break;
       default: console.log("DEBUG: error mouseOver..");
         break;
-    }
+    }*/
   }
 
   showInfoProfile( hover:boolean, clientX:number, objcRef:ElementRef, extraTop: number ) {
