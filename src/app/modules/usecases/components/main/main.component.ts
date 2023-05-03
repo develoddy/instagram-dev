@@ -58,6 +58,16 @@ export class MainComponent implements OnInit, AfterViewInit {
       public displayShowMore = false;
       public displaySideSearch = false;
 
+      public overOptionNavHome: boolean;
+      public overOptionNavSearch: boolean;
+      public overOptionNavExplore: boolean;
+      public overOptionNavReels: boolean;
+      public overOptionNavMessage: boolean;
+      public overOptionNavNotification: boolean;
+      public overOptionNavCreate: boolean;
+      public overOptionNavProfile: boolean;
+      public overOptionNavMore: boolean;
+
       constructor(
             public sanitizer: DomSanitizer, 
             public scripts: ScriptsService, 
@@ -66,9 +76,17 @@ export class MainComponent implements OnInit, AfterViewInit {
             public filter: FiltroService
       ) { 
             this.iconInstagram = false;
+            this.overOptionNavHome = false;
+            this.overOptionNavSearch = false;
+            this.overOptionNavExplore = false;
+            this.overOptionNavReels = false;
+            this.overOptionNavMessage = false;
+            this.overOptionNavNotification = false;
+            this.overOptionNavCreate = false;
+            this.overOptionNavProfile = false;
+            this.overOptionNavMore = false;
             this.loadWindows();
       }
-
 
       ngAfterViewInit() {
             this.setupAfterView();
@@ -79,7 +97,7 @@ export class MainComponent implements OnInit, AfterViewInit {
             this.setupView();
       }
 
-      setupView() {
+      private setupView() {
             this.resizeWindows();
       }
 
@@ -476,7 +494,41 @@ export class MainComponent implements OnInit, AfterViewInit {
             });
       }
 
-      mouseOverInfoProfile(hover: boolean) {
+      public mouseOverOptionNav(hover: boolean, option:string) {
+            switch ( option ) {
+                  case 'home':
+                        this.overOptionNavHome = hover;
+                        break;
+                  case 'search':
+                        this.overOptionNavSearch = hover;
+                        break;
+                  case 'explore':
+                        this.overOptionNavExplore = hover;
+                        break;
+                  case 'reels':
+                        this.overOptionNavReels = hover;
+                        break;
+                  case 'message':
+                        this.overOptionNavMessage = hover;
+                        break;
+                  case 'notification':
+                        this.overOptionNavNotification = hover;
+                        break;
+                  case 'create':
+                        this.overOptionNavCreate = hover;
+                        break;
+                  case 'profile':
+                        this.overOptionNavProfile = hover;
+                        break;
+                  case 'more':
+                        this.overOptionNavMore = hover;
+                        break;
+                  default:
+                        break;
+            }
+      }
+
+      public mouseOverInfoProfile(hover: boolean) {
             this.filter.mouseOverHideInfoProfile(hover);
       }
 

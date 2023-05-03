@@ -25,4 +25,8 @@ export class PostsComponent implements OnInit {
   mouseOverDisplay(hover:boolean) {
     this.filter.mouseOverShowInfoProfile(hover);
   }
+
+  public displayEmojis(event:any) {
+    this.filter.displayEmojisPost(event);
+  }
 }

@@ -7,15 +7,17 @@ import { FiltroService } from '@data/services/api/filtro.service';
   styleUrls: ['./articlepost.component.css']
 })
 export class ArticlepostComponent {
+
   @ViewChild('asProfileImageHeaderRef') asProfileImageHeaderRef:ElementRef;
   @ViewChild('asUsernameHeaderElementRef') asUsernameHeaderElementRef:ElementRef;
   @ViewChild('asUsernameContentElementRef') asUsernameContentElementRef:ElementRef;
+  @ViewChild('asButtonEmojisPostRef') asButtonEmojisPostRef:ElementRef;
+  
   @Output() mouseOverEvent = new EventEmitter();
   @Output() mouseOveliEvent = new EventEmitter();
+  @Output() emojisPostEvent = new EventEmitter();
 
-  constructor( private filter: FiltroService ) {
-
-  }
+  constructor( private filter: FiltroService ) {}
 
   mouseover(hover:boolean, option:string) {
     if ( option == 'img-profile-header' ) {
@@ -57,5 +59,12 @@ export class ArticlepostComponent {
 
   public hideOption() {
     this.filter.displayOptionPost(false);
+  }
+
+  public displayEmojis(event:boolean) {
+    this.emojisPostEvent.emit({
+      click: event,
+      ref: this.asButtonEmojisPostRef
+    });
   }
 }

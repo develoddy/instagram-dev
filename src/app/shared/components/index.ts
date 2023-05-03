@@ -25,6 +25,7 @@ import { FooterallComponent } from "./main/footer/footerall/footerall.component"
 import { DisplayProfileComponent } from "./util/over/display-profile/display-profile.component";
 import { OverlayComponent } from "./util/over/overlay/overlay.component";
 import { OptionPostComponent } from "./util/option-post/option-post.component";
+import { EmojisInputPostComponent } from "./util/emojis-input-post/emojis-input-post.component";
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -39,7 +40,8 @@ export const components : any[] = [
     DisplayProfileComponent,
     OverlayComponent,
     ArticlepostComponent,
-    OptionPostComponent
+    OptionPostComponent,
+    EmojisInputPostComponent
 ];
 
 // --- Export Start ---
@@ -67,4 +69,5 @@ export * from './main/nav/morenav/morenav.component';
 export * from './util/over/display-profile/display-profile.component';
 export * from './util/over/overlay/overlay.component';
 export * from './util/option-post/option-post.component';
+export * from './util/emojis-input-post/emojis-input-post.component';
 // -- Utilidades end -

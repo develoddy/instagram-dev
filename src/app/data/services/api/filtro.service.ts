@@ -7,12 +7,16 @@ export class FiltroService {
 
   public optionPost: boolean;
   public displayInfoProfile: boolean;
-  public clientX:0;
-  public clientY:0;
+  public emojisPost:boolean;
+  public clientX = 0;
+  public clientY = 0;
+  public top = 0;
+  public left = 0;
 
   constructor() { 
     this.optionPost = false;
     this.displayInfoProfile = false;
+    this.emojisPost = false;
   }
 
   /**
@@ -41,5 +45,18 @@ export class FiltroService {
   // Ocultar la ventana de información de perfil.
   mouseOverHideInfoProfile(hover:boolean) {
     this.displayInfoProfile = hover;
+  }
+
+  /**
+   * Esta función muestra una ventanita con los emojis a elegir para
+   * insertar en el input de comentario de la publicación.
+   * @param event 
+   */
+  displayEmojisPost(event: any) {
+    const ref = event.ref.nativeElement;
+    const coords = ref.getBoundingClientRect();
+    this.top = (coords.top + scrollY) + 23; 
+    this.left = (coords.left - 14); 
+    this.emojisPost = event.click;
   }
 }
