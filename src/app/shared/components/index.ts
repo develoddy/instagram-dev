@@ -7,6 +7,11 @@ import { RefreshfeedComponent } from "./main/feed/refreshfeed/refreshfeed.compon
 import { StoriesComponent } from "./main/feed/stories/stories.component";
 // --- Import Feed End ---
 
+// --- inport reels start ---
+import { VideoreelsComponent } from "./main/reels/videoreels/videoreels.component";
+import { SidereelsComponent } from "./main/reels/sidereels/sidereels.component";
+// --- inport reels end ---
+
 // --- Import Nav Start ---
 import { MorenavComponent } from "./main/nav/morenav/morenav.component";
 import { SidebarsearchComponent } from "./main/nav/sidebarsearch/sidebarsearch.component";
@@ -45,15 +50,22 @@ export const components : any[] = [
     OptionPostComponent,
     EmojisInputPostComponent,
     SidebarsearchComponent,
-    SidebarnotificationComponent
+    SidebarnotificationComponent,
+    VideoreelsComponent,
+    SidereelsComponent
 ];
 
-// --- Export Start ---
+// --- Export feed start ---
 export * from './main/feed/stories/stories.component';
 export * from './main/feed/posts/posts.component';
 export * from './main/feed/posts/articlepost/articlepost.component';
 export * from './main/feed/refreshfeed/refreshfeed.component';
-// --- Export End ---
+// --- Export feed end ---
+
+// --- Export reels start ---
+export * from './main/reels/videoreels/videoreels.component';
+export * from './main/reels/sidereels/sidereels.component';
+// --- Export reels end ---
 
 // --- Export Summary Start ---
 export * from './main/summary/linkprofile/linkprofile.component';
