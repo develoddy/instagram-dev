@@ -126,7 +126,7 @@
                                                                         </a>
                                                                     </div>
                                                                 </div>
-                                                                <div id="003" #as003>
+                                                                <div id="003" #as003 [routerLinkActive]="['active']" [routerLink]="['explore']">
                                                                     <div class="x1n2onr6">
                                                                         <a
                                                                             (mouseover)="this.mouseOverOptionNav(true, 'explore')" (mouseleave)="this.mouseOverOptionNav(false, 'explore')"
@@ -173,7 +173,7 @@
                                                                         </a>
                                                                     </div>
                                                                 </div>
-                                                                <div id="004">
+                                                                <div id="004" [routerLinkActive]="['active']" [routerLink]="['reels']" >
                                                                     <div class="x1n2onr6">
                                                                         <a
                                                                             (mouseover)="this.mouseOverOptionNav(true, 'reels')" (mouseleave)="this.mouseOverOptionNav(false, 'reels')"
@@ -236,7 +236,7 @@
                                                                         </a>
                                                                     </div>
                                                                 </div>
-                                                                <div id="005">
+                                                                <div id="005" [routerLinkActive]="['active']" [routerLink]="['direct']" >
                                                                     <div class="x1n2onr6">
                                                                         <a
                                                                             (mouseover)="this.mouseOverOptionNav(true, 'message')" (mouseleave)="this.mouseOverOptionNav(false, 'message')"
@@ -286,7 +286,7 @@
                                                                     <div class="x1n2onr6">
                                                                         <a
                                                                             (mouseover)="this.mouseOverOptionNav(true, 'notification')" (mouseleave)="this.mouseOverOptionNav(false, 'notification')"
-                                                                            class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd"
+                                                                            class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd" (click)="sidebarNotification()"
                                                                         >
                                                                             <div
                                                                                 class="x9f619 x3nfvp2 xr9ek0c xjpr12u xo237n4 x6pnmvc x7nr27j x12dmmrz xz9dl7a xn6708d xsag5q8 x1ye3gou x80pfx3 x159b3zp xdoji71 x1dejxi8 x9k3k5o xs3sg5q x11hdxyr x12ldp4w x1wj20lx x1dn74xm xif99yt x172qv1o x10djquj x1lhsz42 xzauu7c x1lq5wgf xgqcy7u x30kzoy x9jhf4c" id="ix9jhf4c"
@@ -450,11 +450,17 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Barra lateral de búsqueda start -->
-                                                        <div class="x10l6tqk x1u3tz30 x1ja2u2z" #asSideSearch *ngIf="this.displaySideSearch">
+                                                    <!-- Barra lateral de Búsqueda start -->
+                                                        <div class="x10l6tqk x1u3tz30 x1ja2u2z" #asSideSearch *ngIf="this.displaySideSearch" style="transform: translateX(0%);">
                                                             <app-sidebarsearch></app-sidebarsearch>
                                                         </div>
                                                     <!-- / Barra lateral de búesqueda end -->
+
+                                                    <!-- Barra lateral de Notificaciones start -->
+                                                        <div class="x10l6tqk x1u3tz30 x1ja2u2z" *ngIf="this.displaySideNotification" style="transform: translateX(0%);">
+                                                            <app-sidebarnotification></app-sidebarnotification>
+                                                        </div>
+                                                    <!-- / Barra lateral de Notificaciones end -->
                                                 </div>
                                             </div>
                                         </div>

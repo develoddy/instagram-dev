@@ -10,6 +10,7 @@ import { StoriesComponent } from "./main/feed/stories/stories.component";
 // --- Import Nav Start ---
 import { MorenavComponent } from "./main/nav/morenav/morenav.component";
 import { SidebarsearchComponent } from "./main/nav/sidebarsearch/sidebarsearch.component";
+import { SidebarnotificationComponent } from "./main/nav/sidebarnotification/sidebarnotification.component";
 // --- Nav END ---
 
 // --- import Summary Start ---
@@ -27,7 +28,6 @@ import { DisplayProfileComponent } from "./util/over/display-profile/display-pro
 import { OverlayComponent } from "./util/over/overlay/overlay.component";
 import { OptionPostComponent } from "./util/option-post/option-post.component";
 import { EmojisInputPostComponent } from "./util/emojis-input-post/emojis-input-post.component";
-
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -44,7 +44,8 @@ export const components : any[] = [
     ArticlepostComponent,
     OptionPostComponent,
     EmojisInputPostComponent,
-    SidebarsearchComponent
+    SidebarsearchComponent,
+    SidebarnotificationComponent
 ];
 
 // --- Export Start ---
@@ -67,6 +68,7 @@ export * from './main/footer/footerall/footerall.component';
 // --- Export Nav Start ---
 export * from './main/nav/morenav/morenav.component';
 export * from './main/nav/sidebarsearch/sidebarsearch.component';
+export * from './main/nav/sidebarnotification/sidebarnotification.component';
 // --- Export Nav End ---
 
 // -- Utilidades start --

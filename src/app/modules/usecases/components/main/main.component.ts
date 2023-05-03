@@ -50,6 +50,7 @@ export class MainComponent implements OnInit, AfterViewInit {
       mobileView = false;
       public displayShowMore = false;
       public displaySideSearch = false;
+      public displaySideNotification = false;
       public overOptionNavHome: boolean;
       public overOptionNavSearch: boolean;
       public overOptionNavExplore: boolean;
@@ -383,15 +384,20 @@ export class MainComponent implements OnInit, AfterViewInit {
 
       // Agrega o borra la barra lateral de la búsqueda en el Nav.
       public addOrRemoveSideSearchWindow() {
-            this.displaySideSearch == false ? this.addSideSearch() : this.removeSideSearch();
+            this.displaySideSearch == false ? this.addSideSearch(2) : this.removeSideSearch(2);
             // Se comprueba si está abierto el elemento Show More.
             if( this.displayShowMore ) {
                   this.displayShowMore = false;
             }
       }
 
+      public sidebarNotification() {
+            //this.displaySideNotification = true;
+            this.displaySideNotification == false ? this.addSideSearch(6) : this.removeSideSearch(6);
+      }
+
       // Agrega el elemento de la barra de búsqueda en el Nav.
-      private addSideSearch() {
+      private addSideSearch(optionNav:number) {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
             this.render2.removeStyle(asIxvb8j5, "transform");
@@ -407,15 +413,30 @@ export class MainComponent implements OnInit, AfterViewInit {
                   "transform",
                   "translateX(263px)"
             );
-
-           
             
-            this.displaySideSearch = !this.displaySideSearch;
-            this.iconInstagram = true;
+            // Activa sidebar search.
+            if ( optionNav == 2 ) {
+                  this.displaySideSearch = true;/*!this.displaySideSearch;*/
+                  if ( this.displaySideNotification ) {
+                        this.displaySideNotification = false;
+                  }
+                  
+                  this.iconInstagram = true;
+            }
+
+            // Activa sidebar notification.
+            if ( optionNav == 6 ) {
+                  this.displaySideNotification = !this.displaySideNotification;
+                  if ( this.displaySideSearch ) {
+                        this.displaySideSearch = false;
+                  }
+                 
+                  this.iconInstagram = true;
+            }
       }
 
       // Bora el elemento de la barra de búsqueda en el Nav.
-      private removeSideSearch() {
+      private removeSideSearch(optionNav:number) {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
             this.render2.removeStyle(asIxvb8j5, "transform");
@@ -440,12 +461,20 @@ export class MainComponent implements OnInit, AfterViewInit {
             if (window.innerWidth <= 767) {
                   this.iconInstagram = false;
             } 
+
             if (window.innerWidth > 1160) { 
                   this.iconInstagram = false;
             }
-                  
             
-            this.displaySideSearch = !this.displaySideSearch;
+            // Desactiva sidebar search.
+            if ( optionNav == 2 ) {
+                  this.displaySideSearch = !this.displaySideSearch;
+            }
+
+            // Desactiva sidebar notification.
+            if ( optionNav == 6 ) {
+                  this.displaySideNotification = !this.displaySideNotification;
+            }
       }
 
       // Agrega o borra el elemento Show More en el Nav.
@@ -502,6 +531,7 @@ export class MainComponent implements OnInit, AfterViewInit {
                         );
                         
                         this.displaySideSearch = false;
+                        this.displaySideNotification = false;
                         if (window.innerWidth <= 767) {
                               this.iconInstagram = false;
                         } 
