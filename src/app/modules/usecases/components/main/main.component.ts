@@ -416,6 +416,8 @@ export class MainComponent implements OnInit, AfterViewInit {
                   "transform",
                   "translateX(263px)"
             );
+
+           
             this.iconInstagram = true;
             this.displaySideSearch = !this.displaySideSearch;
       }
@@ -442,17 +444,31 @@ export class MainComponent implements OnInit, AfterViewInit {
                   "transform",
                   "translateX(0px)"
             );
-            this.iconInstagram = false;
+           
+            if (window.innerWidth <= 767) {
+                  this.iconInstagram = false;
+            } 
+            if (window.innerWidth > 1160) { 
+                  this.iconInstagram = false;
+            }
+                  
+            
             this.displaySideSearch = !this.displaySideSearch;
       }
 
       // Agrega o borra el elemento Show More en el Nav.
+      public clientX = 0;
+      public clientY = 0;
       public addOrRemoveMoreNav() {
+            const asIxl5mz7h = this.asIxl5mz7h.nativeElement;
+            const coords = asIxl5mz7h.getBoundingClientRect();
+            this.clientX = coords.left;
+            this.clientY = (coords.top - 440);
             this.displayShowMore = !this.displayShowMore;
       }
 
       public hideMoreNav() {
-            this.displayShowMore = false;
+           this.displayShowMore = false;
       }
   
       /**
@@ -492,10 +508,11 @@ export class MainComponent implements OnInit, AfterViewInit {
                               "translateX(0px)"
                         );
                         
-                        
-
-                        if( this.iconInstagram ) {
-                              this.displaySideSearch = false;
+                        this.displaySideSearch = false;
+                        if (window.innerWidth <= 767) {
+                              this.iconInstagram = false;
+                        } 
+                        if (window.innerWidth > 1160) { 
                               this.iconInstagram = false;
                         }
                   }
