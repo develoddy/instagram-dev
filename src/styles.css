@@ -3463,3 +3463,96 @@ hr {
 .x178xt8z {
   border-top-width: 1px;
 }
+
+
+
+/* CSS Reels */
+.x1rohswg {
+  scrollbar-width: none;
+}
+.x1pq812k {
+  -ms-overflow-style: none;
+}
+.x1p6e16i {
+  scroll-padding-top: 32px;
+}
+.x1miatn0 {
+  padding-top: 32px;
+}
+.x168l2et {
+  scroll-snap-type: y mandatory;
+}
+.xqmdsaz {
+  padding-right: 32px;
+}
+.xgv127d {
+  scroll-snap-stop: always;
+}
+.x1xfsgkm {
+  padding-left: 32px;
+}
+.x1bhewko {
+  scroll-snap-align: start;
+}
+.x1yr5g0i {
+  border-top-right-radius: 4px;
+}
+.x1lcm9me {
+  border-top-left-radius: 4px;
+}
+.x10y3i5r {
+  border-bottom-left-radius: 4px;
+}
+video {
+  object-fit: contain;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+.x1247r65 {
+  width: 60px;
+}
+.xezivpi {
+  width: max-content;
+}
+.x1chd833 {
+  margin-bottom: 28px;
+}
+.xrt01vj {
+  border-bottom-right-radius: 4px;
+}
+.x1qihbgi {
+  border-left: 1px solid var(--ig-stroke-on-media);
+}
+.x1844e7p {
+  border-right: 1px solid var(--ig-stroke-on-media);
+}
+.x3527qa {
+  border-top: 1px solid var(--ig-stroke-on-media);
+}
+.x1kv0z4h {
+  border-bottom: 1px solid var(--ig-stroke-on-media);
+}
+.xwzpupj {
+  width: 110%;
+}
+.xuzhngd {
+  opacity: .3;
+}
+.x1d8287x {
+  transition-duration: .3s;
+}
+.x1bs05mj {
+  filter: blur(30px);
+}
+.xutac5l {
+  background-image: linear-gradient(0deg,rgba(0,0,0,.35) 0,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 80%,rgba(0,0,0,.35) 100%);
+}
+.xuk3077 {
+  align-items: flex-end;
+}
+.xbka19w {
+  background-color: rgba(219,219,219,.2);
+}
+.x1td3qas {
+  width: 32px;
+}
