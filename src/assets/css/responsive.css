@@ -1,36 +1,3 @@
-
-/*@media (max-width: 1800px) {}
-@media screen and (max-width: 1660px) {}
-@media screen and (max-width: 1600px) {}
-@media screen and (max-width: 1660px) and (min-width: 1200px) {}
-@media (max-width: 1280px) {}
-@media screen and (max-width: 1580px) and (min-width: 1200px) {}
-@media screen and (max-width: 1445px) and (min-width: 1410px) {}
-@media (max-width: 1470px) {}
-@media screen and (max-width: 1410px) and (min-width: 1367px) {}
-@media screen and (max-width: 1366px) and (min-width: 1200px) {}
-@media only screen and (max-width: 1366px) {}
-@media only screen and (max-width: 1366px) and (min-width: 1200px) {}
-@media only screen and (max-width: 1199.98px) {}
-@media only screen and (max-width: 1199px) and (min-width: 992px) {}
-@media only screen and (max-width: 991.98px) {}
-@media only screen and (max-width: 991px) and (min-width: 768px) {}
-@media only screen and (max-width: 810px) {}
-@media only screen and (max-width: 767.98px) {}
-@media only screen and (max-width: 767px) and (min-width: 576px) {}
-@media only screen and (max-width: 710px) {}
-@media only screen and (max-width: 630px) {}
-@media only screen and (max-width: 575.98px) {}
-@media only screen and (max-width: 480px) {}
-@media only screen and (max-width: 420px) {}
-@media only screen and (max-width: 360px) {}
-@media only screen and (min-width: 576px) {}
-@media (width: 768px) and (height: 1024px) {}*/
-
-/*@import url("./root.css");
-@import url("./responsive.css");*/
-
-
 @media (min-width: 1264px) and (max-width: 1919px) {
     .x1o5hw5a.x1o5hw5a {
         width: var(--nav-medium-width);
@@ -99,6 +66,11 @@
     }
 }
 
+@media (min-width: 736px) {
+	.x13wlyjk.x13wlyjk {
+		width: 400px;
+	}
+}
 
 @media (min-width: 876px) {
     ._ab8b {
@@ -181,11 +153,14 @@
         background-size: 440px 411px;
         background-position: -194px -351px;
     }
+    ._9-lv {
+		background-size: 440px 411px;
+		background-position: -380px -96px;
+	}
 }
 
 @media (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
     ._9zkj, ._a3ds, ._a3dt, ._a3du, ._a3dv, ._a3dw, ._9-b3, ._9znl, ._9z-6, ._a3dx, ._a3d-, ._a3d_, ._a3e0, ._9zm4, ._a3e1, ._a3e2, ._a3e3, ._a3e4, ._a3e5, ._a3e6, ._a3e7, ._a3e8, ._a3e9, ._a3ea, ._9_57, ._9_n5, ._9-y3, ._a3eb, ._a3ec, ._a3ed, ._a3ee, ._a04s, ._9zlu, ._9-yp, ._a3ef, ._a3eg, ._9_wm, ._a3eh, ._a3ei, ._9-j_, ._a3ej, ._a3ek, ._9_ij, ._9_d_, ._9_e1, ._9-mm, ._9_cx, ._9zm0, ._9zfi, ._9-ub, ._a3el, ._9-7-, ._9-1a, ._a3em, ._9zrp, ._a3en, ._9zz9, ._a3eo, ._9zmr, ._9-8d, ._a3e-, ._9zhi, ._a3ep, ._9zs0, ._9-j-, ._a3eq, ._9zli, ._9_4y, ._9zm2, ._9zfj, ._9zlg, ._a3er, ._9-lv, ._9_ug, ._9_sh, ._9_sj, ._9-k0, ._9z-c, ._9_35, ._9_hh, ._a3es, ._a3et, ._a3eu, ._9-v-, ._9_4d, ._9zlh, ._a3ev, ._a3ew, ._a3ex, ._a3ey, ._9ys7, ._9ys8, ._9_7m, ._9_fv, ._a3ez, ._a3e_ {
         background-image: url(../img/6JqvJ6H_bFT.png);
-        /* background-image: url(./assets/img/6JqvJ6H_bFT.png); */
     }
 }

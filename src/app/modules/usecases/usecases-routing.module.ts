@@ -11,13 +11,13 @@ import { DirectComponent } from './components/direct/direct.component';
 const routes: Routes = [{
   path: '', component: MainComponent,
   children: [
-    { path: '', redirectTo: "main", pathMatch: "full" },
+    { path: '', redirectTo: '/', pathMatch: "full" },
     { path: '', component: FeedComponent},
     { path: 'search', component: SearchComponent},
     { path: 'explore', component: ExploreComponent},
-    { path: 'reels', component: ReelsComponent},
-    { path: 'direct', component: DirectComponent},
-    { path: 'profile', component: ProfileComponent},
+    { path: 'reels/:id', component: ReelsComponent},
+    { path: 'direct/inbox', component: DirectComponent},
+    { path: ':username', component: ProfileComponent},
   ]
 }];
 
