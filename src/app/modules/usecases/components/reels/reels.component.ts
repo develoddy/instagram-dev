@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ReelsComponent {
 
+  public data: string[] = ["reels", "reels", "reels", "reels", "reels", "reels"]
+
 }

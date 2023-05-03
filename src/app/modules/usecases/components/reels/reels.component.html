@@ -1,23 +1,31 @@
 <section class="x78zum5 xdt5ytf x1iyjqo2 x6ikm8r xg6iff7">
     <main class="x78zum5 xdt5ytf x1iyjqo2 x182iqb8 xvbhtw8" role="main">
         <div class="x168l2et x1dr59a3 x1odjw0f xvbhtw8 x1p6e16i x1miatn0 x9f619 x1pq812k x1rohswg xfk6m8 x1yqm8si xjx87ck">
-            <div class="x1qjc9v5 x1bhewko x9f619 x78zum5 xl56j7k xh8yej3 xgv127d xg7h5cd x1xfsgkm xqmdsaz">
-                <div class="x78zum5 xedcshv">
-                    <!-- Reel start -->
-                    <div class="x78zum5 xedcshv" style="height: 792.9px;width: 446.006px;">
-                        <div class="x1n2onr6 x78zum5 xl56j7k xh8yej3">
-                            <app-videoreels></app-videoreels>
+            <!-- bucle for reels star -->
+            <ng-container *ngFor="let item of this.data">
+                <div class="x1qjc9v5 x1bhewko x9f619 x78zum5 xl56j7k xh8yej3 xgv127d xg7h5cd x1xfsgkm xqmdsaz">
+                    <div class="x78zum5 xedcshv">
+                        <!-- Reel start -->
+                        <div class="x78zum5 xedcshv" style="height: 792.9px;width: 446.006px;">
+                            <div class="x1n2onr6 x78zum5 xl56j7k xh8yej3">
+                                <app-videoreels></app-videoreels>
+                            </div>
                         </div>
+                        <!-- / Reel end -->
+    
+                        <!-- Button lateral start -->
+                        <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x12nagc x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x6s0dn4 x1oa3qoh x13a6bvl x16n37ib x1247r65">
+                            <app-sidereels></app-sidereels>
+                        </div>
+                        <!-- / Button lateral end -->
                     </div>
-                    <!-- / Reel end -->
-
-                    <!-- Button lateral start -->
-                    <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x12nagc x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x6s0dn4 x1oa3qoh x13a6bvl x16n37ib x1247r65">
-                        <app-sidereels></app-sidereels>
-                    </div>
-                    <!-- / Button lateral end -->
                 </div>
-            </div>
+
+                <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1" style="height: 16px; width: 100%;"></div>
+                
+            </ng-container>
+           
+            <!-- / bucle for reels end -->
         </div>
     </main>
 </section>
