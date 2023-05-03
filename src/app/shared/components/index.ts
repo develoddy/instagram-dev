@@ -7,8 +7,9 @@ import { RefreshfeedComponent } from "./main/feed/refreshfeed/refreshfeed.compon
 import { StoriesComponent } from "./main/feed/stories/stories.component";
 // --- Import Feed End ---
 
-// --- Nav Start ---
+// --- Import Nav Start ---
 import { MorenavComponent } from "./main/nav/morenav/morenav.component";
+import { SidebarsearchComponent } from "./main/nav/sidebarsearch/sidebarsearch.component";
 // --- Nav END ---
 
 // --- import Summary Start ---
@@ -26,6 +27,7 @@ import { DisplayProfileComponent } from "./util/over/display-profile/display-pro
 import { OverlayComponent } from "./util/over/overlay/overlay.component";
 import { OptionPostComponent } from "./util/option-post/option-post.component";
 import { EmojisInputPostComponent } from "./util/emojis-input-post/emojis-input-post.component";
+
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -41,7 +43,8 @@ export const components : any[] = [
     OverlayComponent,
     ArticlepostComponent,
     OptionPostComponent,
-    EmojisInputPostComponent
+    EmojisInputPostComponent,
+    SidebarsearchComponent
 ];
 
 // --- Export Start ---
@@ -51,11 +54,11 @@ export * from './main/feed/posts/articlepost/articlepost.component';
 export * from './main/feed/refreshfeed/refreshfeed.component';
 // --- Export End ---
 
-// --- Summary Start ---
+// --- Export Summary Start ---
 export * from './main/summary/linkprofile/linkprofile.component';
 export * from './main/summary/suggestions/suggestions.component';
 export * from './main/summary/privacy/privacy.component';
-// --- Summary End ---
+// --- Export Summary End ---
 
 // --- Export Footer Start
 export * from './main/footer/footerall/footerall.component';
@@ -63,6 +66,7 @@ export * from './main/footer/footerall/footerall.component';
 
 // --- Export Nav Start ---
 export * from './main/nav/morenav/morenav.component';
+export * from './main/nav/sidebarsearch/sidebarsearch.component';
 // --- Export Nav End ---
 
 // -- Utilidades start --

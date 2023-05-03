@@ -3099,3 +3099,128 @@ button._acat:hover {
     vertical-align: baseline;
     width: 32px;
 }
+
+
+/* Search */
+
+.xktsk01 {
+    margin-right: 16px;
+}
+
+._aawg, ._aaw8 {
+    border-radius: 8px;
+}
+._aawf {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    height: 36px;
+    min-width: 125px;
+    position: relative;
+    width: 268px;
+}
+._abli {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    height: var(--search-box-height);
+    position: relative;
+    width: 100%;
+    margin-bottom: 24px;
+}
+._aauy {
+    -webkit-appearance: none;
+    background: rgb(var(--ig-highlight-background));
+    border: 0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: rgb(var(--ig-primary-text));
+    font-size: var(--system-16-font-size);
+    height: 100%;
+    outline: none;
+    padding: 3px 16px;
+    width: 100%;
+    z-index: 2;
+}
+._aaw6 {
+    align-items: stretch;
+    border: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    font: inherit;
+    font-size: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    vertical-align: baseline;
+    z-index: 1;
+}
+._aawn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+._9-lv {
+    background-repeat: no-repeat;
+    background-position: -318px -333px;
+    height: 20px;
+    width: 20px;
+}
+@media (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi){
+._9-lv {
+    background-size: 440px 411px;
+    background-position: -380px -96px;
+}}
+.xhtitgo {
+    z-index: 2;
+}
+.x1wzhzgj {
+    border-top: 1px solid rgb(var(--ig-separator));
+}
+.xocp1fn {
+    padding-top: var(--search-modal-top-offset);
+}
+._ag1s {
+    margin: 6px 24px 8px;
+}
+._abo2 {
+    align-items: stretch;
+    border: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-flow: row;
+    flex-shrink: 0;
+    font: inherit;
+    font-size: 100%;
+    justify-content: space-between;
+    margin: 4px 16px 0;
+    max-height: 24px;
+    padding: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+._abo1 {
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    margin: 8px 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+.xxbr6pl {
+    padding-right: 24px;
+}
+
+
+

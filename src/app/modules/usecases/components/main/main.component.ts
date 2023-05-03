@@ -1,11 +1,4 @@
-import {
-      AfterViewInit,
-      Component,
-      ElementRef,
-      OnInit,
-      Renderer2,
-      ViewChild,
-} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Router } from "@angular/router";
 import { ScriptsService } from "@data/services/api/scripts.service";
@@ -57,7 +50,6 @@ export class MainComponent implements OnInit, AfterViewInit {
       mobileView = false;
       public displayShowMore = false;
       public displaySideSearch = false;
-
       public overOptionNavHome: boolean;
       public overOptionNavSearch: boolean;
       public overOptionNavExplore: boolean;
@@ -199,7 +191,6 @@ export class MainComponent implements OnInit, AfterViewInit {
 
       loadWindows() {
             const iw = window.innerWidth;
-            console.log("DEBUG: loadWindows view MAIN: " + iw);
             if ( iw < 1264) {
                   this.iconInstagram = true;
             } 
@@ -418,8 +409,9 @@ export class MainComponent implements OnInit, AfterViewInit {
             );
 
            
-            this.iconInstagram = true;
+            
             this.displaySideSearch = !this.displaySideSearch;
+            this.iconInstagram = true;
       }
 
       // Bora el elemento de la barra de búsqueda en el Nav.
@@ -467,6 +459,7 @@ export class MainComponent implements OnInit, AfterViewInit {
             this.displayShowMore = !this.displayShowMore;
       }
 
+      // Ocultar Show More.
       public hideMoreNav() {
            this.displayShowMore = false;
       }
@@ -519,6 +512,12 @@ export class MainComponent implements OnInit, AfterViewInit {
             });
       }
 
+      /**
+       * Esta función se encarga de activar el hover en 
+       * cada elemento del nav vertical.
+       * @param hover 
+       * @param option 
+       */
       public mouseOverOptionNav(hover: boolean, option:string) {
             switch ( option ) {
                   case 'home':
@@ -553,6 +552,10 @@ export class MainComponent implements OnInit, AfterViewInit {
             }
       }
 
+      /**
+       * Mostrar la ventana de la información del usuario.
+       * @param hover 
+       */
       public mouseOverInfoProfile(hover: boolean) {
             this.filter.mouseOverHideInfoProfile(hover);
       }
