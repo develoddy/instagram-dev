@@ -399,15 +399,6 @@ export class MainComponent implements OnInit, AfterViewInit {
             }
       }
 
-      // Agrega o borra el elemento Show More en el Nav.
-      public addOrRemoveMoreNav() {
-            this.displayShowMore = !this.displayShowMore;
-      }
-
-      public hideMoreNav() {
-            this.displayShowMore = false;
-      }
-
       // Agrega el elemento de la barra de búsqueda en el Nav.
       private addSideSearch() {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
@@ -425,6 +416,7 @@ export class MainComponent implements OnInit, AfterViewInit {
                   "transform",
                   "translateX(263px)"
             );
+            this.iconInstagram = true;
             this.displaySideSearch = !this.displaySideSearch;
       }
 
@@ -450,7 +442,17 @@ export class MainComponent implements OnInit, AfterViewInit {
                   "transform",
                   "translateX(0px)"
             );
+            this.iconInstagram = false;
             this.displaySideSearch = !this.displaySideSearch;
+      }
+
+      // Agrega o borra el elemento Show More en el Nav.
+      public addOrRemoveMoreNav() {
+            this.displayShowMore = !this.displayShowMore;
+      }
+
+      public hideMoreNav() {
+            this.displayShowMore = false;
       }
   
       /**
@@ -489,7 +491,13 @@ export class MainComponent implements OnInit, AfterViewInit {
                               "transform",
                               "translateX(0px)"
                         );
-                        this.displaySideSearch = false;
+                        
+                        
+
+                        if( this.iconInstagram ) {
+                              this.displaySideSearch = false;
+                              this.iconInstagram = false;
+                        }
                   }
             });
       }
