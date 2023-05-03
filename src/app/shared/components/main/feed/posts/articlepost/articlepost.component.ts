@@ -52,6 +52,10 @@ export class ArticlepostComponent {
   }
 
   public showOption() {
-    this.filter.displayOptionPost();
+    this.filter.displayOptionPost(true);
+  }
+
+  public hideOption() {
+    this.filter.displayOptionPost(false);
   }
 }

@@ -37,8 +37,9 @@ export class MainComponent implements OnInit, AfterViewInit {
       @ViewChild("asMorenav") asMorenav: ElementRef;
       @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
       @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
+      @ViewChild("asParentContent") asParentContent: ElementRef;
       
-      
+      public iconInstagram: boolean;
       public cssUrl: string;
       public tempAsIx2lah0s: any;
       public tempAsIxh8yej3: any;
@@ -49,7 +50,6 @@ export class MainComponent implements OnInit, AfterViewInit {
       public temp006: any;
       public tempAsSideSearch: any;
       public tempAsMorenav: any;
-      
       public resizeId: any;
       private screen: any = { small: 0, medium: 400, large: 800 };
       resizeObservable$: Observable<Event>;
@@ -58,15 +58,17 @@ export class MainComponent implements OnInit, AfterViewInit {
       public displayShowMore = false;
       public displaySideSearch = false;
 
-      public prueba: string;
-
       constructor(
             public sanitizer: DomSanitizer, 
             public scripts: ScriptsService, 
             private render2: Renderer2, 
             private router: Router, 
             public filter: FiltroService
-      ) { }
+      ) { 
+            this.iconInstagram = false;
+            this.loadWindows();
+      }
+
 
       ngAfterViewInit() {
             this.setupAfterView();
@@ -77,8 +79,6 @@ export class MainComponent implements OnInit, AfterViewInit {
             this.setupView();
       }
 
-
-      // Arranca la aplicación.
       setupView() {
             this.resizeWindows();
       }
@@ -168,9 +168,27 @@ export class MainComponent implements OnInit, AfterViewInit {
        * @param iw
        */
       renderDesktopView(iw: number) {
-            //console.log("DEBUG: render desktop view MAIN: " + iw);
-            this.render(iw);
             this.mobileView = false;
+
+            if ( iw < 1264) {
+                  this.iconInstagram = true;
+            } 
+
+            if ( iw > 1264) {
+                  this.iconInstagram = false;
+            } 
+      }
+
+      loadWindows() {
+            const iw = window.innerWidth;
+            console.log("DEBUG: loadWindows view MAIN: " + iw);
+            if ( iw < 1264) {
+                  this.iconInstagram = true;
+            } 
+
+            if ( iw > 1264) {
+                  this.iconInstagram = false;
+            } 
       }
 
       /**
@@ -193,7 +211,6 @@ export class MainComponent implements OnInit, AfterViewInit {
             // Se modifica las clases del elemento padre para realizar un cambio en el nav vertifical.
             if (iw <= 767) {
                   if (asParent.classList.contains("x1q0g3np")) {
-                        
                         this.render2.addClass(asParent, "xdt5ytf");
                         this.render2.removeClass(asParent, "x1q0g3np");
 
@@ -355,19 +372,22 @@ export class MainComponent implements OnInit, AfterViewInit {
             }
       }
 
-    
       // Agrega o borra la barra lateral de la búsqueda en el Nav.
       public addOrRemoveSideSearchWindow() {
             this.displaySideSearch == false ? this.addSideSearch() : this.removeSideSearch();
-            // Se comprueba si está abierto el showmore
+            // Se comprueba si está abierto el elemento Show More.
             if( this.displayShowMore ) {
                   this.displayShowMore = false;
             }
       }
 
-      // Agrega o borra el elemento ShoeMoreNav en el Nav.
+      // Agrega o borra el elemento Show More en el Nav.
       public addOrRemoveMoreNav() {
             this.displayShowMore = !this.displayShowMore;
+      }
+
+      public hideMoreNav() {
+            this.displayShowMore = false;
       }
 
       // Agrega el elemento de la barra de búsqueda en el Nav.
@@ -414,7 +434,6 @@ export class MainComponent implements OnInit, AfterViewInit {
             );
             this.displaySideSearch = !this.displaySideSearch;
       }
-
   
       /**
        * Esta función detecta los click en el componente Main, y 
@@ -454,8 +473,11 @@ export class MainComponent implements OnInit, AfterViewInit {
                         );
                         this.displaySideSearch = false;
                   }
-                  this.displayShowMore = false;
             });
+      }
+
+      mouseOverInfoProfile(hover: boolean) {
+            this.filter.mouseOverHideInfoProfile(hover);
       }
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.

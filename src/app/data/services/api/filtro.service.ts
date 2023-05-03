@@ -6,8 +6,6 @@ import { Injectable } from '@angular/core';
 export class FiltroService {
 
   public optionPost: boolean;
-
-  // display info
   public displayInfoProfile: boolean;
   public clientX:0;
   public clientY:0;
@@ -17,27 +15,31 @@ export class FiltroService {
     this.displayInfoProfile = false;
   }
 
-
   /**
-   * ---- Post click display option ----
+   * Esta función se encarga de escuchar la acción del usuario
+   * al hacer click en las opciones de la publicación.
+   * Cuando el usuario haga click, se mostrará las opciones.
    */
-  displayOptionPost() { 
-    this.optionPost = true;
+  displayOptionPost(option:boolean) { 
+    this.optionPost = option;
   }
 
   /**
-   * ---- Post mouse over display option ----
+   * Esta función se encarga de escuchar el evento del mouseOver 
+   * cuando el usuario pasa el mouse por la imagen del perfil o el 
+   * username, a continuación se mostrara una vetana con la información del perfil.
+   * @param event 
    */
-  mouseOver(event:any) {
+  mouseOverShowInfoProfile(event:any) {
     const ref = event.ref.nativeElement;
     const coords = ref.getBoundingClientRect();
-    console.log(coords);
     this.clientX = coords.left;
     this.clientY = (scrollY + coords.bottom);
-    
-    
     this.displayInfoProfile = event.hover;
   }
 
-  
+  // Ocultar la ventana de información de perfil.
+  mouseOverHideInfoProfile(hover:boolean) {
+    this.displayInfoProfile = hover;
+  }
 }
