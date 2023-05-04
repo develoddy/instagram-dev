@@ -36,22 +36,16 @@ export class ProfileComponent {
 		// of the Chrome Dev Tools, and will clearly illustrate the journey of the
 		// selection as the user continues to click within a single DOM branch.
 		if ( this.targetElement ) {
-
 			this.targetElement.classList.remove( TRACER_CLASS );
-
 		}
 
 		this.targetElement = this.getNextTarget( event );
 		this.targetOverlay = null;
-
 		if ( this.targetElement ) {
-
 			this.targetElement.classList.add( TRACER_CLASS );
-
 			// The bounding client rectangle contains the FIXED location of the given
 			// element within the browser's viewport.
 			var rect = this.targetElement.getBoundingClientRect();
-			
 			this.targetOverlay = {
 				height: rect.height,
 				left: rect.left,
@@ -59,9 +53,6 @@ export class ProfileComponent {
 				bottom: rect.bottom,
 				width: rect.width
 			};
-
-			console.log("DEBUG: handleClick() - TargetOverlay..");
-      		console.log(this.targetOverlay);
 		}
 	}
 
@@ -77,21 +68,14 @@ export class ProfileComponent {
 
 	// I get the next target element based on the given mouse click event.
 	private getNextTarget( event: MouseEvent ) : HTMLElement | null {
-
 		var target = ( event.target as HTMLElement );
-
 		// If we have an existing target element and the user clicked below the target
 		// element but within the same DOM branch, let's move up one level in the DOM
 		// tree.
 		if ( this.targetElement && this.targetElement.contains( target ) ) {
-
 			return( this.targetElement.parentElement || null );
-
 		}
-
 		// Otherwise, just use the user's click target.
 		return( target );
-
 	}
-
 }

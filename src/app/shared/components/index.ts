@@ -27,6 +27,15 @@ import { DirectsidebarComponent } from "./main/direct/directsidebar/directsideba
 import { DirectchatComponent } from "./main/direct/directchat/directchat.component";
 // --- Import direct end ---
 
+// --- Inport Profile start ---
+import { ProfileheaderComponent } from "./main/profile/profileheader/profileheader.component";
+import { ProfileinfoComponent } from "./main/profile/profileinfo/profileinfo.component";
+import { ProfilestoriesComponent } from "./main/profile/profilestories/profilestories.component";
+import { ProfiletabsComponent } from "./main/profile/profiletabs/profiletabs.component";
+import { ProfilegridComponent } from "./main/profile/profilegrid/profilegrid.component";
+import { ProfilereelsComponent } from "./main/profile/profilereels/profilereels.component";
+// -- Inport Profile End ---
+
 // --- import Summary Start ---
 import { LinkprofileComponent } from "./main/summary/linkprofile/linkprofile.component";
 import { PrivacyComponent } from "./main/summary/privacy/privacy.component";
@@ -64,7 +73,13 @@ export const components : any[] = [
     SidereelsComponent,
     GridpostsComponent,
     DirectsidebarComponent,
-    DirectchatComponent
+    DirectchatComponent,
+    ProfileheaderComponent, 
+    ProfileinfoComponent,
+    ProfilestoriesComponent, 
+    ProfilegridComponent,
+    ProfiletabsComponent,
+    ProfilereelsComponent
 ];
 
 // --- Export feed start ---
@@ -87,6 +102,14 @@ export * from './main/explore/gridposts/gridposts.component';
 export * from './main/direct/directsidebar/directsidebar.component';
 export * from './main/direct/directchat/directchat.component';
 // --- Export direct end ---
+
+// --- Export profile start ---
+export * from './main/profile/profileheader/profileheader.component';
+export * from './main/profile/profileinfo/profileinfo.component';
+export * from './main/profile/profilestories/profilestories.component';
+export * from './main/profile/profilegrid/profilegrid.component';
+export * from './main/profile/profilereels/profilereels.component';
+// --- Export profile end ---
 
 // --- Export Summary Start ---
 export * from './main/summary/linkprofile/linkprofile.component';
