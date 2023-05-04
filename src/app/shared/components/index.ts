@@ -16,7 +16,12 @@ import { SidereelsComponent } from "./main/reels/sidereels/sidereels.component";
 import { MorenavComponent } from "./main/nav/morenav/morenav.component";
 import { SidebarsearchComponent } from "./main/nav/sidebarsearch/sidebarsearch.component";
 import { SidebarnotificationComponent } from "./main/nav/sidebarnotification/sidebarnotification.component";
-// --- Nav END ---
+// --- Import Nav END ---
+
+// --- Import explore start ---
+import { GridpostsComponent } from "./main/explore/gridposts/gridposts.component";
+// --- Import explore end ---
+
 
 // --- import Summary Start ---
 import { LinkprofileComponent } from "./main/summary/linkprofile/linkprofile.component";
@@ -52,7 +57,8 @@ export const components : any[] = [
     SidebarsearchComponent,
     SidebarnotificationComponent,
     VideoreelsComponent,
-    SidereelsComponent
+    SidereelsComponent,
+    GridpostsComponent
 ];
 
 // --- Export feed start ---
@@ -66,6 +72,11 @@ export * from './main/feed/refreshfeed/refreshfeed.component';
 export * from './main/reels/videoreels/videoreels.component';
 export * from './main/reels/sidereels/sidereels.component';
 // --- Export reels end ---
+
+// --- Export explorer start ---
+export * from './main/explore/gridposts/gridposts.component';
+// --- Export explorer end ---
+
 
 // --- Export Summary Start ---
 export * from './main/summary/linkprofile/linkprofile.component';
