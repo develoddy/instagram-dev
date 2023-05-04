@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import * as fromComponents from './components';
+import { DirectsidebarComponent } from './components/main/direct/directsidebar/directsidebar.component';
+import { DirectchatComponent } from './components/main/direct/directchat/directchat.component';
 
 @NgModule({
   imports: [

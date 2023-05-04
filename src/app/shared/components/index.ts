@@ -12,16 +12,20 @@ import { VideoreelsComponent } from "./main/reels/videoreels/videoreels.componen
 import { SidereelsComponent } from "./main/reels/sidereels/sidereels.component";
 // --- inport reels end ---
 
-// --- Import Nav Start ---
+// --- Import nav start ---
 import { MorenavComponent } from "./main/nav/morenav/morenav.component";
 import { SidebarsearchComponent } from "./main/nav/sidebarsearch/sidebarsearch.component";
 import { SidebarnotificationComponent } from "./main/nav/sidebarnotification/sidebarnotification.component";
-// --- Import Nav END ---
+// --- Import nav end ---
 
 // --- Import explore start ---
 import { GridpostsComponent } from "./main/explore/gridposts/gridposts.component";
 // --- Import explore end ---
 
+// --- Import direct start ---
+import { DirectsidebarComponent } from "./main/direct/directsidebar/directsidebar.component";
+import { DirectchatComponent } from "./main/direct/directchat/directchat.component";
+// --- Import direct end ---
 
 // --- import Summary Start ---
 import { LinkprofileComponent } from "./main/summary/linkprofile/linkprofile.component";
@@ -58,7 +62,9 @@ export const components : any[] = [
     SidebarnotificationComponent,
     VideoreelsComponent,
     SidereelsComponent,
-    GridpostsComponent
+    GridpostsComponent,
+    DirectsidebarComponent,
+    DirectchatComponent
 ];
 
 // --- Export feed start ---
@@ -77,6 +83,10 @@ export * from './main/reels/sidereels/sidereels.component';
 export * from './main/explore/gridposts/gridposts.component';
 // --- Export explorer end ---
 
+// --- Export direct start ---
+export * from './main/direct/directsidebar/directsidebar.component';
+export * from './main/direct/directchat/directchat.component';
+// --- Export direct end ---
 
 // --- Export Summary Start ---
 export * from './main/summary/linkprofile/linkprofile.component';
