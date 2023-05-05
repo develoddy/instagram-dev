@@ -3,19 +3,21 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { SharedModule } from '@shared/shared.module';
 import { PromainComponent } from './promain/promain.component';
 import { ProgridpostsComponent } from './progridposts/progridposts.component';
-
-// import comoonent children
-
+import { ProreelsComponent } from './proreels/proreels.component';
+import { ProsavedComponent } from './prosaved/prosaved.component';
+import { ProtaggedComponent } from './protagged/protagged.component';
 
 @NgModule({
   declarations: [
-    // Components hildren
-    PromainComponent,
-    ProgridpostsComponent
+      PromainComponent,
+      ProgridpostsComponent,
+      ProreelsComponent,
+      ProsavedComponent,
+      ProtaggedComponent
   ],
   imports: [
-    SharedModule,
-    ProfileRoutingModule
+      SharedModule,
+      ProfileRoutingModule
   ]
 })
 export class ProfileModule { }

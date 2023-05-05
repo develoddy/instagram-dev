@@ -1,8 +1,11 @@
 <div class="x6s0dn4 x1b1mbwd xaqea5y xav7gou x9f619 x1w9h7q7 x78zum5 x1q0g3np x2lah0s x1pg5gke xwhw2v2 xl56j7k x1r0g7yl xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x2b8uid x11njtxf x1wzhzgj" role="tablist">
     <!-- Tab post -->
     <a
+        (click)="this.activeTabs('posts')"
         aria-selected="true"
-        class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _aa-- _ac_u _a6hd"
+        [ngClass]="this.activePost ? 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _aa-- _ac_u _a6hd' : 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _a6hd'"
+        [routerLinkActive]="['active']"
+        [routerLink]="['/lujandev']"
         role="tab"
         tabindex="0"
     >
@@ -14,17 +17,17 @@
                 <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="9.015" y2="9.015"></line>
                 <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="21" x2="3" y1="14.985" y2="14.985"></line>
             </svg>
-
             <span class="x6umtig x1b1mbwd xaqea5y xav7gou xk390pu xdj266r x11i5rnm xat24cr x1mnrxsn xexx8yu x4uap5 x18d9i69 xkhd6sd x11njtxf">Publicaciones</span>
         </div>
     </a>
 
     <!-- Tab reels -->
-    <!-- href="/lujandev/reels/" -->
     <a
+        (click)="this.activeTabs('reels')"
         aria-selected="false"
-        class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _a6hd"
-        [routerLinkActive]="['active']" [routerLink]="['reels']"
+        [ngClass]="this.activeReels ? 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _aa-- _ac_u _a6hd' : 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _a6hd'"
+        [routerLinkActive]="['active']"
+        [routerLink]="['reels']"
         role="tab"
         tabindex="0"
     >
@@ -49,9 +52,11 @@
 
     <!-- Tab bookmark -->
     <a
+        (click)="this.activeTabs('saved')"
         aria-selected="false"
-        class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _a6hd"
-        href="/lujandev/saved/"
+        [ngClass]="this.activeSaved ? 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _aa-- _ac_u _a6hd' : 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _a6hd'"
+        [routerLinkActive]="['active']"
+        [routerLink]="['saved']"
         role="tab"
         tabindex="0"
     >
@@ -65,9 +70,11 @@
 
     <!-- Tab tag -->
     <a
+        (click)="this.activeTabs('tagged')"
         aria-selected="false"
-        class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _a6hd"
-        href="/lujandev/tagged/"
+        [ngClass]="this.activeTagged ? 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _aa-- _ac_u _a6hd' : 'x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _aa-z _a6hd'"
+        [routerLinkActive]="['active']"
+        [routerLink]="['tagged']"
         role="tab"
         tabindex="0"
     >

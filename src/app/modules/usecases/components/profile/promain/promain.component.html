@@ -22,19 +22,17 @@
 
 				<!-- 3. Tabs start -->
 				<div>
-					<app-profiletabs></app-profiletabs>
+					<app-profiletabs *ngIf="this.currentRoute" [currentRoute]="this.currentRoute" ></app-profiletabs>
 				</div>
 				<!-- / tabs end -->
-				<!-- 4 .Grid photos start -->
-				<div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
 
-					<!-- Aca hay que trabajar con las iteracciones 
-						del tab para mostrar lo que se ha seleccionado 
-					-->
-					<!-- <app-profilegrid></app-profilegrid> -->
-					<router-outlet></router-outlet>
+				
+
+				<!-- 4 . Main start -->
+				<div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
+					<router-outlet></router-outlet>	
 				</div>
-				<!-- / Grid photos end -->
+				<!-- / Main end -->
 
 			</div>
 		</main>

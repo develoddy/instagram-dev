@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
+import { PromainComponent } from '@modules/usecases/components/profile/promain/promain.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,7 @@ const routes: Routes = [
       path: '', loadChildren: () => import('./modules/usecases/usecases.module').then( (m) => m.UsecasesModule)
     }]
   },
+  
 ];
 
 @NgModule({

@@ -3877,16 +3877,16 @@ video {
 
 /* CSS Profile */
 @media (min-width: 736px){
-._aa_z {
-    padding: 30px 20px 0;
-}}
-
-@media (min-width: 736px){
 ._aa_y {
     box-sizing: content-box;
     padding: 60px 20px 0;
     width: calc(100% - 40px);
 }}
+@media (min-width: 736px){
+  ._aa_z {
+      padding: 30px 20px 0;
+}}
+
 ._aa_- {
     margin-bottom: 0;
 }
@@ -4126,3 +4126,4 @@ a._aa-z, a._aa-z:visited {
 .xpzf5u2.xpzf5u2 {
     padding-top: 15px;
 }}
+

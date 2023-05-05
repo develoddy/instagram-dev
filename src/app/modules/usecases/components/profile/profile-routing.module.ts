@@ -4,22 +4,22 @@ import { RouterModule, Routes } from '@angular/router';
 // Children component
 import { PromainComponent } from './promain/promain.component';
 import { ProgridpostsComponent } from './progridposts/progridposts.component';
+import { ProreelsComponent } from './proreels/proreels.component';
+import { ProsavedComponent } from './prosaved/prosaved.component';
+import { ProtaggedComponent } from './protagged/protagged.component';
 
-
-
-const routes: Routes = [{
-  path: ':username', component: ProgridpostsComponent,
-  children: [
-    //{ path: '', redirectTo: '/', pathMatch: "full" },
-    { path: 'grid', component: ProgridpostsComponent}
-    /*{ path: 'reels', component: SearchComponent},
-    { path: 'saved', component: ExploreComponent},
-    { path: 'tagged', component: ReelsComponent},*/
-  ]
-}];
+const routes: Routes = [
+     //{path: ':username', redirectTo: '', pathMatch: "full"},
+    { path: '', component: ProgridpostsComponent },
+    { path: 'reels', component: ProreelsComponent },
+    { path: 'saved', component: ProsavedComponent },
+    { path: 'tagged', component: ProtaggedComponent }
+    
+];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
+
 export class ProfileRoutingModule { }
