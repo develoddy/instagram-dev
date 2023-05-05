@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sidebarsearch',
@@ -7,14 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SidebarsearchComponent implements OnInit {
  
-  public hover:boolean;
+  @Output() usernameEvent = new EventEmitter();
+  public isChangedBlock: number;
   @Input() data: string[] = ['eddy', 'jordan', 'paola', 'tessy', 'chocolate', 'jean', 'marlene', 'maria', 'josue', 'nicole', 'chingo', 'joaquin', 'adriano'];
 
   ngOnInit() { 
-      this.hover = false;
+      this.isChangedBlock = -1;
   }
 
-  mouseover( hover: boolean ) {
-      this.hover = hover;
+  public gotoProfile( username:string ) {
+      this.usernameEvent.emit(username);
   }
 }

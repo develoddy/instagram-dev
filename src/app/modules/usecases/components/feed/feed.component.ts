@@ -168,7 +168,7 @@ export class FeedComponent implements OnInit {
 
       public gotToProfile( username:string ) {
             this.username = username;
-            this.router.navigate(["lujandev"]);
+            this.router.navigate([this.username ]);
       }
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.

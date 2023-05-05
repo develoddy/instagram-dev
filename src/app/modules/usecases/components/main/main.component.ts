@@ -34,8 +34,6 @@ export class MainComponent implements OnInit /*AfterViewInit*/ {
       @ViewChild("asIx1ja2u2z") asIx1ja2u2z: ElementRef;
       @ViewChild("asIjx87ck") asIjx87ck: ElementRef;
       
-      
-      
       public iconInstagram: boolean;
       public cssUrl: string;
       public tempAsIx2lah0s: any;
@@ -65,6 +63,7 @@ export class MainComponent implements OnInit /*AfterViewInit*/ {
       public overOptionNavProfile: boolean;
       public overOptionNavMore: boolean;
       public parentMain: boolean;
+      public username: string = '';
 
       constructor(
             public sanitizer: DomSanitizer, 
@@ -595,6 +594,15 @@ export class MainComponent implements OnInit /*AfterViewInit*/ {
        */
       public mouseOverInfoProfile(hover: boolean) {
             this.filter.mouseOverHideInfoProfile(hover);
+      }
+
+      public gotoProfile( username:string ) {
+            console.log("DEBUG: Main.component");
+            console.log(username);
+            alert("side")
+            
+            this.username = username;
+            this.router.navigate([this.username]);
       }
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.
