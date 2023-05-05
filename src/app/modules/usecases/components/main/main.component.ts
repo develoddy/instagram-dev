@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from "@angular/core";
+import {AfterViewInit, Component, ElementRef, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild} from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Router } from "@angular/router";
 import { ScriptsService } from "@data/services/api/scripts.service";
@@ -11,7 +11,7 @@ import { FiltroService } from "@data/services/api/filtro.service";
       templateUrl: "./main.component.html",
       styleUrls: ["./main.component.css"],
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit /*AfterViewInit*/ {
 
       @ViewChild("asParent") asParent: ElementRef;
       @ViewChild("asIx9f619") asIx9f619: ElementRef;
@@ -31,6 +31,10 @@ export class MainComponent implements OnInit, AfterViewInit {
       @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
       @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
       @ViewChild("asParentContent") asParentContent: ElementRef;
+      @ViewChild("asIx1ja2u2z") asIx1ja2u2z: ElementRef;
+      @ViewChild("asIjx87ck") asIjx87ck: ElementRef;
+      
+      
       
       public iconInstagram: boolean;
       public cssUrl: string;
@@ -60,6 +64,7 @@ export class MainComponent implements OnInit, AfterViewInit {
       public overOptionNavCreate: boolean;
       public overOptionNavProfile: boolean;
       public overOptionNavMore: boolean;
+      public parentMain: boolean;
 
       constructor(
             public sanitizer: DomSanitizer, 
@@ -78,10 +83,12 @@ export class MainComponent implements OnInit, AfterViewInit {
             this.overOptionNavCreate = false;
             this.overOptionNavProfile = false;
             this.overOptionNavMore = false;
+            this.parentMain = false;
             this.loadWindows();
       }
 
       ngAfterViewInit() {
+            
             this.setupAfterView();
             this.removeSidebarByGlobalClick();
       }

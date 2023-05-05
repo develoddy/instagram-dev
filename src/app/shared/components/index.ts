@@ -51,6 +51,7 @@ import { DisplayProfileComponent } from "./util/over/display-profile/display-pro
 import { OverlayComponent } from "./util/over/overlay/overlay.component";
 import { OptionPostComponent } from "./util/option-post/option-post.component";
 import { EmojisInputPostComponent } from "./util/emojis-input-post/emojis-input-post.component";
+import { ShowModalSwipeHorizontalComponent } from "./util/show-modal-swipe-horizontal/show-modal-swipe-horizontal.component";
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -79,7 +80,8 @@ export const components : any[] = [
     ProfilestoriesComponent, 
     ProfilegridComponent,
     ProfiletabsComponent,
-    ProfilereelsComponent
+    ProfilereelsComponent,
+    ShowModalSwipeHorizontalComponent
 ];
 
 // --- Export feed start ---
@@ -132,4 +134,5 @@ export * from './util/over/display-profile/display-profile.component';
 export * from './util/over/overlay/overlay.component';
 export * from './util/option-post/option-post.component';
 export * from './util/emojis-input-post/emojis-input-post.component';
+export * from './util/show-modal-swipe-horizontal/show-modal-swipe-horizontal.component';
 // -- Utilidades end -

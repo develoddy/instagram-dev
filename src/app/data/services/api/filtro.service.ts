@@ -12,11 +12,13 @@ export class FiltroService {
   public clientY = 0;
   public top = 0;
   public left = 0;
+  public swipeHorizontalPost: boolean;
 
   constructor() { 
     this.optionPost = false;
     this.displayInfoProfile = false;
     this.emojisPost = false;
+    this.swipeHorizontalPost = false;
   }
 
   /**
@@ -38,7 +40,7 @@ export class FiltroService {
     const ref = event.ref.nativeElement;
     const coords = ref.getBoundingClientRect();
     this.clientX = coords.left;
-    this.clientY = (scrollY + coords.bottom);
+    this.clientY = ( scrollY + coords.bottom );
     this.displayInfoProfile = event.hover;
   }
 
@@ -55,8 +57,17 @@ export class FiltroService {
   displayEmojisPost(event: any) {
     const ref = event.ref.nativeElement;
     const coords = ref.getBoundingClientRect();
-    this.top = (coords.top + scrollY) + 23; 
-    this.left = (coords.left - 14); 
+    this.top = ( coords.top + scrollY ) + 23; 
+    this.left = ( coords.left - 14 ); 
     this.emojisPost = event.click;
+  }
+
+  /**
+   * Esta funcion se encarga de mostrar el modal de las publicaciones 
+   * que hay en el perfil actual.
+   * @param event 
+   */
+  displayHorizontalWindowSwipePost(event:boolean) {
+    this.swipeHorizontalPost = event;
   }
 }

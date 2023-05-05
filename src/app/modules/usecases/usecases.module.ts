@@ -7,6 +7,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ReelsComponent } from './components/reels/reels.component';
 import { DirectComponent } from './components/direct/direct.component';
+import { MorepostsComponent } from './components/moreposts/moreposts.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DirectComponent } from './components/direct/direct.component';
     SearchComponent,
     ExploreComponent,
     ReelsComponent,
-    DirectComponent
+    DirectComponent,
+    MorepostsComponent
   ],
   imports: [
     SharedModule,

@@ -6,8 +6,8 @@ import { SearchComponent } from './components/search/search.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ReelsComponent } from './components/reels/reels.component';
 import { DirectComponent } from './components/direct/direct.component';
-import { SkeletonComponent } from '@layout/skeleton/skeleton.component';
 import { PromainComponent } from './components/profile/promain/promain.component';
+import { MorepostsComponent } from './components/moreposts/moreposts.component';
 
 const routes: Routes = [{
   path: '', component: MainComponent,
@@ -24,7 +24,8 @@ const routes: Routes = [{
       children: [{
         path: '', loadChildren: () => import('./components/profile/profile.module').then( (m) => m.ProfileModule )
       }]
-    }
+    },
+    { path: 'p/:id', component: MorepostsComponent},
   ]
 }];
 

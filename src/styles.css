@@ -882,23 +882,7 @@ a {
   position: relative;
 }
 
-._a9z6 {
-  border: 0;
-  box-sizing: content-box;
-  flex-grow: 1;
-  font: inherit;
-  font-size: 100%;
-  height: calc(100% - 32px);
-  left: 0;
-  margin: 0;
-  overflow-y: scroll;
-  overflow: hidden;
-  padding: 16px;
-  position: absolute;
-  scrollbar-width: none;
-  vertical-align: baseline;
-  width: calc(100% - 32px);
-}
+
 
 ul {
   list-style-type: none;
@@ -4127,3 +4111,78 @@ a._aa-z, a._aa-z:visited {
     padding-top: 15px;
 }}
 
+.x1eu8d0j {
+  top: 10px;
+}
+.x160vmok {
+  right: 10px;
+}
+
+
+
+
+/* CSS MorePost */
+.xs9x0gt {
+  padding-top: calc(4vh);
+}
+.x1yztbdb {
+  margin-bottom: 16px;
+}
+.x1fawyso {
+  max-width: 935px;
+}
+.x19sv2k2 {
+  width: calc(100% - 40px);
+}
+.xeud2gj {
+  border-right: 1px solid rgb(var(--ig-elevated-separator));
+}
+.x13ehr01 {
+  border-left: 1px solid rgb(var(--ig-elevated-separator));
+}
+.x18oi6gw {
+  border-bottom: 1px solid rgb(var(--ig-elevated-separator));
+}
+.x1tjbqro {
+  min-height: 450px;
+}
+.x4h1yfo {
+  width: var(--media-info);
+}
+._a9z6 {
+  border: 0;
+  box-sizing: content-box;
+  flex-grow: 1;
+  font: inherit;
+  font-size: 100%;
+  height: calc(100% - 32px);
+  left: 0;
+  margin: 0;
+  overflow-y: scroll;
+  overflow: hidden;
+  padding: 16px;
+  position: absolute;
+  scrollbar-width: none;
+  vertical-align: baseline;
+  width: calc(100% - 32px);
+}
+.xx4vt8u {
+  margin-top: 48px;
+}
+
+
+._aa6g {
+  align-items: stretch;
+  border: 0;
+  box-sizing: border-box;
+  display: block;
+  flex-direction: column;
+  flex-shrink: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  padding-top: calc(6vh);
+  position: relative;
+  vertical-align: baseline;
+}
