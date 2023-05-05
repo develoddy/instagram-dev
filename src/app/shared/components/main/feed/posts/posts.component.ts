@@ -9,6 +9,8 @@ import { MainComponent } from '@modules/usecases/components/main/main.component'
 })
 export class PostsComponent implements OnInit {
 
+  @Output() usernameEvent = new EventEmitter();
+
   constructor(
     private render2: Renderer2,
     private filter: FiltroService
@@ -28,5 +30,9 @@ export class PostsComponent implements OnInit {
 
   public displayEmojis(event:any) {
     this.filter.displayEmojisPost(event);
+  }
+
+  public gotToProfile( username:string ) {
+      this.usernameEvent.emit(username);
   }
 }

@@ -4502,12 +4502,9 @@ div ._ab82 {
   position: relative;
   vertical-align: baseline;
 }
-
 .x1ks1olk {
   opacity: .7;
 }
-
-
 input, select, textarea {
   background-color: #fff;
   color: #1c1e21;
@@ -4522,4 +4519,18 @@ textarea, .inputtext, .inputpassword {
   border-radius: 0;
   margin: 0;
   padding: 3px; 
+}
+._aak1, ._aak1:visited, ._aak1:active, ._aak1:focus, ._aak1:hover {
+  color: rgb(var(--ig-primary-text));
+  font-weight: var(--font-weight-system-semibold);
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.x1gjpkn9:hover {
+  background-color: rgb(var(--ig-secondary-button-hover));
+}
+
+._abn_ {
+  background: rgb(var(--ig-secondary-background));
 }

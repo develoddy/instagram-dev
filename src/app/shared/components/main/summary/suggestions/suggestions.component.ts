@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-suggestions',
@@ -8,5 +8,11 @@ import { Component, Input } from '@angular/core';
 export class SuggestionsComponent {
 
   @Input() data: string[] = ['eddylujan', 'jordan', 'paola', 'tessycastillo', 'chocolate'];
+
+  @Output() usernameEvent = new EventEmitter();
+
+  gotoProfile( username:string ) {
+      this.usernameEvent.emit( username );
+  }
 
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-linkprofile',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class LinkprofileComponent {
 
+    @Output() usernameEvent = new EventEmitter();
+
+    gotoProfile( username:string ) {
+        this.usernameEvent.emit( username );
+    }
 }

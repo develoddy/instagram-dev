@@ -5,7 +5,11 @@
             <div>
                 <!-- padding-bottom: 4119px; se va cambiando cuando baja el scroll -->
                 <div style="position: relative; display: flex; flex-direction: column; padding-bottom: 10px; padding-top: 0;">
-                    <app-articlepost (mouseOverEvent)="this.mouseOver($event)" (emojisPostEvent)="this.displayEmojis($event)" ></app-articlepost>
+                    <app-articlepost 
+                        (mouseOverEvent)="this.mouseOver($event)" 
+                        (emojisPostEvent)="this.displayEmojis($event)"
+                        (usernameEvent)="this.gotToProfile($event)"
+                    ></app-articlepost>
                 </div>
             </div>
         </div>

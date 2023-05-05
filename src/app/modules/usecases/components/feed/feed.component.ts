@@ -1,15 +1,6 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  OnInit,
-  Output,
-  Renderer2,
-  ViewChild,
-  ViewChildren,
-} from "@angular/core";
+import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from "@angular/core";
 import { fromEvent, Observable, Subscription } from "rxjs";
-import { MainComponent } from "../main/main.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-feed",
@@ -21,7 +12,6 @@ export class FeedComponent implements OnInit {
       @ViewChild("asSummary") asSummary: ElementRef;
       @ViewChild("asSectionFeed") asSectionFeed: ElementRef;
       @ViewChild("asFeed") asFeed: ElementRef;
-     
       resizeObservable$: Observable<Event>;
       resizeSubscription$: Subscription;
       mobileView = false;
@@ -29,13 +19,12 @@ export class FeedComponent implements OnInit {
       private screen: any = { small: 0, medium: 400, large: 800 };
       public temAsSummary: any;
       public tempAsSectionFeed: any;
+      public username: string = '';
 
-     
-      constructor(private render2: Renderer2) {}
-
-      ngAfterViewInit() {
-            
-      }
+      constructor(
+            private render2: Renderer2,
+            private router: Router
+      ) {}
 
       ngOnInit() {
             this.setupView();
@@ -50,7 +39,6 @@ export class FeedComponent implements OnInit {
       loadWindows() {
             let iw = window.innerWidth;
             this.render(iw);
-
       }
       
       @Output() mouseOverEvent = new EventEmitter();
@@ -77,15 +65,12 @@ export class FeedComponent implements OnInit {
 
       // Redimensionar el ancho de la pantalla.
       public resizeHandler() {
-            // Obtener ancho de ventana.
             const screenWidth = window.innerWidth;
-            // Determinar el tamaño y el ancho con nombre.
             let size = null;
             let iw = null;
             for (let s in this.screen) {
                   if (screenWidth >= this.screen[s]) size = s; iw = screenWidth;
             }
-            // Aplicar la media Query en cada tamaño de la pantalla.
             this.mediaQuery(size!, iw!);
       }
 
@@ -181,6 +166,10 @@ export class FeedComponent implements OnInit {
             }
       }
 
+      public gotToProfile( username:string ) {
+            this.username = username;
+            this.router.navigate(["lujandev"]);
+      }
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.
       ngOnDestroy() {
