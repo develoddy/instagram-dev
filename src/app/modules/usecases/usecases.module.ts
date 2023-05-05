@@ -8,6 +8,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { ReelsComponent } from './components/reels/reels.component';
 import { DirectComponent } from './components/direct/direct.component';
 import { MorepostsComponent } from './components/moreposts/moreposts.component';
+import { AccounteditComponent } from './components/accountedit/accountedit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MorepostsComponent } from './components/moreposts/moreposts.component';
     ExploreComponent,
     ReelsComponent,
     DirectComponent,
-    MorepostsComponent
+    MorepostsComponent,
+    AccounteditComponent
   ],
   imports: [
     SharedModule,

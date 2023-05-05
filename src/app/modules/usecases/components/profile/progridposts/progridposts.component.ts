@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { FiltroService } from '@data/services/api/filtro.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class ProgridpostsComponent implements OnInit {
   @Output() mouseOverEvent = new EventEmitter();
 
   constructor(
-    private filter: FiltroService
+      private filter: FiltroService,
+      private router: Router
   ) {
       this.infoPost = false;
   }
@@ -24,9 +26,7 @@ export class ProgridpostsComponent implements OnInit {
   }
 
   public displayHorizontalWindowSwipePost(event: boolean) {
-    // call filter
-    this.filter.displayHorizontalWindowSwipePost(event); // true
+      this.filter.displayHorizontalWindowSwipePost(event); // true
+      this.router.navigate(["p/idxx"]);
   }
-
-  
 }

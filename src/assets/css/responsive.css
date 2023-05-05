@@ -70,6 +70,22 @@
 	.x13wlyjk.x13wlyjk {
 		width: 400px;
 	}
+    ._ab4g {
+        margin: 2px 32px 0 124px;
+    }
+    ._ab3p {
+        flex-direction: row;
+    }
+    ._ad6_ {
+        padding-left: 32px;
+        padding-right: 32px;
+        text-align: right;
+    }
+    ._ab3t {
+        flex-basis: 355px;
+        flex-direction: row;
+        padding-right: 60px;
+    }
 }
 
 @media (min-width: 876px) {
@@ -172,3 +188,7 @@
         background-image: url(../img/6JqvJ6H_bFT.png);
     }
 }
+
+
+@media (min-width: 736px){
+    }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FiltroService } from '@data/services/api/filtro.service';
 
 @Component({
@@ -8,11 +9,12 @@ import { FiltroService } from '@data/services/api/filtro.service';
 })
 export class ShowModalSwipeHorizontalComponent {
 
-  constructor(private filter:FiltroService) {
+  constructor(private filter:FiltroService, private router: Router) {
 
   }
 
   public closeSwipePost(event: boolean) {
     this.filter.displayHorizontalWindowSwipePost(event);
+    this.router.navigate(["/lujandev"]);
 }
 }

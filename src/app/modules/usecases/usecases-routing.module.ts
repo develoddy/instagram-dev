@@ -8,6 +8,7 @@ import { ReelsComponent } from './components/reels/reels.component';
 import { DirectComponent } from './components/direct/direct.component';
 import { PromainComponent } from './components/profile/promain/promain.component';
 import { MorepostsComponent } from './components/moreposts/moreposts.component';
+import { AccounteditComponent } from './components/accountedit/accountedit.component';
 
 const routes: Routes = [{
   path: '', component: MainComponent,
@@ -26,6 +27,7 @@ const routes: Routes = [{
       }]
     },
     { path: 'p/:id', component: MorepostsComponent},
+    { path: 'accounts/edit', component: AccounteditComponent},
   ]
 }];
 
