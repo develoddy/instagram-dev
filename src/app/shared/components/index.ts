@@ -36,6 +36,13 @@ import { ProfilegridComponent } from "./main/profile/profilegrid/profilegrid.com
 import { ProfilereelsComponent } from "./main/profile/profilereels/profilereels.component";
 // -- Inport Profile End ---
 
+// --- Account Edit start ---
+import { EditsidebarComponent } from "./main/accountedit/editsidebar/editsidebar.component";
+import { EdittitleComponent } from "./main/accountedit/edittitle/edittitle.component";
+import { EditusernameComponent } from "./main/accountedit/editusername/editusername.component";
+import { EditformComponent } from "./main/accountedit/editform/editform.component";
+// --- Account Edit End ---
+
 // --- import Summary Start ---
 import { LinkprofileComponent } from "./main/summary/linkprofile/linkprofile.component";
 import { PrivacyComponent } from "./main/summary/privacy/privacy.component";
@@ -81,7 +88,11 @@ export const components : any[] = [
     ProfilegridComponent,
     ProfiletabsComponent,
     ProfilereelsComponent,
-    ShowModalSwipeHorizontalComponent
+    ShowModalSwipeHorizontalComponent,
+    EditsidebarComponent,
+    EdittitleComponent, 
+    EditusernameComponent, 
+    EditformComponent
 ];
 
 // --- Export feed start ---
@@ -128,6 +139,16 @@ export * from './main/nav/morenav/morenav.component';
 export * from './main/nav/sidebarsearch/sidebarsearch.component';
 export * from './main/nav/sidebarnotification/sidebarnotification.component';
 // --- Export Nav End ---
+
+
+// --- Export Edit Start ---
+//import { EditsidebarComponent } from "./main/accountedit/editsidebar/editsidebar.component";
+//import { EdittitleComponent } from "./main/accountedit/edittitle/edittitle.component";
+export * from './main/accountedit/editsidebar/editsidebar.component';
+export * from './main/accountedit/edittitle/edittitle.component';
+export * from './main/accountedit/editusername/editusername.component';
+export * from './main/accountedit/editform/editform.component';
+// --- Export Edit End ---
 
 // -- Utilidades start --
 export * from './util/over/display-profile/display-profile.component';
