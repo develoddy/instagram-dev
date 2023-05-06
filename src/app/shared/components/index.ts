@@ -59,6 +59,7 @@ import { OverlayComponent } from "./util/over/overlay/overlay.component";
 import { OptionPostComponent } from "./util/option-post/option-post.component";
 import { EmojisInputPostComponent } from "./util/emojis-input-post/emojis-input-post.component";
 import { ShowModalSwipeHorizontalComponent } from "./util/show-modal-swipe-horizontal/show-modal-swipe-horizontal.component";
+import { SpinnergeneralComponent } from "./util/spinnergeneral/spinnergeneral.component";
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -92,7 +93,8 @@ export const components : any[] = [
     EditsidebarComponent,
     EdittitleComponent, 
     EditusernameComponent, 
-    EditformComponent
+    EditformComponent,
+    SpinnergeneralComponent
 ];
 
 // --- Export feed start ---
@@ -140,10 +142,7 @@ export * from './main/nav/sidebarsearch/sidebarsearch.component';
 export * from './main/nav/sidebarnotification/sidebarnotification.component';
 // --- Export Nav End ---
 
-
 // --- Export Edit Start ---
-//import { EditsidebarComponent } from "./main/accountedit/editsidebar/editsidebar.component";
-//import { EdittitleComponent } from "./main/accountedit/edittitle/edittitle.component";
 export * from './main/accountedit/editsidebar/editsidebar.component';
 export * from './main/accountedit/edittitle/edittitle.component';
 export * from './main/accountedit/editusername/editusername.component';
@@ -156,4 +155,5 @@ export * from './util/over/overlay/overlay.component';
 export * from './util/option-post/option-post.component';
 export * from './util/emojis-input-post/emojis-input-post.component';
 export * from './util/show-modal-swipe-horizontal/show-modal-swipe-horizontal.component';
+export * from './util/spinnergeneral/spinnergeneral.component';
 // -- Utilidades end -

@@ -19,8 +19,7 @@ const routes: Routes = [{
     { path: 'explore', component: ExploreComponent},
     { path: 'reels/:id', component: ReelsComponent},
     { path: 'direct/inbox', component: DirectComponent},
-    {
-      path: ':username',
+    { path: ':username',
       component: PromainComponent,
       children: [{
         path: '', loadChildren: () => import('./components/profile/profile.module').then( (m) => m.ProfileModule )

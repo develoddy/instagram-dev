@@ -13,8 +13,10 @@ export class FiltroService {
   public top = 0;
   public left = 0;
   public swipeHorizontalPost: boolean;
+  public showSideSearch: boolean;
 
   constructor() { 
+    this.showSideSearch = false;
     this.optionPost = false;
     this.displayInfoProfile = false;
     this.emojisPost = false;

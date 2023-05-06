@@ -596,13 +596,11 @@ export class MainComponent implements OnInit /*AfterViewInit*/ {
             this.filter.mouseOverHideInfoProfile(hover);
       }
 
+ 
       public gotoProfile( username:string ) {
-            console.log("DEBUG: Main.component");
-            console.log(username);
-            alert("side")
-            
             this.username = username;
             this.router.navigate([this.username]);
+            this.displaySideSearch == true ? this.removeSideSearch(2) : this.addSideSearch(2);
       }
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.

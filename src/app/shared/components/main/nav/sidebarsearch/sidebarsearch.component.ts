@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { FiltroService } from '@data/services/api/filtro.service';
 
 @Component({
   selector: 'app-sidebarsearch',
@@ -7,15 +9,20 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SidebarsearchComponent implements OnInit {
  
-  @Output() usernameEvent = new EventEmitter();
+
   public isChangedBlock: number;
   @Input() data: string[] = ['eddy', 'jordan', 'paola', 'tessy', 'chocolate', 'jean', 'marlene', 'maria', 'josue', 'nicole', 'chingo', 'joaquin', 'adriano'];
+  @Output() usernameEvent = new EventEmitter();
+
+  constructor( private router: Router, private filter: FiltroService ){}
 
   ngOnInit() { 
       this.isChangedBlock = -1;
   }
 
   public gotoProfile( username:string ) {
+      console.log("DEBUG: Sidebar.component ; " + username);
+      //this.router.navigate([username]);
       this.usernameEvent.emit(username);
   }
 }

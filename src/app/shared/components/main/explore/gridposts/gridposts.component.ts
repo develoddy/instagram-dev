@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { FiltroService } from '@data/services/api/filtro.service';
 
 @Component({
   selector: 'app-gridposts',
@@ -10,7 +12,7 @@ export class GridpostsComponent implements OnInit {
   public infoPost : boolean;
   @Output() mouseOverEvent = new EventEmitter();
 
-  constructor() {
+  constructor(private filter: FiltroService, private router: Router) {
     this.infoPost = false;
   }
 
@@ -18,5 +20,10 @@ export class GridpostsComponent implements OnInit {
 
   public mouseInfoPost(hover:boolean){
     this.infoPost = hover;
+  }
+
+  public displayHorizontalWindowSwipePost(event: boolean) {
+    this.filter.displayHorizontalWindowSwipePost(event); // true
+    //this.router.navigate(["p/idxx"]);
   }
 }

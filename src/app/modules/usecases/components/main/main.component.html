@@ -454,7 +454,7 @@
                                                             </div>
                                                             <!-- Barra lateral de Búsqueda start -->
                                                                 <div class="x10l6tqk x1u3tz30 x1ja2u2z" #asSideSearch *ngIf="this.displaySideSearch" style="transform: translateX(0%);">
-                                                                    <app-sidebarsearch (usernameEvent)="this.gotoProfile($event)"></app-sidebarsearch>
+                                                                    <app-sidebarsearch></app-sidebarsearch>
                                                                 </div>
                                                             <!-- / Barra lateral de búsqueda end -->
         
@@ -963,7 +963,7 @@
                                                     </div>
                                                     <!-- Barra lateral de Búsqueda start -->
                                                         <div class="x10l6tqk x1u3tz30 x1ja2u2z" #asSideSearch *ngIf="this.displaySideSearch" style="transform: translateX(0%);">
-                                                            <app-sidebarsearch></app-sidebarsearch>
+                                                            <app-sidebarsearch (usernameEvent)="this.gotoProfile($event)" ></app-sidebarsearch>
                                                         </div>
                                                     <!-- / Barra lateral de búsqueda end -->
 

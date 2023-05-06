@@ -9,12 +9,10 @@ import { FiltroService } from '@data/services/api/filtro.service';
 })
 export class ShowModalSwipeHorizontalComponent {
 
-  constructor(private filter:FiltroService, private router: Router) {
-
-  }
+  constructor(private filter:FiltroService, private router: Router) {}
 
   public closeSwipePost(event: boolean) {
-    this.filter.displayHorizontalWindowSwipePost(event);
-    this.router.navigate(["/lujandev"]);
-}
+      this.filter.displayHorizontalWindowSwipePost(event);
+      this.router.navigate(["/lujandev"]);  
+  }
 }
