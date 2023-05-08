@@ -60,6 +60,8 @@ import { OptionPostComponent } from "./util/option-post/option-post.component";
 import { EmojisInputPostComponent } from "./util/emojis-input-post/emojis-input-post.component";
 import { ShowModalSwipeHorizontalComponent } from "./util/show-modal-swipe-horizontal/show-modal-swipe-horizontal.component";
 import { SpinnergeneralComponent } from "./util/spinnergeneral/spinnergeneral.component";
+import { ModalFollowersComponent } from "./util/modal-followers/modal-followers.component";
+import { ModalFollowingComponent } from "./util/modal-following/modal-following.component";
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -94,7 +96,9 @@ export const components : any[] = [
     EdittitleComponent, 
     EditusernameComponent, 
     EditformComponent,
-    SpinnergeneralComponent
+    SpinnergeneralComponent,
+    ModalFollowersComponent,
+    ModalFollowingComponent
 ];
 
 // --- Export feed start ---
@@ -156,4 +160,6 @@ export * from './util/option-post/option-post.component';
 export * from './util/emojis-input-post/emojis-input-post.component';
 export * from './util/show-modal-swipe-horizontal/show-modal-swipe-horizontal.component';
 export * from './util/spinnergeneral/spinnergeneral.component';
+export * from './util/modal-followers/modal-followers.component';
+export * from './util/modal-following/modal-following.component';
 // -- Utilidades end -

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild} from "@angular/core";
+import {AfterViewInit, Component, DoCheck, ElementRef, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild} from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Router } from "@angular/router";
 import { ScriptsService } from "@data/services/api/scripts.service";
@@ -11,8 +11,9 @@ import { FiltroService } from "@data/services/api/filtro.service";
       templateUrl: "./main.component.html",
       styleUrls: ["./main.component.css"],
 })
-export class MainComponent implements OnInit /*AfterViewInit*/ {
-
+export class MainComponent implements OnInit, DoCheck  /*AfterViewInit*/ {
+      
+      @ViewChild("asMain") asMain: ElementRef;
       @ViewChild("asParent") asParent: ElementRef;
       @ViewChild("asIx9f619") asIx9f619: ElementRef;
       @ViewChild("asIxvb8j5") asIxvb8j5: ElementRef;
@@ -64,6 +65,7 @@ export class MainComponent implements OnInit /*AfterViewInit*/ {
       public overOptionNavMore: boolean;
       public parentMain: boolean;
       public username: string = '';
+      public followers: boolean = false;
 
       constructor(
             public sanitizer: DomSanitizer, 
@@ -84,16 +86,34 @@ export class MainComponent implements OnInit /*AfterViewInit*/ {
             this.overOptionNavMore = false;
             this.parentMain = false;
             this.loadWindows();
+
+            //this.followers = this.filter.showFollowers;
+            //console.log(this.followers);
+            
+      }
+      ngDoCheck() {
+            //this.followers = this.filter.showFollowers;
+            const followers = this.filter.showFollowers;
+            if( followers ) {
+                  /*const asMain = this.asMain.nativeElement;
+                  const div: HTMLParagraphElement = this.render2.createElement('div');
+                  div.innerHTML = "add new";
+                  this.render2.appendChild(asMain, div);
+                  */
+                  console.log("DEBUG: ngDoCheck: " + followers);
+            }
       }
 
       ngAfterViewInit() {
-            
             this.setupAfterView();
             this.removeSidebarByGlobalClick();
       }
 
       ngOnInit() {
             this.setupView();
+            
+            
+            
       }
 
       private setupView() {
@@ -602,6 +622,8 @@ export class MainComponent implements OnInit /*AfterViewInit*/ {
             this.router.navigate([this.username]);
             this.displaySideSearch == true ? this.removeSideSearch(2) : this.addSideSearch(2);
       }
+
+      
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.
       ngOnDestroy() {

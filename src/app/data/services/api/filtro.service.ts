@@ -12,7 +12,8 @@ export class FiltroService {
   public clientY = 0;
   public top = 0;
   public left = 0;
-  public swipeHorizontalPost: boolean;
+  public showSwipeHorizontalPost: boolean;
+  public showFollowers: boolean;
   public showSideSearch: boolean;
 
   constructor() { 
@@ -20,7 +21,8 @@ export class FiltroService {
       this.optionPost = false;
       this.displayInfoProfile = false;
       this.emojisPost = false;
-      this.swipeHorizontalPost = false;
+      this.showSwipeHorizontalPost = false;
+      this.showFollowers = false;
   }
 
   /**
@@ -71,7 +73,7 @@ export class FiltroService {
    */
   public currentRoute: string;
   displayHorizontalWindowSwipePost(event:boolean, currentRoute: string) {
-      this.swipeHorizontalPost = event;
+      this.showSwipeHorizontalPost = event;
       this.currentRoute = currentRoute;
       if ( event ) {
           var stateObj = { foo: "bar" };
@@ -80,5 +82,9 @@ export class FiltroService {
         var stateObj = { foo: "bar" };
           history.pushState(stateObj, "page 2", this.currentRoute);
       }
+  }
+
+  public showModalFollowers(event: boolean) {
+    this.showFollowers = event;
   }
 }
