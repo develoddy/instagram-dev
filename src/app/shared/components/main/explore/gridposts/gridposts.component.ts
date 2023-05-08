@@ -9,32 +9,31 @@ import { FiltroService } from '@data/services/api/filtro.service';
 })
 export class GridpostsComponent implements OnInit {
   
-  currentRoute: string;
-  public infoPost : boolean;
-  @Output() mouseOverEvent = new EventEmitter();
+    currentRoute: string;
+    public infoPost : boolean;
+    @Output() mouseOverEvent = new EventEmitter();
 
-  constructor(
-      private filter: FiltroService, 
-      private router: Router
-  ) {
-      this.infoPost = false;
-      this.currentRoute = "Demo";
-      this.router.events.subscribe( (event: any) => {
-          if ( event instanceof NavigationEnd ) {
-              this.currentRoute = event.url;
-          }
-      });
+    constructor(
+        private filter: FiltroService, 
+        private router: Router
+    ) {
+        this.infoPost = false;
+        this.currentRoute = "Demo";
+        this.router.events.subscribe( (event: any) => {
+            if ( event instanceof NavigationEnd ) {
+                this.currentRoute = event.url;
+            }
+        });
+        this.currentRoute = document.location.pathname;
+    }
 
-      this.currentRoute = document.location.pathname;
-  }
+    ngOnInit() {}
 
-  ngOnInit() {}
+    public mouseInfoPost(hover:boolean){
+        this.infoPost = hover;
+    }
 
-  public mouseInfoPost(hover:boolean){
-      this.infoPost = hover;
-  }
-
-  public displayHorizontalWindowSwipePost(event: boolean, currentRoute: string) {
-      this.filter.displayHorizontalWindowSwipePost(event, currentRoute); // true
-  }
+    public displayHorizontalWindowSwipePost(event: boolean, currentRoute: string) {
+        this.filter.displayHorizontalWindowSwipePost(event, currentRoute); // true
+    }
 }

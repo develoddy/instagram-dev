@@ -62,6 +62,8 @@ import { ShowModalSwipeHorizontalComponent } from "./util/show-modal-swipe-horiz
 import { SpinnergeneralComponent } from "./util/spinnergeneral/spinnergeneral.component";
 import { ModalFollowersComponent } from "./util/modal-followers/modal-followers.component";
 import { ModalFollowingComponent } from "./util/modal-following/modal-following.component";
+import { ModalLikesComponent } from "./util/modal-likes/modal-likes.component";
+import { ModalSharepostComponent } from "./util/modal-sharepost/modal-sharepost.component";
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -98,7 +100,9 @@ export const components : any[] = [
     EditformComponent,
     SpinnergeneralComponent,
     ModalFollowersComponent,
-    ModalFollowingComponent
+    ModalFollowingComponent,
+    ModalLikesComponent,
+    ModalSharepostComponent
 ];
 
 // --- Export feed start ---
@@ -162,4 +166,6 @@ export * from './util/show-modal-swipe-horizontal/show-modal-swipe-horizontal.co
 export * from './util/spinnergeneral/spinnergeneral.component';
 export * from './util/modal-followers/modal-followers.component';
 export * from './util/modal-following/modal-following.component';
+export * from './util/modal-likes/modal-likes.component';
+export * from './util/modal-sharepost/modal-sharepost.component';
 // -- Utilidades end -

@@ -4776,3 +4776,133 @@ textarea, .inputtext, .inputpassword {
   overflow-y: scroll;
   position: relative;
 }
+
+/* CSS Modal Shared Post */
+._aag- {
+  align-items: stretch;
+  border: 0;
+  border-bottom: 1px solid rgb(var(--ig-separator));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  max-height: 50%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+._aa2s {
+  align-items: stretch;
+  border: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  max-height: 250px;
+  padding: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+._aad8 {
+  white-space: pre;
+}
+
+._aa2u {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  word-wrap: normal;
+  padding: 0 8px;
+  width: calc(100% - 80px);
+}
+
+._aag- input {
+  border: none;
+}
+._aaid {
+  background: transparent;
+}
+._aaie {
+  border: 1px solid rgb(var(--ig-separator));
+  border-radius: var(--input-border-radius);
+  color: rgb(var(--ig-primary-text));
+  flex-grow: 1;
+  font-size: var(--system-14-font-size);
+  line-height: 30px;
+  margin: 0;
+  overflow: visible;
+  padding: 4px 12px;
+  text-align: left;
+}
+
+._aah0 {
+  display: flex;
+  height: 64px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  visibility: visible;
+}
+._aaij {
+  padding-left: 20px;
+}
+._aaij, ._aaip {
+  border: none;
+}
+._ag7n, ._ag7n * {
+  outline: none!important;
+}
+.x1m7g9aj {
+  width: 548px;
+}
+._aagz {
+  align-items: stretch;
+  border: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 7px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 7px;
+  position: relative;
+  vertical-align: baseline;
+  white-space: pre;
+}
+._aah2 {
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: padding-top 200ms;
+}
+.xyi19xy {
+  border-top-left-radius: 12px;
+}
+.xtf3nb5 {
+  border-bottom-right-radius: 12px;
+}
+.xk5f4mz {
+  background-color: rgb(var(--web-secondary-action));
+}
+.x1pc53ja {
+  border-bottom-left-radius: 12px;
+}
+.x1ccrb07 {
+  border-top-right-radius: 12px;
+}

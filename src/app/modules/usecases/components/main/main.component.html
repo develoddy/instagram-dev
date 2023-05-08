@@ -1,7 +1,7 @@
 <div id="mount_0_0_9V">
     <div>
         <div>
-            <ng-container [ngSwitch]="this.filter.showFollowers || this.filter.showFollowing  ||  this.filter.showSwipeHorizontalPost">
+            <ng-container [ngSwitch]="this.filter.showFollowers || this.filter.showFollowing  ||  this.filter.showSwipeHorizontalPost || this.filter.showLikes || this.filter.showSharepost">
                 <ng-container *ngSwitchCase="true">
                     <div  class="x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck">
                         <div [ngClass]="this.filter.optionPost ? 'x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck' : 'x9f619 x1n2onr6 x1ja2u2z'" >
@@ -1066,7 +1066,27 @@
                         </ng-container>
                     </div>
                 </div>
-            <!-- Show modal following / seguidores end -->
+            <!-- / Show modal following / seguidores end -->
+
+            <!-- Show modal likes start -->
+            <div>
+                <div>
+                    <ng-container *ngIf="this.filter.showLikes">
+                        <app-modal-likes></app-modal-likes>
+                    </ng-container>
+                </div>
+            </div>
+            <!-- / Show modal likes end -->
+
+            <!-- Show modal shared posts start -->
+            <div>
+                <div>
+                    <ng-container *ngIf="this.filter.showSharepost">
+                        <app-modal-sharepost></app-modal-sharepost>
+                    </ng-container>
+                </div>
+            </div>
+            <!-- / Show modal shared posts end -->
 
             <!-- Emojis start -->
                 <div *ngIf="this.filter.emojisPost">

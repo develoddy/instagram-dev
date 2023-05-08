@@ -21,8 +21,6 @@ export class SidebarsearchComponent implements OnInit {
   }
 
   public gotoProfile( username:string ) {
-      console.log("DEBUG: Sidebar.component ; " + username);
-      //this.router.navigate([username]);
       this.usernameEvent.emit(username);
   }
 }
