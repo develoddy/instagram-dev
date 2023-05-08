@@ -12,18 +12,15 @@ export class PromainComponent implements OnInit {
   @Input() currentRoute: string;
 
   constructor( private router: Router, private route: ActivatedRoute, public filter: FiltroService ) {
-    /*this.currentRoute = "Demo";
-    this.router.events.subscribe( (event: any) => {
-      if ( event instanceof NavigationEnd ) {
-          this.currentRoute = event.url;
-          console.log(event);
-      }
-    });*/
-    
-      //console.log(document.location.href);
+      /*this.currentRoute = "Demo";
+      this.router.events.subscribe( (event: any) => {
+        if ( event instanceof NavigationEnd ) {
+            this.currentRoute = event.url;
+            console.log(event);
+        }
+      });*/
       this.currentRoute = document.location.pathname;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

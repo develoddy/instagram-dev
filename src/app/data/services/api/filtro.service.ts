@@ -16,11 +16,11 @@ export class FiltroService {
   public showSideSearch: boolean;
 
   constructor() { 
-    this.showSideSearch = false;
-    this.optionPost = false;
-    this.displayInfoProfile = false;
-    this.emojisPost = false;
-    this.swipeHorizontalPost = false;
+      this.showSideSearch = false;
+      this.optionPost = false;
+      this.displayInfoProfile = false;
+      this.emojisPost = false;
+      this.swipeHorizontalPost = false;
   }
 
   /**
@@ -29,7 +29,7 @@ export class FiltroService {
    * Cuando el usuario haga click, se mostrará las opciones.
    */
   displayOptionPost(option:boolean) { 
-    this.optionPost = option;
+      this.optionPost = option;
   }
 
   /**
@@ -39,16 +39,16 @@ export class FiltroService {
    * @param event 
    */
   mouseOverShowInfoProfile(event:any) {
-    const ref = event.ref.nativeElement;
-    const coords = ref.getBoundingClientRect();
-    this.clientX = coords.left;
-    this.clientY = ( scrollY + coords.bottom );
-    this.displayInfoProfile = event.hover;
+      const ref = event.ref.nativeElement;
+      const coords = ref.getBoundingClientRect();
+      this.clientX = coords.left;
+      this.clientY = ( scrollY + coords.bottom );
+      this.displayInfoProfile = event.hover;
   }
 
   // Ocultar la ventana de información de perfil.
   mouseOverHideInfoProfile(hover:boolean) {
-    this.displayInfoProfile = hover;
+      this.displayInfoProfile = hover;
   }
 
   /**
@@ -57,11 +57,11 @@ export class FiltroService {
    * @param event 
    */
   displayEmojisPost(event: any) {
-    const ref = event.ref.nativeElement;
-    const coords = ref.getBoundingClientRect();
-    this.top = ( coords.top + scrollY ) + 23; 
-    this.left = ( coords.left - 14 ); 
-    this.emojisPost = event.click;
+      const ref = event.ref.nativeElement;
+      const coords = ref.getBoundingClientRect();
+      this.top = ( coords.top + scrollY ) + 23; 
+      this.left = ( coords.left - 14 ); 
+      this.emojisPost = event.click;
   }
 
   /**
@@ -69,7 +69,16 @@ export class FiltroService {
    * que hay en el perfil actual.
    * @param event 
    */
-  displayHorizontalWindowSwipePost(event:boolean) {
-    this.swipeHorizontalPost = event;
+  public currentRoute: string;
+  displayHorizontalWindowSwipePost(event:boolean, currentRoute: string) {
+      this.swipeHorizontalPost = event;
+      this.currentRoute = currentRoute;
+      if ( event ) {
+          var stateObj = { foo: "bar" };
+          history.pushState(stateObj, "page 2", "p/idxx");
+      } else {
+        var stateObj = { foo: "bar" };
+          history.pushState(stateObj, "page 2", this.currentRoute);
+      }
   }
 }

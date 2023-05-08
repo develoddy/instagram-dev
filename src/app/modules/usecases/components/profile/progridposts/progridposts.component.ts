@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { FiltroService } from '@data/services/api/filtro.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { FiltroService } from '@data/services/api/filtro.service';
 })
 export class ProgridpostsComponent implements OnInit {
 
+  currentRoute: string;
   public infoPost : boolean;
   @Output() mouseOverEvent = new EventEmitter();
 
@@ -17,6 +18,15 @@ export class ProgridpostsComponent implements OnInit {
       private router: Router
   ) {
       this.infoPost = false;
+
+      this.currentRoute = "Demo";
+      this.router.events.subscribe( (event: any) => {
+          if ( event instanceof NavigationEnd ) {
+              this.currentRoute = event.url;
+          }
+      });
+
+      this.currentRoute = document.location.pathname;
   }
 
   ngOnInit() {}
@@ -25,8 +35,7 @@ export class ProgridpostsComponent implements OnInit {
       this.infoPost = hover;
   }
 
-  public displayHorizontalWindowSwipePost(event: boolean) {
-      this.filter.displayHorizontalWindowSwipePost(event); // true
-      this.router.navigate(["p/idxx"]);
+  public displayHorizontalWindowSwipePost(event: boolean, currentRoute: string) {
+      this.filter.displayHorizontalWindowSwipePost(event, currentRoute); // true
   }
 }
