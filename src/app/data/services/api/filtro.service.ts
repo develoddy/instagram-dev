@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class FiltroService {
 
+  public option: string = '';
+
   public optionPost: boolean;
   public displayInfoProfile: boolean;
   public emojisPost:boolean;
@@ -14,6 +16,7 @@ export class FiltroService {
   public left = 0;
   public showSwipeHorizontalPost: boolean;
   public showFollowers: boolean;
+  public showFollowing: boolean;
   public showSideSearch: boolean;
 
   constructor() { 
@@ -23,6 +26,7 @@ export class FiltroService {
       this.emojisPost = false;
       this.showSwipeHorizontalPost = false;
       this.showFollowers = false;
+      this.showFollowing = false;
   }
 
   /**
@@ -74,6 +78,7 @@ export class FiltroService {
   public currentRoute: string;
   displayHorizontalWindowSwipePost(event:boolean, currentRoute: string) {
       this.showSwipeHorizontalPost = event;
+      this.option = 'modalSwipePosts'
       this.currentRoute = currentRoute;
       if ( event ) {
           var stateObj = { foo: "bar" };
@@ -84,7 +89,5 @@ export class FiltroService {
       }
   }
 
-  public showModalFollowers(event: boolean) {
-    this.showFollowers = event;
-  }
+ 
 }

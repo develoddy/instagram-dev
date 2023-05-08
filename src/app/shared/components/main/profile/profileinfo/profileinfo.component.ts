@@ -8,10 +8,6 @@ import { FiltroService } from '@data/services/api/filtro.service';
 })
 export class ProfileinfoComponent {
 
-  constructor( private filter : FiltroService ) {}
-
-  public showModalFollower(event:boolean) {
-    this.filter.showModalFollowers(event);
-  }
+  constructor( public filter : FiltroService ) {}
 
 }
