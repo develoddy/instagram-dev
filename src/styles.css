@@ -5153,3 +5153,34 @@ textarea, .inputtext, .inputpassword {
   margin-right: 16px;
 }
 
+.xovmsh1 {
+  border-left: 2px solid rgb(var(--ig-primary-text));
+}
+
+.x1p0a6n2 {
+  border-right: 2px solid rgb(var(--ig-primary-text));
+}
+
+.xtvx9pb {
+  border-top: 2px solid rgb(var(--ig-primary-text));
+}
+
+.x1v2ziax {
+  border-bottom: 2px solid rgb(var(--ig-primary-text));
+}
+
+.x1nrll8i {
+  left: 50%;
+}
+.xwa60dl {
+  top: 50%;
+}
+.xgd8bvy {
+  width: 28px;
+}
+.x1fgtraw {
+  height: 28px;
+}
+.x11lhmoz {
+  transform: translate(-50%,-50%);
+}

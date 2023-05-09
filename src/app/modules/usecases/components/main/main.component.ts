@@ -65,6 +65,16 @@ export class MainComponent implements OnInit {
       public parentMain: boolean;
       public username: string = '';
 
+      public home: boolean;
+      public search: boolean;
+      public explore: boolean;
+      public reels: boolean;
+      public message: boolean;
+      public notification: boolean;
+      public create: boolean;
+      public profile: boolean;
+      public more: boolean;
+
       constructor(
             public sanitizer: DomSanitizer, 
             public scripts: ScriptsService, 
@@ -83,6 +93,16 @@ export class MainComponent implements OnInit {
             this.overOptionNavProfile = false;
             this.overOptionNavMore = false;
             this.parentMain = false;
+            
+            this.home = false;
+            this.search = false;
+            this.explore = false;
+            this.reels = false;
+            this.message = false;
+            this.notification = false;
+            this.create = false;
+            this.profile = false;
+            this.more = false;
             this.loadWindows();
             
       }
@@ -390,6 +410,7 @@ export class MainComponent implements OnInit {
 
       // Agrega o borra la barra lateral de la búsqueda en el Nav.
       public addOrRemoveSideSearchWindow() {
+            this.search = !this.search;
             this.displaySideSearch == false ? this.addSideSearch(2) : this.removeSideSearch(2);
             // Se comprueba si está abierto el elemento Show More.
             if( this.displayShowMore ) {
@@ -487,6 +508,7 @@ export class MainComponent implements OnInit {
       public clientX = 0;
       public clientY = 0;
       public addOrRemoveMoreNav() {
+            this.more = !this.more;
             const asIxl5mz7h = this.asIxl5mz7h.nativeElement;
             const coords = asIxl5mz7h.getBoundingClientRect();
             this.clientX = coords.left;
@@ -535,7 +557,7 @@ export class MainComponent implements OnInit {
                               "transform",
                               "translateX(0px)"
                         );
-                        
+                        this.home = !this.home;
                         this.displaySideSearch = false;
                         this.displaySideNotification = false;
                         if (window.innerWidth <= 767) {
