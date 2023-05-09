@@ -47,7 +47,32 @@
                                                     </div>
                                                     <div class="_aa2u">
                                                         <!-- Dinamica start cuando se selecciona el radio a true -->
-                                                            <div class="x9f619 xk5f4mz x78zum5 xyi19xy x1ccrb07 xtf3nb5 x1pc53ja x1gslohp xw3qccf x12nagc xsgj6o6 xn6708d x1ye3gou x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x1qjc9v5 x1oa3qoh xl56j7k" style="height: 26px;">
+                                                        <ng-container *ngIf="this.obj_usersSelected != null ">
+                                                            <ng-container *ngFor="let item of this.obj_usersSelected; index as i">
+                                                                <div class="x9f619 xk5f4mz x78zum5 xyi19xy x1ccrb07 xtf3nb5 x1pc53ja x1gslohp xw3qccf x12nagc xsgj6o6 xn6708d x1ye3gou x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x1qjc9v5 x1oa3qoh xl56j7k" style="height: 26px;">
+                                                                    <div
+                                                                        class="x1i10hfl xjqpnuy xa49m3k xqeqjp1 x2hbi6w xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1q0g3np x1lku1pv x1a2a7pz x6s0dn4 xjyslct x1ejq31n xd10rxx x1sy0etr x17r0tee x9f619 x1ypdohk x1i0vuye xwhw2v2 xl56j7k x17ydfre x1f6kntn x2b8uid xlyipyv x87ps6o x14atkfc x1d5wrs8 x972fbf xcfux6l x1qhh985 xm0m39n xm3z3ea x1x8b98j x131883w x16mih1h xt7dq6l xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 xjbqb8w x1n5bzlp x173jzuc x1yc6y37 x3nfvp2"
+                                                                        role="button"
+                                                                        tabindex="0"
+                                                                    >
+                                                                        {{ item.username }}
+                                                                    </div>
+                                                                    <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1i64zmx x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh xl56j7k">
+                                                                        <button class="_abl- _abm2" type="button" (click)="this.pop(item.id)">
+                                                                            <div class="_abm0">
+                                                                                <svg aria-label="Eliminar artículo" class="x1lliihq x1n2onr6" color="rgb(0, 149, 246)" fill="rgb(0, 149, 246)" height="12" role="img" viewBox="0 0 24 24" width="12">
+                                                                                    <title>Eliminar artículo</title>
+                                                                                    <polyline fill="none" points="20.643 3.357 12 12 3.353 20.647" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+                                                                                    <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" x1="20.649" x2="3.354" y1="20.649" y2="3.354"></line>
+                                                                                </svg>
+                                                                            </div>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </ng-container>
+                                                        </ng-container>
+                                                        
+                                                            <!-- <div class="x9f619 xk5f4mz x78zum5 xyi19xy x1ccrb07 xtf3nb5 x1pc53ja x1gslohp xw3qccf x12nagc xsgj6o6 xn6708d x1ye3gou x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x1qjc9v5 x1oa3qoh xl56j7k" style="height: 26px;">
                                                                 <div
                                                                     class="x1i10hfl xjqpnuy xa49m3k xqeqjp1 x2hbi6w xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1q0g3np x1lku1pv x1a2a7pz x6s0dn4 xjyslct x1ejq31n xd10rxx x1sy0etr x17r0tee x9f619 x1ypdohk x1i0vuye xwhw2v2 xl56j7k x17ydfre x1f6kntn x2b8uid xlyipyv x87ps6o x14atkfc x1d5wrs8 x972fbf xcfux6l x1qhh985 xm0m39n xm3z3ea x1x8b98j x131883w x16mih1h xt7dq6l xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 xjbqb8w x1n5bzlp x173jzuc x1yc6y37 x3nfvp2"
                                                                     role="button"
@@ -87,7 +112,7 @@
                                                                         </div>
                                                                     </button>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                         
                                                         <!-- / Dinamica end -->
                                                         <input autocomplete="off" class="_aaie _aaid _ag7n" dir="" placeholder="Busca..." spellcheck="false" type="text" value="" name="queryBox" />
@@ -105,17 +130,18 @@
                                                     </span>
                                                 </div>
 
-                                                <ng-container *ngFor="let item of this.data; let i = index">
+                                                <ng-container *ngFor="let item of this.data; index as i; count as c;">
                                                     <div (mouseover)="isChangedBlock = i" (mouseout)="isChangedBlock = -1" [ngClass]="isChangedBlock === i ? '_abn_' : '' "
                                                         class="x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1q0g3np x87ps6o x1lku1pv x1a2a7pz xh8yej3 x193iq5w x1lliihq x1dm5mii x16mil14 xiojian x1yutycm"
                                                         role="button"
                                                         tabindex="0"
                                                     >
                                                         <div
+                                                            (click)="selectUser(i)"
                                                             class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1pi30zi x1swvt13 xwib8y2 x1y1aw1k x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1"
                                                         >
                                                             <div class="x9f619 x1n2onr6 x1ja2u2z x1qjc9v5 x78zum5 xdt5ytf x1iyjqo2 xl56j7k xeuugli">
-                                                                <div class="x9f619 x1n2onr6 x1ja2u2z x78zum5 x2lah0s x1qughib x6s0dn4 xozqiw3 x1q0g3np">
+                                                                <div class="x9f619 x1n2onr6 x1ja2u2z x78zum5 x2lah0s x1qughib x6s0dn4 xozqiw3 x1q0g3np" >
 
                                                                     <div class="x9f619 x1n2onr6 x1ja2u2z xdt5ytf x2lah0s x193iq5w xeuugli xamitd3 x78zum5">
                                                                         <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh xq8finb x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
@@ -130,7 +156,7 @@
                                                                                     class="x6umtig x1b1mbwd xaqea5y xav7gou xk390pu x5yr21d xpdipgo xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x11njtxf xh8yej3"
                                                                                     crossorigin="anonymous"
                                                                                     draggable="false"
-                                                                                    src="https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                                                                                    src="{{ item.profileUrl }}"
                                                                                 />
                                                                             </span>
                                                                         </div>
@@ -143,13 +169,13 @@
                                                                                     class="x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xvs91rp x1s688f x5n08af x10wh9bi x1wdrske x8viiok x18hxmgj"
                                                                                     style="line-height: var(--base-line-clamp-line-height); --base-line-clamp-line-height: 18px;"
                                                                                 >
-                                                                                    <span class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft">rebecavasquez2373</span>
+                                                                                    <span class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft">{{ item.username }}</span>
                                                                                 </span>
                                                                                 <span
                                                                                     class="x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xvs91rp xo1l8bm x1roi4f4 x10wh9bi x1wdrske x8viiok x18hxmgj"
                                                                                     style="line-height: var(--base-line-clamp-line-height); --base-line-clamp-line-height: 18px;"
                                                                                 >
-                                                                                    <span class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft">Rebeca Marroquín</span>
+                                                                                    <span class="x1lliihq x193iq5w x6ikm8r x10wlt62 xlyipyv xuxw1ft">{{ item.fullname }} - {{ item.checked }} </span>
                                                                                 </span>
                                                                             </div>
                                                                         </div>
@@ -157,35 +183,24 @@
 
                                                                     <div class="x9f619 x1n2onr6 x1ja2u2z xdt5ytf x2lah0s x193iq5w xeuugli xamitd3 x78zum5">
                                                                         <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x16n37ib x1uhb9sk x1plvlek xryxfnj xs83m0k x1c4vz4f x1q0g3np xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
-                                                                            <button class="_abl-" type="button"  (click)="this.selectUser(i)">
+                                                                            <button class="_abl-" type="button">
                                                                                 <div class="_abm0">
-
-                                                                                    <ng-container >
+                                                                                    <ng-container *ngIf="!item.checked">
                                                                                         <svg
-                                                                                        aria-label="Marcar o desmarcar"
-                                                                                        class="x1lliihq x1n2onr6"
-                                                                                        color="rgb(38, 38, 38)"
-                                                                                        fill="rgb(38, 38, 38)"
-                                                                                        height="24"
-                                                                                        role="img"
-                                                                                        viewBox="0 0 24 24"
-                                                                                        width="24"
+                                                                                            aria-label="Marcar o desmarcar"
+                                                                                            class="x1lliihq x1n2onr6"
+                                                                                            color="rgb(38, 38, 38)"
+                                                                                            fill="rgb(38, 38, 38)"
+                                                                                            height="24"
+                                                                                            role="img"
+                                                                                            viewBox="0 0 24 24"
+                                                                                            width="24"
                                                                                         >
                                                                                             <title>Marcar o desmarcar</title>
                                                                                             <circle cx="12.008" cy="12" fill="none" r="11.25" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"></circle>
                                                                                         </svg>
                                                                                     </ng-container>
-
-                                                                                    <!-- <ng-template #active>
-                                                                                        <svg *ngIf="this.isCheck" aria-label="Marcar o desmarcar" class="x1lliihq x1n2onr6" color="rgb(0, 149, 246)" fill="rgb(0, 149, 246)" height="24" role="img" viewBox="0 0 24 24" width="24">
-                                                                                            <title>Marcar o desmarcar</title>
-                                                                                            <path d="M12.001.504a11.5 11.5 0 1 0 11.5 11.5 11.513 11.513 0 0 0-11.5-11.5Zm5.706 9.21-6.5 6.495a1 1 0 0 1-1.414-.001l-3.5-3.503a1 1 0 1 1 1.414-1.414l2.794 2.796L16.293 8.3a1 1 0 0 1 1.414 1.415Z"></path>
-                                                                                        </svg>
-                                                                                    </ng-template> -->
-                                                                                    
-
-                                                                                    <!-- Dinamic: icon svg check -->
-                                                                                    <ng-container *ngIf="activeIndex === i">
+                                                                                    <ng-container *ngIf="item.checked">
                                                                                         <svg aria-label="Marcar o desmarcar" class="x1lliihq x1n2onr6" color="rgb(0, 149, 246)" fill="rgb(0, 149, 246)" height="24" role="img" viewBox="0 0 24 24" width="24">
                                                                                             <title>Marcar o desmarcar</title>
                                                                                             <path d="M12.001.504a11.5 11.5 0 1 0 11.5 11.5 11.513 11.513 0 0 0-11.5-11.5Zm5.706 9.21-6.5 6.495a1 1 0 0 1-1.414-.001l-3.5-3.503a1 1 0 1 1 1.414-1.414l2.794 2.796L16.293 8.3a1 1 0 0 1 1.414 1.415Z"></path>
@@ -207,7 +222,7 @@
                                             <hr class="x11mr3az x972fbf xcfux6l x1qhh985 xm0m39n xjm9jq1 xdj266r x11i5rnm xat24cr x1mh8g0r xh8yej3" />
                                             
                                             <!-- Dinamic: Caja de escribir un comentario start -->
-                                            <div class="_aag_ _aah1" *ngIf="boxMessage">
+                                            <div class="_aag_ _aah1" *ngIf="this.isCheckInputMessage">
                                                 <input class="_aaie _aaid _ag7n _aaij" dir="" placeholder="Escribe un mensaje…" spellcheck="true" type="text" value="" name="shareCommentText" style="height: 42px;" />
                                             </div>
                                             <!-- Caja de escribir un comentario end -->
