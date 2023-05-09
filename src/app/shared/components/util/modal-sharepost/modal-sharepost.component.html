@@ -58,7 +58,7 @@
                                                                         {{ item.username }}
                                                                     </div>
                                                                     <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1i64zmx x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh xl56j7k">
-                                                                        <button class="_abl- _abm2" type="button" (click)="this.pop(item.id)">
+                                                                        <button class="_abl- _abm2" type="button" (click)="this.popUsername(item.id, 'close')">
                                                                             <div class="_abm0">
                                                                                 <svg aria-label="Eliminar artículo" class="x1lliihq x1n2onr6" color="rgb(0, 149, 246)" fill="rgb(0, 149, 246)" height="12" role="img" viewBox="0 0 24 24" width="12">
                                                                                     <title>Eliminar artículo</title>
@@ -222,13 +222,14 @@
                                             <hr class="x11mr3az x972fbf xcfux6l x1qhh985 xm0m39n xjm9jq1 xdj266r x11i5rnm xat24cr x1mh8g0r xh8yej3" />
                                             
                                             <!-- Dinamic: Caja de escribir un comentario start -->
-                                            <div class="_aag_ _aah1" *ngIf="this.isCheckInputMessage">
+                                            <!-- _aag_ _aah1 -->
+                                            <div class="_aag_ _aah0" *ngIf="this.isCheckInputMessage">
                                                 <input class="_aaie _aaid _ag7n _aaij" dir="" placeholder="Escribe un mensaje…" spellcheck="true" type="text" value="" name="shareCommentText" style="height: 42px;" />
                                             </div>
                                             <!-- Caja de escribir un comentario end -->
-
+                                            <!-- _aah2 -->
                                             <div class="_aah2 _aah3">
-                                                <button class="_acan _acap _acaq _acas _aj1-" disabled="" type="button"><div class="_aagz">Enviar</div></button>
+                                                <button class="_acan _acap _acaq _acas _aj1-"  [disabled]="!this.isCheckInputMessage"  type="button"><div class="_aagz">Enviar</div></button>
                                             </div>
                                         </div>
                                     </div>

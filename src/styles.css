@@ -4906,3 +4906,17 @@ textarea, .inputtext, .inputpassword {
 .x1ccrb07 {
   border-top-right-radius: 12px;
 }
+
+._aah1 {
+  height: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  visibility: hidden;
+}
+._aag_ {
+  transition: height 200ms, padding-bottom 200ms, padding-top 200ms;
+}
+
+._aah3 {
+  padding-top: 16px;
+}
