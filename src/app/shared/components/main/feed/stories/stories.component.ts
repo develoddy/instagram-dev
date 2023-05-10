@@ -40,9 +40,9 @@ export const fadeAnimation = trigger('fadeAnimation', [
 
 
 export interface Stories {
-  id: number;
-  username: string;
-  url: string
+    id: number;
+    username: string;
+    url: string
 }
 
 @Component({
@@ -53,8 +53,6 @@ export interface Stories {
 })
 
 export class StoriesComponent implements OnInit {
-
-    public clientX = 0;
 
     /** The total number of records */
     @Input()
@@ -73,6 +71,8 @@ export class StoriesComponent implements OnInit {
     maxSize = 2;
 
     totalPages: any[] = [];
+
+    public clientX = 0;
    
     @Input() data = [
       {id: 0, url: 'https://images.unsplash.com/photo-1500042600524-37ecb686c775?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29sb3Jlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60', username: 'eddy'},
@@ -83,7 +83,6 @@ export class StoriesComponent implements OnInit {
       {id: 5, url: 'https://images.unsplash.com/photo-1579773395269-fe2be5144c29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fGNvbG9yZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', username: 'teresa'},
       {id: 6, url: 'https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGNvbG9yZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', username: 'maria'},
       {id: 7, url: 'https://images.unsplash.com/photo-1557682268-e3955ed5d83f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fGNvbG9yZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', username: 'marlene'},
-      // ----- 8 item -----
       {id: 8, url: 'https://images.unsplash.com/photo-1527769929977-c341ee9f2033?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTF8fGNvbG9yZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', username: 'vivi'},
       {id: 9, url: 'https://images.unsplash.com/photo-1525268771113-32d9e9021a97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjJ8fGNvbG9yZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', username: 'dayana'},
       {id: 10, url: 'https://images.unsplash.com/photo-1498081959737-f3ba1af08103?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fGNvbG9yZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60', username: 'luna'},
@@ -92,20 +91,15 @@ export class StoriesComponent implements OnInit {
       {id: 13, url: 'https://images.unsplash.com/photo-1623949366895-4d7e63f08037?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI0fHxjb2xvcmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', username: 'pepita'},
       {id: 14, url: 'https://images.unsplash.com/photo-1529426301869-82f4d98d3d81?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTI3fHxjb2xvcmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', username: 'cielo'},
       {id: 15, url: 'https://images.unsplash.com/photo-1594848328162-90258f635e2e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTM3fHxjb2xvcmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', username: 'rosa'},
-
-
       {id: 16, url: 'https://images.unsplash.com/photo-1545599770-28d3851b7829?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQyfHxjb2xvcmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', username: 'arancha'},
       {id: 17, url: 'https://images.unsplash.com/photo-1557180295-76eee20ae8aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTU1fHxjb2xvcmVzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60', username: 'tom'},
-      
     ];
 
     @Input() stories: Stories[] = [];
-
     public translateX:number;
     public btnLeft: boolean;
     public btnRight: boolean;
     public netxRightStories = false;
-
     public overflowXHidden:string;
 
     constructor() {
@@ -115,22 +109,17 @@ export class StoriesComponent implements OnInit {
     }
 
     ngOnInit() {
-      console.log("DEBUG: ngOnInit:::: this.pageSize: " + this.pageSize);
         this.stories = [...this.data];
-
         if ( this.stories.length > 8 ) {
             this.btnRight = true;
         } else {
             console.log("hay menos o igual que 8 item");
         }
-
-
         this.totalPages = new Array(Math.ceil(this.stories.length / this.pageSize));
-        //this.totalPages = [this.stories.length / this.pageSize];
     }
 
     ngOnChanges(changes: SimpleChanges) {
-      this.totalPages = new Array(Math.ceil(this.collectionSize / this.pageSize));
+        this.totalPages = new Array(Math.ceil(this.collectionSize / this.pageSize));
     }
 
     swipeLeft() {
@@ -142,32 +131,18 @@ export class StoriesComponent implements OnInit {
     }
 
     /** Set next page number */
-    public pageSizeCount = 4;
     next() {
-      this.clientX = -320;
+        this.clientX = -320;
         this.netxRightStories = true;
-         setTimeout (() => {
+        setTimeout (() => {
             this.netxRightStories = false;
-          }, 100); 
-
-        //nextPage <= this.totalPages.length && this.selectPageNumber(nextPage);
-
-
-        
+        }, 100); 
         
         const nextPage = this.currentPage + 1;
-        console.log("nextPage: " + (nextPage));
-        console.log("this.totalPages.length : " + this.totalPages.length );
-        
         this.selectPageNumber(nextPage);
-        if( nextPage  < this.totalPages.length ) {
-            this.btnLeft = true;
-        } else {
-            this.btnRight = false;
-        }
+        nextPage <= this.totalPages.length ? this.btnLeft = true : this.btnRight = false;
     }
 
-    
     /** Set previous page number */
     previous() {
        this.clientX = 320;
@@ -175,19 +150,14 @@ export class StoriesComponent implements OnInit {
         setTimeout (() => {
            this.netxRightStories = false;
          }, 100);
-        // previousPage >= 1 && this.selectPageNumber(previousPage);
+
         const previousPage = this.currentPage - 1;
         this.selectPageNumber(previousPage);
-        if ( previousPage == 1 ) {
-          this.btnLeft = false;
-          
-        } else {
-          this.btnRight = true;
-        }
+        previousPage == 1 ? this.btnLeft = false : this.btnRight = true;
     }
 
     /** Set page number */
     selectPageNumber(pageNumber: number) {
-      this.currentPage = pageNumber;
-  }
+        this.currentPage = pageNumber;
+    }
 }
