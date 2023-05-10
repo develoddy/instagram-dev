@@ -5,11 +5,38 @@ import { ScriptsService } from "@data/services/api/scripts.service";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { FeedComponent } from "../feed/feed.component";
 import { FiltroService } from "@data/services/api/filtro.service";
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+
+
+export const fadeAnimation = trigger('fadeAnimation', [
+  transition(':enter', [
+      //style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]
+      style({ opacity: 0, transform: 'translateX(-400px)' }), animate('700ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))]
+      ),
+      transition(':leave',
+            [style({ opacity: 1 }), animate('900ms', style({ opacity: 0, transform: 'none' }))]
+      )
+]);
+
+const listAnimation = trigger('listAnimation', [
+      transition('* <=> *', [
+            query(':enter',
+                  [style({ opacity: 0, transform: 'translateX(-400px)' }), stagger('-30ms', animate('700ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' })))],
+                  { optional: true }
+            ),
+            query(':leave',
+                  animate('100ms', style({ opacity: 0 })),
+                  { optional: true}
+            )
+      ])
+]);
+
 
 @Component({
       selector: "app-main",
       templateUrl: "./main.component.html",
       styleUrls: ["./main.component.css"],
+      animations: [fadeAnimation, listAnimation]
 })
 export class MainComponent implements OnInit {
       
@@ -425,11 +452,15 @@ export class MainComponent implements OnInit {
       }
 
       // Agrega el elemento de la barra de búsqueda en el Nav.
+      public translateNotiX = 0;
       private addSideSearch(optionNav:number) {
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
             this.render2.removeStyle(asIxvb8j5, "transform");
             this.render2.setStyle(asIxvb8j5, "transform", "translateX(-263px)");
+
+            
+
             this.removeOrAddSpecifiedClasses(
                   asIx1cy8zhl,
                   "x1o5hw5a xaeubzz",

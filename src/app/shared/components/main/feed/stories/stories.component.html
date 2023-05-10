@@ -2,15 +2,14 @@
     <div class="_aauo" role="menu">
         <div class="_aao_">
             <!-- Dinamic -->
-            <div class="_aap0" role="presentation" >
-                <div class="_aap1" [ngStyle]="{ 'transition': this.netxRightStories ? '700ms cubic-bezier(0.215, 0.61, 0.355, 1) 0s' : '', 'transform': this.netxRightStories ? 'translateX( '+this.clientX+'px)': ''}">
-
+            <div  class="_aap0" role="presentation" >
+                <div  class="_aap1" [ngStyle]="{ 'transition': this.netxRightStories ? '700ms cubic-bezier(0.215, 0.61, 0.355, 1) 0s' : '', 'transform': this.netxRightStories ? 'translateX( '+this.clientX+'px)': ''}">
                     <ul  class="_acay" style="overflow: hidden;">
                         <li style="transform: translateX(0); width: 2px;"></li>
                         <li style="transform: translateX(12000px); width: 2px;"></li>
 
-                        <ng-container [ *ngFor="let item of this.stories | slice : (currentPage - 1) * 4  : currentPage * pageSize;   index as i; count as c">
-                            <li   class="_acaz" tabindex="-1" [ngStyle]="{'transform': i == 0 ? 'translateX( ' + (this.translateX-78) + 'px)' : 'translateX( ' + (i*this.translateX+2) + 'px)' }">
+                        <ng-container [ *ngFor="let item of this.stories | slice : (currentPage - 1) * pageSize  : currentPage * pageSize;   index as i; count as c">
+                            <li class="_acaz" tabindex="-1" [ngStyle]="{'transform': i == 0 ? 'translateX( ' + (this.translateX-78) + 'px)' : 'translateX( ' + (i*this.translateX+2) + 'px)' }">
                                 <div class="_aauk _aegn">
                                     <button class="x78zum5 xdt5ytf xjbqb8w x76ihet xwmqs3e x112ta8 xxxdfa6 x1ypdohk x1fu8urw x6s0dn4 xamitd3 x18d9i69 xexx8yu x2b8uid">
                                         <div class="_aarf x1e56ztr x1gslohp">

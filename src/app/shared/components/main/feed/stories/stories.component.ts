@@ -1,42 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
-export const fadeAnimation = trigger('fadeAnimation', [
-  transition(':enter', [
-    style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]
-  ),
-  transition(':leave',
-    [style({ opacity: 1 }), animate('300ms', style({ opacity: 0 }))]
-  )
-]);
-
-// const listAnimation = trigger('listAnimation', [
-//   transition('* <=> *', [
-//     query(':enter',
-//       [style({ opacity: 0 }), stagger('60ms', animate('100ms ease-out', style({ opacity: 1 })))],
-//       { optional: true }
-//     ),
-//     query(':leave',
-//       animate('100ms', style({ opacity: 0 })),
-//       { optional: true}
-//     )
-//   ])
-// ]);
-
-// const listAnimation = trigger('listAnimation', [
-//   transition('* <=> *', [
-//         query(':enter',
-//           // [style({ transform: '700ms cubic-bezier(0.215, 0.61, 0.355, 1) 0s)' }), stagger('100ms', animate('700ms ease-out', style({  transform: 'translateX(320px)' })))],
-//           [style({ opacity: 0  }), stagger('50ms', animate('10ms ease-out', style({ opacity: 1 })))],
-//           { optional: true }
-//         ),
-//         query(':leave',
-//           animate('10ms', style({ opacity: 0 })),
-//           { optional: true}
-//         )
-//       ])
-// ]);
-
 
 
 export interface Stories {
@@ -49,7 +13,6 @@ export interface Stories {
   selector: 'app-stories',
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.css'],
-  // animations: [fadeAnimation, listAnimation]
 })
 
 export class StoriesComponent implements OnInit {

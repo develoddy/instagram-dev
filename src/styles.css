@@ -120,10 +120,6 @@ body {
   touch-action: manipulation;
 }
 
-.xexx8yu {
-  padding-top: 0;
-}
-
 .xdt5ytf {
   flex-direction: column;
 }
@@ -5183,4 +5179,7 @@ textarea, .inputtext, .inputpassword {
 }
 .x11lhmoz {
   transform: translate(-50%,-50%);
+}
+.xexx8yu {
+  padding-top: 0;
 }
