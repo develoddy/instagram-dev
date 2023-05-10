@@ -26,26 +26,22 @@ export class FeedComponent implements OnInit {
             private router: Router
       ) {}
 
+      ngAfterViewInit() {
+            this.loadWindows();
+      }
+
       ngOnInit() {
             this.setupView();
       }
 
       setupView() {
             this.resizeWindows();
-            //this.loadWindows();
-
       }
 
       loadWindows() {
-            let iw = window.innerWidth;
-            this.render(iw);
+            this.render(window.innerWidth);
       }
       
-      @Output() mouseOverEvent = new EventEmitter();
-      mouseOverHeaderPost(event:any) {
-            this.mouseOverEvent.emit({id:event.id})
-      }
-
       /**
        * Controlador de cambio de tamaño del width de la pantalla.
        * Se obtiene el ancho de la ventana con windows.innerWidth.
@@ -169,6 +165,11 @@ export class FeedComponent implements OnInit {
       public gotToProfile( username:string ) {
             this.username = username;
             this.router.navigate([this.username ]);
+      }
+
+      @Output() mouseOverEvent = new EventEmitter();
+      mouseOverHeaderPost(event:any) {
+            this.mouseOverEvent.emit({id:event.id})
       }
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.

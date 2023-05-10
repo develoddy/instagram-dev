@@ -410,7 +410,7 @@ export class MainComponent implements OnInit {
 
       // Agrega o borra la barra lateral de la búsqueda en el Nav.
       public addOrRemoveSideSearchWindow() {
-            this.search = !this.search;
+            this.changeSearchIconNav();
             this.displaySideSearch == false ? this.addSideSearch(2) : this.removeSideSearch(2);
             // Se comprueba si está abierto el elemento Show More.
             if( this.displayShowMore ) {
@@ -420,7 +420,7 @@ export class MainComponent implements OnInit {
 
       public sidebarNotification() {
             //this.displaySideNotification = true;
-            this.notification = !this.notification;
+            this.changeNotificationIconNav();
             this.displaySideNotification == false ? this.addSideSearch(6) : this.removeSideSearch(6);
       }
 
@@ -509,7 +509,7 @@ export class MainComponent implements OnInit {
       public clientX = 0;
       public clientY = 0;
       public addOrRemoveMoreNav() {
-            this.more = !this.more;
+            this.changeMoreIconNav();
             const asIxl5mz7h = this.asIxl5mz7h.nativeElement;
             const coords = asIxl5mz7h.getBoundingClientRect();
             this.clientX = coords.left;
@@ -558,7 +558,7 @@ export class MainComponent implements OnInit {
                               "transform",
                               "translateX(0px)"
                         );
-                        this.home = !this.home;
+                        //this.changeSearchIconNav();
                         this.displaySideSearch = false;
                         this.displaySideNotification = false;
                         if (window.innerWidth <= 767) {
@@ -624,6 +624,114 @@ export class MainComponent implements OnInit {
             this.username = username;
             this.router.navigate([this.username]);
             this.displaySideSearch == true ? this.removeSideSearch(2) : this.addSideSearch(2);
+      }
+
+      public changeHomeIconNav() {
+            this.home = !this.home;
+            this.search = false;
+            this.explore = false;
+            this.reels = false;
+            this.message = false;
+            this.notification = false;
+            this.create = false;
+            this.profile = false;
+            this.more = false;
+      }
+
+      public changeSearchIconNav() {
+            this.home = false;
+            this.search = !this.search;
+            this.explore = false;
+            this.reels = false;
+            this.message = false;
+            this.notification = false;
+            this.create = false;
+            this.profile = false;
+            this.more = false;
+      }
+
+      public changeExploreIconNav() {
+            this.home = false;
+            this.search = false;
+            this.explore = !this.explore;
+            this.reels = false;
+            this.message = false;
+            this.notification = false;
+            this.create = false;
+            this.profile = false;
+            this.more = false;
+      }
+
+      public changeReelsIconNav() {
+            this.home = false;
+            this.search = false;
+            this.explore = false;
+            this.reels = !this.reels;
+            this.message = false;
+            this.notification = false;
+            this.create = false;
+            this.profile = false;
+            this.more = false;
+      }
+
+      public changeMessageIconNav() {
+            this.home = false;
+            this.search = false;
+            this.explore = false;
+            this.reels = false;
+            this.message = !this.message;
+            this.notification = false;
+            this.create = false;
+            this.profile = false;
+            this.more = false;
+      }
+
+      public changeNotificationIconNav() {
+            this.home = false;
+            this.search = false;
+            this.explore = false;
+            this.reels = false;
+            this.message = false;
+            this.notification = !this.notification;
+            this.create = false;
+            this.profile = false;
+            this.more = false;
+      }
+
+      public changeCreateIconNav() {
+            this.home = false;
+            this.search = false;
+            this.explore = false;
+            this.reels = false;
+            this.message = false;
+            this.notification = false;
+            this.create = !this.create;
+            this.profile = false;
+            this.more = false;
+      }
+
+      public changeProfileIconNav() {
+            this.home = false;
+            this.search = false;
+            this.explore = false;
+            this.reels = false;
+            this.message = false;
+            this.notification = false;
+            this.create = false;
+            this.profile = !this.profile;
+            this.more = false;
+      }
+
+      public changeMoreIconNav() {
+            this.home = false;
+            this.search = false;
+            this.explore = false;
+            this.reels = false;
+            this.message = false;
+            this.notification = false;
+            this.create = false;
+            this.profile = false;
+            this.more = !this.more;
       }
 
       // Destruye el servicio despues de Redimensionar el ancho de la pantalla.
