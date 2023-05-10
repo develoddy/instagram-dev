@@ -420,6 +420,7 @@ export class MainComponent implements OnInit {
 
       public sidebarNotification() {
             //this.displaySideNotification = true;
+            this.notification = !this.notification;
             this.displaySideNotification == false ? this.addSideSearch(6) : this.removeSideSearch(6);
       }
 
