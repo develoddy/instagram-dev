@@ -145,10 +145,10 @@ export class StoriesComponent implements OnInit {
 
     /** Set previous page number */
     previous() {
-       this.clientX = 320;
+        this.clientX = 320;
         this.netxRightStories = true;
         setTimeout (() => {
-           this.netxRightStories = false;
+            this.netxRightStories = false;
          }, 100);
 
         const previousPage = this.currentPage - 1;
