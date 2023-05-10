@@ -9,6 +9,7 @@ import { DirectComponent } from './components/direct/direct.component';
 import { PromainComponent } from './components/profile/promain/promain.component';
 import { MorepostsComponent } from './components/moreposts/moreposts.component';
 import { AccounteditComponent } from './components/accountedit/accountedit.component';
+import { PeopleComponent } from './components/people/people.component';
 
 const routes: Routes = [{
   path: '', component: MainComponent,
@@ -17,6 +18,7 @@ const routes: Routes = [{
     { path: '', component: FeedComponent},
     { path: 'search', component: SearchComponent},
     { path: 'explore', component: ExploreComponent},
+    { path: 'explore/people', component: PeopleComponent},
     { path: 'reels/:id', component: ReelsComponent},
     { path: 'direct/inbox', component: DirectComponent},
     { path: ':username',

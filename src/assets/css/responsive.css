@@ -64,6 +64,10 @@
         border-radius: 8px;
         margin-bottom: 12px;
     }
+    ._aa0- {
+        padding-bottom: 60px !important;
+        padding-top: 60px !important;
+    }
 }
 
 @media (min-width: 736px) {
@@ -190,5 +194,9 @@
 }
 
 
-@media (min-width: 736px){
-    }
+
+/* @media (min-width: 640px) {
+    ._aa0- {
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }} */
