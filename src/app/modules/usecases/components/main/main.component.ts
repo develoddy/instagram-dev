@@ -105,7 +105,7 @@ export class MainComponent implements OnInit {
 
 
       public viewStories: boolean;
-      public showModalPosts: boolean;
+      //public showModalPosts: boolean;
 
       constructor(
             public sanitizer: DomSanitizer, 
@@ -140,7 +140,7 @@ export class MainComponent implements OnInit {
             this.more = false;
 
             this.viewStories = false;
-            this.showModalPosts = false;
+            //this.showModalPosts = false;
       }
 
       ngAfterViewInit() {
@@ -154,16 +154,9 @@ export class MainComponent implements OnInit {
             this.setupView();
       }
 
-      closeSwipeModalPosts(event: any) {
-            this.showModalPosts = false;
-            this.router.navigate(['lujandev']);
-      }
-
       closeSwipeModalStories(event:any) {
             this.viewStories = false;
             this.router.navigate([ '']);
-            console.log(document.location.pathname);
-            
       }
 
       private setStories( username: string, idStories: string ) {
@@ -180,12 +173,6 @@ export class MainComponent implements OnInit {
             // View Stories desde main.
             if ( path[ 1 ] == 'stories' ) {
                   this.setStories(path[2], path[3]);
-            }
-
-            // View modal posts desde perfil.
-            if ( path[ 1 ] == 'p' ) {
-                  this.showModalPosts = true;
-                  //this.router.navigate(['p/CoU0qxhok_w']);
             }
       }
 

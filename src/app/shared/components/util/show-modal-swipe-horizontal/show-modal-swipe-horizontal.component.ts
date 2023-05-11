@@ -9,12 +9,14 @@ import { FiltroService } from '@data/services/api/filtro.service';
 })
 export class ShowModalSwipeHorizontalComponent {
 
- 
+  @Input() currentRoute: string;
   @Output() closeSwipeModalPosts = new EventEmitter();
-  constructor() {}
+  constructor( private filter:FiltroService, private router: Router ) { 
+    console.log(this.currentRoute);
+    
+  }
 
-  public closeSwipePost(close: boolean) {
-      //this.filter.displayHorizontalWindowSwipePost(event, this.currentRoute);
-      this.closeSwipeModalPosts.emit(close)
+  public closeSwipePost(event: boolean) {
+      this.filter.displayHorizontalWindowSwipePost(event, this.currentRoute);
   }
 }

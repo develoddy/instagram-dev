@@ -34,6 +34,10 @@ export class GridpostsComponent implements OnInit {
     }
 
     public displayHorizontalWindowSwipePost(event: boolean, currentRoute: string) {
-        this.filter.displayHorizontalWindowSwipePost(event, currentRoute); // true
+        this.filter.displayHorizontalWindowSwipePost(event, currentRoute); 
     }
+
+    // public sendURL() {
+    //     this.router.navigate(['/p/CoU0qxhok_w', { queryParams: { order: 'popular' } }]);
+    // }
 }

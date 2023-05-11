@@ -88,12 +88,10 @@ export class FiltroService {
       this.currentRoute = currentRoute;
       if ( event ) {
           var stateObj = { foo: "bar" };
-          history.pushState(stateObj, "page 2", "p/idxx");
+          history.pushState(stateObj, "page 2", "p/CriRokAAP_I");
       } else {
         var stateObj = { foo: "bar" };
           history.pushState(stateObj, "page 2", this.currentRoute);
       }
   }
-
- 
 }

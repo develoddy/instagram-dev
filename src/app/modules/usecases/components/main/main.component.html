@@ -2,7 +2,7 @@
     <div>
         <div>
             <!-- <ng-container [ngSwitch]="this.filter.showFollowers || this.filter.showFollowing  ||  this.filter.showSwipeHorizontalPost || this.filter.showLikes || this.filter.showSharepost"> -->
-            <ng-container [ngSwitch]="this.filter.showFollowers || this.filter.showFollowing  ||  this.showModalPosts || this.filter.showLikes || this.filter.showSharepost">
+            <ng-container [ngSwitch]="this.filter.showFollowers || this.filter.showFollowing  ||  this.filter.showSwipeHorizontalPost || this.filter.showLikes || this.filter.showSharepost">
                 <ng-container *ngSwitchCase="true">
                     <div  class="x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck">
                         <div [ngClass]="this.filter.optionPost ? 'x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck' : 'x9f619 x1n2onr6 x1ja2u2z'" >
@@ -1087,12 +1087,12 @@
             <!-- Agregar modal swipe de post start -->
                 <div>
                     <div>
-                        <!-- <ng-container *ngIf="this.filter.showSwipeHorizontalPost">
+                        <ng-container *ngIf="this.filter.showSwipeHorizontalPost">
                             <app-show-modal-swipe-horizontal @fadeAnimation [currentRoute]="this.filter.currentRoute" ></app-show-modal-swipe-horizontal>
-                        </ng-container> -->
-                        <ng-container *ngIf="this.showModalPosts">
-                            <app-show-modal-swipe-horizontal @fadeAnimation (closeSwipeModalPosts)=closeSwipeModalPosts($event)  ></app-show-modal-swipe-horizontal>
                         </ng-container>
+                        <!-- <ng-container *ngIf="this.showModalPosts">
+                            <app-show-modal-swipe-horizontal @fadeAnimation (closeSwipeModalPosts)=closeSwipeModalPosts($event)  ></app-show-modal-swipe-horizontal>
+                        </ng-container> -->
                     </div>
                 </div>
             <!-- / Agregar modal swipe de post end -->
