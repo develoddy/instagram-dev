@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges, ViewChild} from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
 import { ScriptsService } from "@data/services/api/scripts.service";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { FeedComponent } from "../feed/feed.component";
@@ -10,11 +10,11 @@ import { trigger, transition, style, animate, query, stagger } from '@angular/an
 
 export const fadeAnimation = trigger('fadeAnimation', [
   transition(':enter', [
-      //style({ opacity: 0 }), animate('300ms', style({ opacity: 1 }))]
-      style({ opacity: 0, transform: 'translateX(-400px)' }), animate('700ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))]
+      style({ opacity: 0 }), animate('500ms', style({ opacity: 1 }))]
+      // style({ opacity: 0, transform: 'translateX(-400px)' }), animate('700ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))]
       ),
       transition(':leave',
-            [style({ opacity: 1 }), animate('900ms', style({ opacity: 0, transform: 'none' }))]
+            [style({ opacity: 1 }), animate('300ms', style({ opacity: 0, transform: 'none' }))]
       )
 ]);
 
@@ -39,6 +39,8 @@ const listAnimation = trigger('listAnimation', [
       animations: [fadeAnimation, listAnimation]
 })
 export class MainComponent implements OnInit {
+
+      currentRoute: string;
       
       @ViewChild("asParent") asParent: ElementRef;
       @ViewChild("asIx9f619") asIx9f619: ElementRef;
@@ -91,7 +93,6 @@ export class MainComponent implements OnInit {
       public overOptionNavMore: boolean;
       public parentMain: boolean;
       public username: string = '';
-
       public home: boolean;
       public search: boolean;
       public explore: boolean;
@@ -102,6 +103,10 @@ export class MainComponent implements OnInit {
       public profile: boolean;
       public more: boolean;
 
+
+      public viewStories: boolean;
+      public showModalPosts: boolean;
+
       constructor(
             public sanitizer: DomSanitizer, 
             public scripts: ScriptsService, 
@@ -109,6 +114,10 @@ export class MainComponent implements OnInit {
             private router: Router, 
             public filter: FiltroService
       ) { 
+            this.initVar();
+      }
+
+      private initVar() {
             this.iconInstagram = false;
             this.overOptionNavHome = false;
             this.overOptionNavSearch = false;
@@ -120,7 +129,6 @@ export class MainComponent implements OnInit {
             this.overOptionNavProfile = false;
             this.overOptionNavMore = false;
             this.parentMain = false;
-            
             this.home = false;
             this.search = false;
             this.explore = false;
@@ -130,21 +138,82 @@ export class MainComponent implements OnInit {
             this.create = false;
             this.profile = false;
             this.more = false;
-            this.loadWindows();
-            
+
+            this.viewStories = false;
+            this.showModalPosts = false;
       }
 
       ngAfterViewInit() {
             this.setupAfterView();
-            this.removeSidebarByGlobalClick();
+            if( !this.viewStories)  {
+                  this.removeSidebarByGlobalClick();
+            }
       }
 
       ngOnInit() {
-            this.setupView();  
+            this.setupView();
+      }
+
+      closeSwipeModalPosts(event: any) {
+            this.showModalPosts = false;
+            this.router.navigate(['lujandev']);
+      }
+
+      closeSwipeModalStories(event:any) {
+            this.viewStories = false;
+            this.router.navigate([ '']);
+            console.log(document.location.pathname);
+            
+      }
+
+      private setStories( username: string, idStories: string ) {
+            // Vamos a hacer pruebas para ver si existe el usuario con su historia.
+            if ( username == 'rebeca' && idStories == '3099938179339172451' ) {
+                  this.viewStories = true;
+            } else {
+                  console.log("No existe el usuario e storie...");
+            } 
+      }
+
+      public manageRouter( currentRoute: string ) {
+            let path = currentRoute.split('/');
+            // View Stories desde main.
+            if ( path[ 1 ] == 'stories' ) {
+                  this.setStories(path[2], path[3]);
+            }
+
+            // View modal posts desde perfil.
+            if ( path[ 1 ] == 'p' ) {
+                  this.showModalPosts = true;
+                  //this.router.navigate(['p/CoU0qxhok_w']);
+            }
+      }
+
+      private getRouter() {
+            // este metodo detecta path de url sin recargar la pagina.
+            this.currentRoute = "Demo";
+            this.resizeSubscription$ = this.router.events.subscribe( ( event: any ) => {
+                  if ( event instanceof NavigationEnd ) {
+                        this.currentRoute = event.url;
+                        console.log("DEBUF: 1. router.events [ currentRoute ] ===> " + this.currentRoute );
+                        if ( this.currentRoute == '/' ) {
+                              this.viewStories = false;
+                        } else {
+                              this.manageRouter(this.currentRoute);
+                        }
+                  }
+            });
+
+            //Este metodo detecta path de url recargando la pagina.
+            this.currentRoute = document.location.pathname;
+            console.log("document.location.pathname => " + this.currentRoute);
+            this.manageRouter(this.currentRoute);            
       }
 
       private setupView() {
             this.resizeWindows();
+            this.loadWindows();
+            this.getRouter();
       }
 
       /**

@@ -64,6 +64,7 @@ import { ModalFollowersComponent } from "./util/modal-followers/modal-followers.
 import { ModalFollowingComponent } from "./util/modal-following/modal-following.component";
 import { ModalLikesComponent } from "./util/modal-likes/modal-likes.component";
 import { ModalSharepostComponent } from "./util/modal-sharepost/modal-sharepost.component";
+import { SwipeModalStoryComponent } from "./util/swipe-modal-story/swipe-modal-story.component";
 // -- Utilidades end --
 
 export const components : any[] = [
@@ -102,7 +103,8 @@ export const components : any[] = [
     ModalFollowersComponent,
     ModalFollowingComponent,
     ModalLikesComponent,
-    ModalSharepostComponent
+    ModalSharepostComponent,
+    SwipeModalStoryComponent
 ];
 
 // --- Export feed start ---
@@ -168,4 +170,5 @@ export * from './util/modal-followers/modal-followers.component';
 export * from './util/modal-following/modal-following.component';
 export * from './util/modal-likes/modal-likes.component';
 export * from './util/modal-sharepost/modal-sharepost.component';
+export * from './util/swipe-modal-story/swipe-modal-story.component';
 // -- Utilidades end -

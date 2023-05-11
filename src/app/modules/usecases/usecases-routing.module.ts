@@ -10,6 +10,7 @@ import { PromainComponent } from './components/profile/promain/promain.component
 import { MorepostsComponent } from './components/moreposts/moreposts.component';
 import { AccounteditComponent } from './components/accountedit/accountedit.component';
 import { PeopleComponent } from './components/people/people.component';
+import { ViewstorieComponent } from './components/viewstorie/viewstorie.component';
 
 const routes: Routes = [{
   path: '', component: MainComponent,
@@ -29,6 +30,7 @@ const routes: Routes = [{
     },
     { path: 'p/:id', component: MorepostsComponent},
     { path: 'accounts/edit', component: AccounteditComponent},
+    { path: 'stories/:username/:idstorie', component: ViewstorieComponent}, // https://www.instagram.com/stories/licesita5/3100031345334617657/
   ]
 }];
 

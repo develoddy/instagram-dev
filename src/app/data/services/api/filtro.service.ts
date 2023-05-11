@@ -20,6 +20,7 @@ export class FiltroService {
   public showSideSearch: boolean;
   public showLikes: boolean;
   public showSharepost: boolean;
+  public showStories: boolean;
 
   constructor() { 
       this.showSideSearch = false;
@@ -31,6 +32,7 @@ export class FiltroService {
       this.showFollowing = false;
       this.showLikes = false;
       this.showSharepost = false;
+      this.showStories = false;
   }
 
   /**

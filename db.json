@@ -1,0 +1,27 @@
+{
+    "users": [
+        {
+            "displayName":1,
+            "email": "Luis Ramriez",
+            "emailVerified": "Luis Ramriez",
+            "fullname": "Luis Ramriez",
+            "phoneNumber": "Luis Ramriez",
+            "photoURL": "Luis Ramriez",
+            "profileimageUrl": "Luis Ramriez",
+            "uid": "2h9C6J90nVchyZ587UTqK0vyYHy1",
+            "username": "lujandev"
+        }
+        
+    ],
+
+    "articles" : [
+        {
+            "id": 1,
+            "title": "Titulo interesante de artículo",
+            "content": "...",
+            "tag": "angular",
+            "userId": 1
+        }
+        
+    ]
+}

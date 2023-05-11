@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+import { FiltroService } from '@data/services/api/filtro.service';
 
 
 
@@ -65,7 +66,7 @@ export class StoriesComponent implements OnInit {
     public netxRightStories = false;
     public overflowXHidden:string;
 
-    constructor() {
+    constructor( public filter: FiltroService ) {
         this.translateX = 80;
         this.btnLeft = false;
         this.btnRight = false;
@@ -122,5 +123,9 @@ export class StoriesComponent implements OnInit {
     /** Set page number */
     selectPageNumber(pageNumber: number) {
         this.currentPage = pageNumber;
+    }
+
+    viewStories(username: string, idstorie:string) {
+
     }
 }

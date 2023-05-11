@@ -12,6 +12,7 @@ export class ProgridpostsComponent implements OnInit {
   currentRoute: string;
   public infoPost : boolean;
   @Output() mouseOverEvent = new EventEmitter();
+  
 
   constructor(
       private filter: FiltroService,
@@ -38,4 +39,5 @@ export class ProgridpostsComponent implements OnInit {
   public displayHorizontalWindowSwipePost(event: boolean, currentRoute: string) {
       this.filter.displayHorizontalWindowSwipePost(event, currentRoute); // true
   }
+
 }

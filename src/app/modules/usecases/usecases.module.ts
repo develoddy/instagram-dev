@@ -10,6 +10,7 @@ import { DirectComponent } from './components/direct/direct.component';
 import { MorepostsComponent } from './components/moreposts/moreposts.component';
 import { AccounteditComponent } from './components/accountedit/accountedit.component';
 import { PeopleComponent } from './components/people/people.component';
+import { ViewstorieComponent } from './components/viewstorie/viewstorie.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PeopleComponent } from './components/people/people.component';
     DirectComponent,
     MorepostsComponent,
     AccounteditComponent,
-    PeopleComponent
+    PeopleComponent,
+    ViewstorieComponent
   ],
   imports: [
     SharedModule,
