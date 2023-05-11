@@ -11,7 +11,6 @@ import { trigger, transition, style, animate, query, stagger } from '@angular/an
 export const fadeAnimation = trigger('fadeAnimation', [
   transition(':enter', [
       style({ opacity: 0 }), animate('500ms', style({ opacity: 1 }))]
-      // style({ opacity: 0, transform: 'translateX(-400px)' }), animate('700ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1, transform: 'none' }))]
       ),
       transition(':leave',
             [style({ opacity: 1 }), animate('300ms', style({ opacity: 0, transform: 'none' }))]
@@ -41,7 +40,6 @@ const listAnimation = trigger('listAnimation', [
 export class MainComponent implements OnInit {
 
       currentRoute: string;
-      
       @ViewChild("asParent") asParent: ElementRef;
       @ViewChild("asIx9f619") asIx9f619: ElementRef;
       @ViewChild("asIxvb8j5") asIxvb8j5: ElementRef;
@@ -79,7 +77,7 @@ export class MainComponent implements OnInit {
       resizeObservable$: Observable<Event>;
       resizeSubscription$: Subscription;
       mobileView = false;
-      public displayShowMore = false;
+      public displayShowMore : boolean;
       public displaySideSearch = false;
       public displaySideNotification = false;
       public overOptionNavHome: boolean;
@@ -102,10 +100,7 @@ export class MainComponent implements OnInit {
       public create: boolean;
       public profile: boolean;
       public more: boolean;
-
-
       public viewStories: boolean;
-      //public showModalPosts: boolean;
 
       constructor(
             public sanitizer: DomSanitizer, 
@@ -129,6 +124,7 @@ export class MainComponent implements OnInit {
             this.overOptionNavProfile = false;
             this.overOptionNavMore = false;
             this.parentMain = false;
+            this.displayShowMore = false;
             this.home = false;
             this.search = false;
             this.explore = false;
@@ -138,9 +134,7 @@ export class MainComponent implements OnInit {
             this.create = false;
             this.profile = false;
             this.more = false;
-
             this.viewStories = false;
-            //this.showModalPosts = false;
       }
 
       ngAfterViewInit() {
@@ -154,7 +148,7 @@ export class MainComponent implements OnInit {
             this.setupView();
       }
 
-      closeSwipeModalStories(event:any) {
+      public closeSwipeModalStories(event:any) {
             this.viewStories = false;
             this.router.navigate([ '']);
       }
@@ -164,7 +158,7 @@ export class MainComponent implements OnInit {
             if ( username == 'rebeca' && idStories == '3099938179339172451' ) {
                   this.viewStories = true;
             } else {
-                  console.log("No existe el usuario e storie...");
+                  // no existe usuario storie
             } 
       }
 
@@ -182,7 +176,6 @@ export class MainComponent implements OnInit {
             this.resizeSubscription$ = this.router.events.subscribe( ( event: any ) => {
                   if ( event instanceof NavigationEnd ) {
                         this.currentRoute = event.url;
-                        console.log("DEBUF: 1. router.events [ currentRoute ] ===> " + this.currentRoute );
                         if ( this.currentRoute == '/' ) {
                               this.viewStories = false;
                         } else {
@@ -193,7 +186,7 @@ export class MainComponent implements OnInit {
 
             //Este metodo detecta path de url recargando la pagina.
             this.currentRoute = document.location.pathname;
-            console.log("document.location.pathname => " + this.currentRoute);
+            // no r
             this.manageRouter(this.currentRoute);            
       }
 
@@ -259,7 +252,7 @@ export class MainComponent implements OnInit {
                         this.renderDesktopView(iw);
                         break;
                   default:
-                        console.log("error..");
+                        // no r
                         break;
             }
       }
@@ -269,7 +262,7 @@ export class MainComponent implements OnInit {
        * @param iw
        */
       renderMobileView(iw: number) {
-            //console.log("DEBUG: render mobile view MAIN : " + iw);
+            // no r
             this.render(iw);
             this.mobileView = true;
       }
@@ -279,7 +272,7 @@ export class MainComponent implements OnInit {
        * @param iw
        */
       renderTabletView(iw: number) {
-            //console.log("DEBUG: render Tablet view MAIN : " + iw);
+            // no r
             this.render(iw);
       }
 
@@ -464,7 +457,7 @@ export class MainComponent implements OnInit {
                         });
                         break;
                   default:
-                        console.log("error..");
+                        // no r
                         break;
             }
       }
@@ -487,7 +480,7 @@ export class MainComponent implements OnInit {
                         );
                   }
             } else {
-                  console.log("DEBUG: fuction appendChilds devuelve vacio..");
+                  // no r
             }
       }
 
@@ -514,8 +507,6 @@ export class MainComponent implements OnInit {
             const asIx1cy8zhl = this.asIx1cy8zhl.nativeElement;
             this.render2.removeStyle(asIxvb8j5, "transform");
             this.render2.setStyle(asIxvb8j5, "transform", "translateX(-263px)");
-
-            
 
             this.removeOrAddSpecifiedClasses(
                   asIx1cy8zhl,
@@ -604,17 +595,14 @@ export class MainComponent implements OnInit {
             this.displayShowMore = !this.displayShowMore;
       }
 
-      // Ocultar Show More.
-      public hideMoreNav() {
-           this.displayShowMore = false;
-      }
-  
       /**
        * Esta función detecta los click en el componente Main, y 
        * se aplica la logica acorde a lo que el usuario va 
        * abriendo o cerrando el sidebar de búsqueda en la vista del Nav.
        */
       private removeSidebarByGlobalClick() {
+            console.log("xxxx");
+            
             const asParentMain = this.asParentMain.nativeElement;
             const asParentSearch = this.asParentSearch.nativeElement;
             const asIxvb8j5 = this.asIxvb8j5.nativeElement;

@@ -1,7 +1,6 @@
 <div id="mount_0_0_9V">
     <div>
         <div>
-            <!-- <ng-container [ngSwitch]="this.filter.showFollowers || this.filter.showFollowing  ||  this.filter.showSwipeHorizontalPost || this.filter.showLikes || this.filter.showSharepost"> -->
             <ng-container [ngSwitch]="this.filter.showFollowers || this.filter.showFollowing  ||  this.filter.showSwipeHorizontalPost || this.filter.showLikes || this.filter.showSharepost">
                 <ng-container *ngSwitchCase="true">
                     <div  class="x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck">
@@ -427,7 +426,7 @@
                                                                             <div class="x1n2onr6">
                                                                                 <a
                                                                                     (mouseover)="this.mouseOverOptionNav(true, 'more')" (mouseleave)="this.mouseOverOptionNav(false, 'more')"
-                                                                                    class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd" role="link" tabindex="0" (click)="this.addOrRemoveMoreNav()" (blur)="this.hideMoreNav()"
+                                                                                    class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd" role="link" tabindex="0" (click)="addOrRemoveMoreNav()"
                                                                                 >
                                                                                     <div
                                                                                         class="x9f619 x3nfvp2 xr9ek0c xjpr12u xo237n4 x6pnmvc x7nr27j x12dmmrz xz9dl7a xn6708d xsag5q8 x1ye3gou x80pfx3 x159b3zp xdoji71 x1dejxi8 x9k3k5o xs3sg5q x11hdxyr x12ldp4w x1wj20lx x1dn74xm xif99yt x172qv1o x10djquj x1lhsz42 xzauu7c x1lq5wgf xgqcy7u x30kzoy x9jhf4c" id="ix9jhf4c"
@@ -514,12 +513,14 @@
                     </div>
                 </ng-container>
 
+                <!-- Principal -->
                 <ng-container *ngSwitchCase="false">
                     <div [ngClass]="this.filter.optionPost ? 'x9f619 x1ja2u2z x1pq812k x5yr21d xw2csxc x1odjw0f xixxii4 x1rohswg x17qophe x13vifvy xh8yej3 xfk6m8 x1yqm8si xjx87ck' : 'x9f619 x1n2onr6 x1ja2u2z'" >
                         <div class="x78zum5 xdt5ytf x1n2onr6 x1ja2u2z">
                             <div class="x78zum5 xdt5ytf x1n2onr6">
                                 <div class="x78zum5 xdt5ytf x1n2onr6 xat3117 xxzkxad" #asIx78zum5>
                                     <div class="x78zum5 xdt5ytf x10cihs4 x1t2pt76 x1n2onr6 x1ja2u2z">
+
                                         <ng-container *ngIf="!this.viewStories">
                                             <div #asParent class="x9f619 xnz67gz x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x1qjc9v5 x1oa3qoh x1qughib" id="r293q1" style="height: 100%;">
                                                 <!-- Nav start -->
@@ -561,7 +562,7 @@
                                                                                 <div class="x1n2onr6">
                                                                                     <div class="x1n2onr6">
                                                                                         <a 
-                                                                                            (mouseover)="this.mouseOverOptionNav(true, 'home')" (mouseleave)="this.mouseOverOptionNav(false, 'home')" (click)="this.home = true"
+                                                                                            (mouseenter)="mouseOverOptionNav(true, 'home')" (mouseout)="this.mouseOverOptionNav(false, 'home')" (click)="this.home = true"
                                                                                             class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd"
                                                                                         >
                                                                                             <div
@@ -602,7 +603,7 @@
                                                                             <div id="002" #as002>
                                                                                 <div class="x1n2onr6">
                                                                                     <a 
-                                                                                        (mouseover)="this.mouseOverOptionNav(true, 'search')" (mouseleave)="this.mouseOverOptionNav(false, 'search')"
+                                                                                        (mouseenter)="this.mouseOverOptionNav(true, 'search')" (mouseout)="this.mouseOverOptionNav(false, 'search')"
                                                                                         class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd" role="link" tabindex="0" (click)="addOrRemoveSideSearchWindow()"
                                                                                     >
                                                                                         <div
@@ -977,12 +978,10 @@
                                                                         </div>
                                                                         <div class="xl5mz7h xhuyl8g" #asIxl5mz7h id="ixl5mz7h" >
                                                                             <div class="x1n2onr6">
-                                                                                <a
-                                                                                    (mouseover)="this.mouseOverOptionNav(true, 'more')" (mouseleave)="this.mouseOverOptionNav(false, 'more')"
-                                                                                    class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd" role="link" tabindex="0" (click)="addOrRemoveMoreNav()" (blur)="this.hideMoreNav()"
+                                                                                <a (mouseover)="this.mouseOverOptionNav(true, 'more')" (mouseleave)="this.mouseOverOptionNav(false, 'more')"
+                                                                                    class="x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz _a6hd" role="link" tabindex="0" (click)="addOrRemoveMoreNav()" 
                                                                                 >
-                                                                                    <div
-                                                                                        class="x9f619 x3nfvp2 xr9ek0c xjpr12u xo237n4 x6pnmvc x7nr27j x12dmmrz xz9dl7a xn6708d xsag5q8 x1ye3gou x80pfx3 x159b3zp xdoji71 x1dejxi8 x9k3k5o xs3sg5q x11hdxyr x12ldp4w x1wj20lx x1dn74xm xif99yt x172qv1o x10djquj x1lhsz42 xzauu7c x1lq5wgf xgqcy7u x30kzoy x9jhf4c" id="ix9jhf4c"
+                                                                                    <div class="x9f619 x3nfvp2 xr9ek0c xjpr12u xo237n4 x6pnmvc x7nr27j x12dmmrz xz9dl7a xn6708d xsag5q8 x1ye3gou x80pfx3 x159b3zp xdoji71 x1dejxi8 x9k3k5o xs3sg5q x11hdxyr x12ldp4w x1wj20lx x1dn74xm xif99yt x172qv1o x10djquj x1lhsz42 xzauu7c x1lq5wgf xgqcy7u x30kzoy x9jhf4c" id="ix9jhf4c"
                                                                                     >
                                                                                         <div>
                                                                                             <div class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1">
@@ -1035,6 +1034,7 @@
                                                 <!-- / Main feed end -->
                                             </div>
                                         </ng-container>
+
                                         <ng-container *ngIf="this.viewStories">
                                             <div style="height: 100vh; width: 100%; position: fixed;" @fadeAnimation>
                                                 <app-swipe-modal-story (closeSwipeModal)="closeSwipeModalStories($event)"></app-swipe-modal-story>
@@ -1061,11 +1061,11 @@
                                     <!-- / Show info profile end -->
 
                                     <!-- Show More Start -->
-                                        <div *ngIf="this.displayShowMore">
+                                        <div >
                                             <div>
                                                 <div>
                                                     <!-- style="position: fixed; transform: translate(13px, 805px) translate(0px, -100%);" -->
-                                                    <div class="xu96u03 xm80bdy x10l6tqk x13vifvy" #asMoreBoddy [ngStyle]="{ 'position':'fixed', 'transform': 'translate('+this.clientX+'px,'+this.clientY+'px'}">
+                                                    <div *ngIf="this.displayShowMore" class="xu96u03 xm80bdy x10l6tqk x13vifvy" #asMoreBoddy [ngStyle]="{ 'position':'fixed', 'transform': 'translate('+this.clientX+'px,'+this.clientY+'px'}">
                                                         <app-morenav></app-morenav>
                                                     </div>
                                                 </div>

@@ -5,6 +5,21 @@ import { PromainComponent } from '@modules/usecases/components/profile/promain/p
 
 const routes: Routes = [
 
+  // { path: '', redirectTo: '', pathMatch: 'full' },
+  {
+    path: 'login',
+    component: SkeletonComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./modules/onboarding/onboarding.module').then(
+            (m) => m.OnboardingModule
+          ),
+      },
+    ],
+  },
+
   { path: '', 
     component: SkeletonComponent,
     children: [{

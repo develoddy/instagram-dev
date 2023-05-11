@@ -8,6 +8,7 @@ import { fromEvent, Observable, Subscription } from "rxjs";
 })
 export class MorenavComponent implements OnInit {
   
+
   @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
   @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
   @ViewChild("asIx10l6tqk") asIx10l6tqk: ElementRef;
@@ -18,7 +19,7 @@ export class MorenavComponent implements OnInit {
   public resizeId: any;
   private screen: any = { small: 0, medium: 400, large: 800 };
   
-  constructor(private render2: Renderer2) {}
+  constructor(private render2: Renderer2) {console.log("DEBUG: Morenav.component cargado...");}
 
   ngAfterViewInit() {}
 
@@ -62,14 +63,12 @@ export class MorenavComponent implements OnInit {
                 this.renderDesktopView(iw);
                 break;
           default:
-                console.log("error..");
                 break;
     }
   }
 
   // Se renderiza para aplicaciones moviles.
   renderMobileView(iw: number) {
-    //console.log("DEBUG: render mobile view MAIN : " + iw);
     //this.render(iw);
     this.mobileView = true;
   }
@@ -77,13 +76,11 @@ export class MorenavComponent implements OnInit {
 
   // Se renderiza para aplicaciones tablet.
   renderTabletView(iw: number) {
-      //console.log("DEBUG: render Tablet view MAIN : " + iw);
       //this.render(iw);
   }
 
   // Se renderiza para aplicaciones desktop.
   renderDesktopView(iw: number) {
-      //console.log("DEBUG: render desktop view MAIN: " + iw);
       this.render(iw);
       this.mobileView = false;
   }
@@ -133,7 +130,12 @@ export class MorenavComponent implements OnInit {
       this.render2.addClass(asIxgf5ljw, 'xdlhfag');
       this.render2.addClass(asIxgf5ljw, 'x1rbgqaq');
       this.render2.addClass(asIxgf5ljw, 'xqd3l62');
-    }
+    } 
+  }
+
+  logOut() {
+    console.log("Salir del sistema...");
+    alert("salirrr!!")
     
   }
 }

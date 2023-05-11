@@ -77,7 +77,7 @@ export class StoriesComponent implements OnInit {
         if ( this.stories.length > 8 ) {
             this.btnRight = true;
         } else {
-            console.log("hay menos o igual que 8 item");
+            // Hay menos o igual que 8 item
         }
         this.totalPages = new Array(Math.ceil(this.stories.length / this.pageSize));
     }

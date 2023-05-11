@@ -11,10 +11,7 @@ export class ShowModalSwipeHorizontalComponent {
 
   @Input() currentRoute: string;
   @Output() closeSwipeModalPosts = new EventEmitter();
-  constructor( private filter:FiltroService, private router: Router ) { 
-    console.log(this.currentRoute);
-    
-  }
+  constructor( private filter:FiltroService, private router: Router ) { }
 
   public closeSwipePost(event: boolean) {
       this.filter.displayHorizontalWindowSwipePost(event, this.currentRoute);

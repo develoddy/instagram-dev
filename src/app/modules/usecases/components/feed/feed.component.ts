@@ -87,7 +87,6 @@ export class FeedComponent implements OnInit {
                         this.renderDesktopView(iw);
                         break;
                   default:
-                        console.log("error..");
                         break;
             }
       }
@@ -97,7 +96,6 @@ export class FeedComponent implements OnInit {
        * @param iw
        */
       renderMobileView(iw: number) {
-            //console.log("DEBUG: render mobile view FEED: " + iw);
             this.render(iw);
             this.mobileView = true;
       }
@@ -107,7 +105,6 @@ export class FeedComponent implements OnInit {
        * @param iw
        */
       renderTabletView(iw: number) {
-            //console.log("DEBUG: render tablet view FEED : " + iw);
             this.render(iw);
             this.mobileView = false;
       }
@@ -117,7 +114,6 @@ export class FeedComponent implements OnInit {
        * @param iw
        */
       renderDesktopView(iw: number) {
-            //console.log("DEBUG: render  desktop view FEED: " + iw);
             this.render(iw);
             this.mobileView = false;
       }

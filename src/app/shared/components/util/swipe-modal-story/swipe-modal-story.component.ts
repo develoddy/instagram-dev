@@ -12,10 +12,6 @@ export class SwipeModalStoryComponent {
   constructor(  private router: Router ) {}
 
   closeSwipeModalStories(close: boolean) {
-    //console.log("close stories");
-    //this.router.navigate([ 'stories/rebeca/3099938179339172451', "3099938179339172451" ]);
-    //this.router.navigate([ 'stories/rebeca/3099938179339172451']);
       this.closeSwipeModal.emit(close);
   }
-
 }

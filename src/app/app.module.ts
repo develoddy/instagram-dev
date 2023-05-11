@@ -12,6 +12,7 @@ import { NavigationComponent } from './layout/navigation/navigation.component';
 import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
