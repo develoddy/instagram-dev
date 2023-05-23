@@ -13,6 +13,14 @@ import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+// FIREBASE
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +36,13 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     ResizeObserverModule,
     BrowserAnimationsModule, 
-    HttpClientModule
+    HttpClientModule,
+     // FIREBASE
+     AngularFireModule.initializeApp(environment.firebaseConfig),
+     AngularFirestoreModule,
+     AngularFireAuthModule,
+     AngularFireStorageModule,
+     AngularFireDatabaseModule
   ],
   exports: [RouterModule],
   providers: [{
