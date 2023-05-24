@@ -1,9 +1,9 @@
 export class User {
-    fullname: string | null;
+    fullname?: string | null;
     email: string | null;
     phoneNumber: string | null;
     profileImageURL: string | null;
-    username: string | null;
+    username?: string | null;
     uid: string | null;
     emailVerified: boolean;
     
