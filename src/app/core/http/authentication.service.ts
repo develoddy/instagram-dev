@@ -50,14 +50,9 @@ export class AuthenticationService {
     this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log('result.user: ');
-        console.log(result);
-        console.log(result.user);
         this.setUserData(result.user);
-
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            console.log('Login success');
             this.router.navigate(['feed']);
           }
         });
