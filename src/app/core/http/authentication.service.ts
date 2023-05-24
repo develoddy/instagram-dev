@@ -104,13 +104,14 @@ export class AuthenticationService {
    * @param passwordResetEmail 
    * @returns 
    */
-  ForgotPassword(passwordResetEmail: string) {
+  forgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
         window.alert('Password reset email sent, check your inbox.');
       })
       .catch((error) => {
+        console.log("DEBUG: forgotPassword -> Error");
         window.alert(error);
       });
   }
