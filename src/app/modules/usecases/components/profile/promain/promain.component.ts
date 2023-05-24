@@ -8,16 +8,24 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-promain',
   templateUrl: './promain.component.html',
-  styleUrls: ['./promain.component.css']
+  styleUrls: ['./promain.component.css'],
 })
 export class PromainComponent implements OnInit {
-
   @Input() currentRoute: string;
   private clientesSubscription: Subscription;
   public user: User;
 
+<<<<<<< Updated upstream
   constructor( private router: Router, private route: ActivatedRoute, public filter: FiltroService, private userService: UserService ) {
       this.currentRoute = document.location.pathname;
+=======
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public filter: FiltroService
+  ) {
+    this.currentRoute = document.location.pathname;
+>>>>>>> Stashed changes
   }
 
   ngOnInit() {
