@@ -1,3 +1,6 @@
+// https://github.com/SinghDigamber/angularfirebase-authentication/blob/master/src/app/shared/services/auth.service.ts
+// https://github.com/SinghDigamber/angularfirebase-authentication/blob/master/src/app/components/sign-in/sign-in.component.html
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -8,6 +11,8 @@ import {
 import { Router } from '@angular/router';
 import { User } from '@data/models/User';
 import { Subscription, of } from 'rxjs';
+import * as auth from 'firebase/auth';
+
 
 @Injectable({
   providedIn: 'root',
@@ -69,6 +74,88 @@ export class AuthenticationService {
   }
 
   /**
+   * Regístrese con correo electrónico/contraseña
+   * @param email 
+   * @param password 
+   * @returns 
+   */
+  private signUp(email: string, password: string) {
+    return this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        /* Llame a la función SendVerificaitonMail() cuando un nuevo usuario se registre y devuelva la promesa */
+        this.sendVerificationMail();
+        this.setUserData(result.user);
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
+  }
+
+  /**
+   * Enviar verificación por correo electrónico cuando se registre un nuevo usuario
+   * @returns 
+   */
+  sendVerificationMail() {
+    return this.afAuth.currentUser
+      .then((u: any) => u.sendEmailVerification())
+      .then(() => {
+        this.router.navigate(['verify-email-address']);
+      });
+  }
+
+  /**
+   * Restablecer Olvidé mi contraseña
+   * @param passwordResetEmail 
+   * @returns 
+   */
+  ForgotPassword(passwordResetEmail: string) {
+    return this.afAuth
+      .sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        window.alert('Password reset email sent, check your inbox.');
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
+  }
+
+  /**
+   * Inicia sesión con Google
+   * @returns 
+   */
+  googleAuth() {
+    return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
+      this.router.navigate(['dashboard']);
+    });
+  }
+
+  /**
+   * Lógica de autenticación para ejecutar proveedores de autenticación
+   * @param provider 
+   * @returns 
+   */
+  authLogin(provider: any) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((result) => {
+        this.router.navigate(['feed']);
+        this.setUserData(result.user);
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
+  }
+
+  /**
+   * Devuelve verdadero cuando el usuario inicia sesión y se verifica el correo electrónico
+   */
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    return user !== null && user.emailVerified !== false ? true : false;
+  }
+
+  /**
    * Configuración de datos de usuario al iniciar sesión con nombre de usuario/contraseña,
    * regístrese con nombre de usuario/contraseña e inicie sesión con autenticación social
    * proveedor en la base de datos de Firestore usando AngularFirestore + AngularFirestoreDocument service.
@@ -87,6 +174,17 @@ export class AuthenticationService {
     };
     return userRef.set(userData, {
       merge: true,
+    });
+  }
+
+  /**
+   * Desconectar la aplicación.
+   * @returns 
+   */
+  SignOut() {
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['sign-in']);
     });
   }
 
