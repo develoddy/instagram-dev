@@ -10,9 +10,11 @@ import { User } from '@data/models/User';
 export class ProfileheaderComponent implements OnInit {
 
   @Input() user: User;
-  @Input() post: Post;
   
   ngOnInit() {
+    console.log("DEBUG: ProfileheaderComponent load..");
+    console.log(this.user);
+    
   }
 
 }

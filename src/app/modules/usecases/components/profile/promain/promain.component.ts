@@ -17,8 +17,9 @@ export class PromainComponent implements OnInit {
   @Input() paramUsername: string;
   private clientesSubscription: Subscription;
   public user: User;
-  public stats: UserStats;
+  //public stats: UserStats;
   //public followButtonText: string = "";
+  public stats: UserStats = { followers: 0, followings: 0, posts: 0 };
   public btnEdit: string;
 
   constructor(
@@ -31,15 +32,6 @@ export class PromainComponent implements OnInit {
   ) {
     this.paramUsername = this.route.snapshot.paramMap.get('username')!; //document.location.pathname;
     this.btnEdit = '';
-
-    // Get info current user.
-    //this.authService.getCurrentUser().subscribe((snapshot) => {
-    //this.user = snapshot;
-    //this.checkIfUserIsFollowed();
-    //});
-
-    // Get stats.
-    //this.stats = this.authService.getStats();
   }
 
   ngOnInit() {
@@ -52,6 +44,7 @@ export class PromainComponent implements OnInit {
       .fetchUserByUsername(this.paramUsername)
       .subscribe((snapshot) => {
         this.user = snapshot[0];
+        this.fetchUserStats();
         this.checkIfUserIsFollowed();
       });
   }

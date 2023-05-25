@@ -67,8 +67,6 @@ export class ProgridpostsComponent implements OnInit {
             ...element.payload.doc.data(),
           });
         });
-        console.log(this.posts);
-        
       });
   }
 

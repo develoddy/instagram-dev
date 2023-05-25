@@ -9,11 +9,8 @@ import { FiltroService } from '@data/services/api/filtro.service';
 })
 export class ProfileinfoComponent implements OnInit {
   @Input() user: User;
-  //@Input() stats: UserStats;
   @Input() btnEdit: string;
   
   constructor( public filter : FiltroService ) {}
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
