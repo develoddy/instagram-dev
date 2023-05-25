@@ -1,6 +1,8 @@
 // https://github.com/SinghDigamber/angularfirebase-authentication/blob/master/src/app/shared/services/auth.service.ts
 // https://github.com/SinghDigamber/angularfirebase-authentication/blob/master/src/app/components/sign-in/sign-in.component.html
 
+//
+
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -9,10 +11,10 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { User } from '@data/models/User';
-import { Subscription, of } from 'rxjs';
+import { User, UserStats } from '@data/models/User';
+import { BehaviorSubject, Observable, Subscription, of } from 'rxjs';
 import * as auth from 'firebase/auth';
-
+import { ProfileService } from '@data/services/api/profile.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,12 +23,16 @@ export class AuthenticationService {
   userData: any; // Guardar datos de usuario registrados.
   public identity: any;
   clientesSubscription: Subscription;
+  public errorLogin: boolean = false;
+  public spinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  public textLogin: boolean = false;
 
   constructor(
     private afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
-    public ngZone: NgZone
+    public ngZone: NgZone,
+    private profileService: ProfileService
   ) {
     /**
      * Guardar datos de usuario en almacenamiento local cuando ha
@@ -37,8 +43,9 @@ export class AuthenticationService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
+        this.fetchUserStats();
       } else {
-        localStorage.setItem('user', 'nul');
+        localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
       }
     });
@@ -50,29 +57,31 @@ export class AuthenticationService {
    * @param password
    */
   public signIn(email: string, password: string) {
-    console.log('Email: ' + email);
-    console.log('Password: ' + password);
+    this.textLogin = !this.textLogin;
+    this.spinner.next(true);
     this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
+        this.spinner.next(false);
         this.setUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            this.router.navigate(['feed']);
+            this.router.navigate(['/']); // feed
           }
         });
       })
       .catch((error) => {
-        console.log('Error login');
-        console.log(error);
+        this.spinner.next(false);
+        this.errorLogin = true;
+        this.textLogin = !this.textLogin;
       });
   }
 
   /**
    * Regístrese con correo electrónico/contraseña
-   * @param email 
-   * @param password 
-   * @returns 
+   * @param email
+   * @param password
+   * @returns
    */
   private signUp(email: string, password: string) {
     return this.afAuth
@@ -89,7 +98,7 @@ export class AuthenticationService {
 
   /**
    * Enviar verificación por correo electrónico cuando se registre un nuevo usuario
-   * @returns 
+   * @returns
    */
   sendVerificationMail() {
     return this.afAuth.currentUser
@@ -101,8 +110,8 @@ export class AuthenticationService {
 
   /**
    * Restablecer Olvidé mi contraseña
-   * @param passwordResetEmail 
-   * @returns 
+   * @param passwordResetEmail
+   * @returns
    */
   forgotPassword(passwordResetEmail: string) {
     return this.afAuth
@@ -111,14 +120,14 @@ export class AuthenticationService {
         window.alert('Password reset email sent, check your inbox.');
       })
       .catch((error) => {
-        console.log("DEBUG: forgotPassword -> Error");
+        console.log('DEBUG: forgotPassword -> Error');
         window.alert(error);
       });
   }
 
   /**
    * Inicia sesión con Google
-   * @returns 
+   * @returns
    */
   googleAuth() {
     return this.authLogin(new auth.GoogleAuthProvider()).then((res: any) => {
@@ -128,14 +137,14 @@ export class AuthenticationService {
 
   /**
    * Lógica de autenticación para ejecutar proveedores de autenticación
-   * @param provider 
-   * @returns 
+   * @param provider
+   * @returns
    */
   authLogin(provider: any) {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.router.navigate(['feed']);
+        this.router.navigate(['/']); //feed
         this.setUserData(result.user);
       })
       .catch((error) => {
@@ -148,7 +157,11 @@ export class AuthenticationService {
    */
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
+    console.log('DEBUG; isLoggedIn : ');
+    console.log(user);
+
+    //return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null ? true : false;
   }
 
   /**
@@ -175,12 +188,13 @@ export class AuthenticationService {
 
   /**
    * Desconectar la aplicación.
-   * @returns 
+   * @returns
    */
-  SignOut() {
+  signOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      // [routerLink]="['login']"
+      this.router.navigate(['login']);
     });
   }
 
@@ -193,6 +207,62 @@ export class AuthenticationService {
       this.identity = JSON.parse(localStorage.getItem('user')!);
     }
     return this.identity;
+  }
+
+  /**
+   * Se obtiene los datos del current user.
+   * @returns
+   */
+  public getCurrentUser(): Observable<any> {
+    this.identity = this.getIdentity();
+    var uid = this.identity.uid;
+    return this.afs.collection('users').doc(uid).valueChanges(); //.snapshotChanges();
+  }
+
+  public localStorageStats: any;
+  /**
+   * Se recupera los datos de tasts del storage.
+   * @returns 
+   */
+  public getStats() {
+    if (!this.localStorageStats) {
+      this.localStorageStats = JSON.parse(localStorage.getItem('stats')!);
+    }
+    return this.localStorageStats;
+  }
+
+  public followersTotal = 0;
+  public followingsTotal = 0;
+  public postsTotal = 0;
+  public stats: UserStats = { followers: 0, followings: 0, posts: 0 };
+  /**
+   * Se recupera el total de tasts del currrentUser y se 
+   * inserta los datos en el local storage.
+   */
+  public fetchUserStats() {
+    var uid = this.getIdentity().uid;
+    this.clientesSubscription = this.profileService
+      .fetchFollowersStat(uid)
+      .subscribe((snapshot) => {
+        this.followersTotal = snapshot.length;
+
+        this.clientesSubscription = this.profileService
+          .fetchFollowingsStat(uid)
+          .subscribe((snapshot) => {
+            this.followingsTotal = snapshot.length;
+
+            this.clientesSubscription = this.profileService
+              .fetchPostsStat(uid)
+              .subscribe((snapshot) => {
+                this.postsTotal = snapshot.length;
+
+                this.stats.followers = this.followersTotal;
+                this.stats.followings = this.followingsTotal;
+                this.stats.posts = this.postsTotal;
+                localStorage.setItem('stats', JSON.stringify(this.stats));
+              });
+          });
+      });
   }
 
   /**

@@ -11,12 +11,13 @@ import { MorepostsComponent } from './components/moreposts/moreposts.component';
 import { AccounteditComponent } from './components/accountedit/accountedit.component';
 import { PeopleComponent } from './components/people/people.component';
 import { ViewstorieComponent } from './components/viewstorie/viewstorie.component';
+import { AuthGuard } from '@core/guards/auth.guard';
 
 const routes: Routes = [{
   path: '', component: MainComponent,
   children: [
     { path: '', redirectTo: '/', pathMatch: "full" },
-    { path: '', component: FeedComponent},
+    { path: '', component: FeedComponent, canActivate: [AuthGuard]},
     { path: 'search', component: SearchComponent},
     { path: 'explore', component: ExploreComponent},
     { path: 'explore/people', component: PeopleComponent},

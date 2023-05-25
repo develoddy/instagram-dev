@@ -6,6 +6,9 @@ export class User {
     username?: string | null;
     uid: string | null;
     emailVerified: boolean;
+
+    displayname?: string | null;
+    photoURL?: string | null;
     
     stats?: UserStats;
     isFollwed?: boolean = false;

@@ -1,8 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Post } from '@data/models/Post';
+import { User } from '@data/models/User';
 import { FiltroService } from '@data/services/api/filtro.service';
 import { ProfileService } from '@data/services/api/profile.service';
+import { UserService } from '@data/services/api/user.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,11 +18,15 @@ export class ProgridpostsComponent implements OnInit {
   public infoPost: boolean;
   @Output() mouseOverEvent = new EventEmitter();
   public posts: Post[] = [];
+  public user: User;
+  paramUsername: string;
 
   constructor(
     private filter: FiltroService,
     private router: Router,
-    private profileService: ProfileService
+    private route: ActivatedRoute,
+    private profileService: ProfileService,
+    private userService: UserService
   ) {
     this.infoPost = false;
 
@@ -31,16 +37,28 @@ export class ProgridpostsComponent implements OnInit {
       }
     });
 
-    this.currentRoute = document.location.pathname;
+    //this.currentRoute = document.location.pathname;
+    this.paramUsername = this.route.snapshot.paramMap.get("username")!;
+    /*this.clientesSubscription = this.authService.getCurrentUser().subscribe((snaphot) => {
+      this.user = snaphot;
+      this.fetchPosts();
+    });*/
   }
 
-  ngOnInit() {
-    this.fetchPosts();
+  ngOnInit() { this.fetchUser() }
+
+  public fetchUser() {
+    this.clientesSubscription = this.userService
+      .fetchUserByUsername(this.paramUsername)
+      .subscribe((snapshot) => {
+        this.user = snapshot[0];
+        this.fetchPosts();
+      });
   }
 
   fetchPosts() {
     this.clientesSubscription = this.profileService
-      .fetchPostsByOwnerUid('2h9C6J90nVchyZ587UTqK0vyYHy1')
+      .fetchPostsByOwnerUid(this.user.uid!)
       .subscribe((snapshot) => {
         this.posts = [];
         snapshot.forEach((element: any) => {

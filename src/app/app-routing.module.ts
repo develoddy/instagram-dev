@@ -5,7 +5,7 @@ import { PromainComponent } from '@modules/usecases/components/profile/promain/p
 
 const routes: Routes = [
 
-  // { path: '', redirectTo: '', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'login',
     component: SkeletonComponent,

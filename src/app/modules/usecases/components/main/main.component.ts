@@ -24,6 +24,8 @@ import {
   query,
   stagger,
 } from '@angular/animations';
+import { AuthenticationService } from '@core/http/authentication.service';
+import { User } from '@data/models/User';
 
 export const fadeAnimation = trigger('fadeAnimation', [
   transition(':enter', [
@@ -127,15 +129,22 @@ export class MainComponent implements OnInit {
   public profile: boolean;
   public more: boolean;
   public viewStories: boolean;
+  public user: User;
+  private clientesSubscription: Subscription;
 
   constructor(
     public sanitizer: DomSanitizer,
     public scripts: ScriptsService,
     private render2: Renderer2,
     private router: Router,
-    public filter: FiltroService
+    public filter: FiltroService,
+    private authService: AuthenticationService
   ) {
     this.initVar();
+
+    this.clientesSubscription = this.authService.getCurrentUser().subscribe((snaphot) => {
+      this.user = snaphot;
+    });
   }
 
   private initVar() {
@@ -612,8 +621,6 @@ export class MainComponent implements OnInit {
    * abriendo o cerrando el sidebar de búsqueda en la vista del Nav.
    */
   private removeSidebarByGlobalClick() {
-    console.log('xxxx');
-
     const asParentMain = this.asParentMain.nativeElement;
     const asParentSearch = this.asParentSearch.nativeElement;
     const asIxvb8j5 = this.asIxvb8j5.nativeElement;

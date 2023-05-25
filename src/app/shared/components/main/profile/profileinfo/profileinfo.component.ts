@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User, UserStats } from '@data/models/User';
 import { FiltroService } from '@data/services/api/filtro.service';
 
 @Component({
@@ -6,8 +7,13 @@ import { FiltroService } from '@data/services/api/filtro.service';
   templateUrl: './profileinfo.component.html',
   styleUrls: ['./profileinfo.component.css']
 })
-export class ProfileinfoComponent {
-
+export class ProfileinfoComponent implements OnInit {
+  @Input() user: User;
+  //@Input() stats: UserStats;
+  @Input() btnEdit: string;
+  
   constructor( public filter : FiltroService ) {}
+  ngOnInit() {
+  }
 
 }

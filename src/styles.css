@@ -5996,3 +5996,15 @@ img {
 .x1rcfgkt {
     margin-top: 27px;
 }
+
+
+._ab2z {
+  color: rgb(var(--ig-error-or-destructive));
+  margin: 10px 40px;
+}
+
+._ab2z, ._ab2-, ._ab2_ {
+  font-size: var(--system-14-font-size);
+  line-height: 18px;
+  text-align: center;
+}

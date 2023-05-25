@@ -15,10 +15,14 @@ export class AuthGuard implements CanActivate {
         state: RouterStateSnapshot
     ) : Observable<boolean> | Promise<boolean> | boolean {
 
-        //console.log("DEBUG: Auth.guard -> " + this.authenticationService.isLoggedIn);
-        //if ( this.authenticationService.isLoggedIn !== true ) {
-            //this.router.navigate([ 'login' ])
-        //}
+        // console.log("DEBUG: Auth.guard -> " + this.authenticationService.isLoggedIn);
+        /**
+         * Si el usuario no está logueado entonces se le 
+         * redirige a la pagina de Login.
+         */
+        if ( !this.authenticationService.isLoggedIn ) {
+            this.router.navigate([ 'login' ])
+        }
         return true;
         //const currentUser = this.authenticationService.getIdentity();
         //if ( currentUser ) {

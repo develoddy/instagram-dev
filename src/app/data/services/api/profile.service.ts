@@ -13,7 +13,22 @@ export class ProfileService {
   constructor(private firebase: AngularFirestore) {}
 
   fetchPostsByOwnerUid(uid: string): Observable<any> {
-    console.log("DEBUG; Services profile.service...");
     return this.firebase.collection("posts", ref => ref.where('ownerUid', '==', uid )).snapshotChanges();
+  }
+
+  public fetchFollowingsStat(uid: string): Observable<any>  {
+    return this.firebase.collection("followings").doc(uid).collection("user-followings").snapshotChanges();
+  }
+
+  public fetchFollowersStat(uid: string): Observable<any>  {
+    return this.firebase.collection("followers").doc(uid).collection("user-followers").snapshotChanges();
+  }
+
+  public fetchPostsStat(uid: string): Observable<any>  {
+    return this.firebase.collection("posts", ref => ref.where('ownerUid', '==', uid )).snapshotChanges();
+  }
+
+  public checkIfUserIsFollowed(currentId: string, uid: string): Observable<any> {
+    return this.firebase.collection("followings").doc(currentId).collection("user-followings").doc(uid).snapshotChanges();
   }
 }

@@ -1,25 +1,32 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { fromEvent, Observable, Subscription } from "rxjs";
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
+import { AuthenticationService } from '@core/http/authentication.service';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-morenav',
   templateUrl: './morenav.component.html',
-  styleUrls: ['./morenav.component.css']
+  styleUrls: ['./morenav.component.css'],
 })
 export class MorenavComponent implements OnInit {
-  
-
-  @ViewChild("asMoreBoddy") asMoreBoddy: ElementRef;
-  @ViewChild("asIx78zum5") asIx78zum5: ElementRef;
-  @ViewChild("asIx10l6tqk") asIx10l6tqk: ElementRef;
-  @ViewChild("asIxgf5ljw") asIxgf5ljw: ElementRef;
+  @ViewChild('asMoreBoddy') asMoreBoddy: ElementRef;
+  @ViewChild('asIx78zum5') asIx78zum5: ElementRef;
+  @ViewChild('asIx10l6tqk') asIx10l6tqk: ElementRef;
+  @ViewChild('asIxgf5ljw') asIxgf5ljw: ElementRef;
   resizeObservable$: Observable<Event>;
   resizeSubscription$: Subscription;
   mobileView = false;
   public resizeId: any;
   private screen: any = { small: 0, medium: 400, large: 800 };
-  
-  constructor(private render2: Renderer2) {console.log("DEBUG: Morenav.component cargado...");}
+
+  constructor(private render2: Renderer2, public authService: AuthenticationService) {
+    console.log('DEBUG: Morenav.component cargado...');
+  }
 
   ngAfterViewInit() {}
 
@@ -28,16 +35,16 @@ export class MorenavComponent implements OnInit {
   }
 
   setupView() {
-        this.resizeWindows();
+    this.resizeWindows();
   }
 
   private resizeWindows() {
-    this.resizeObservable$ = fromEvent(window, "resize");
-    this.resizeSubscription$ = this.resizeObservable$.subscribe(( e ) => {
-          clearTimeout( this.resizeId );
-          this.resizeId = setTimeout(() => {
-                this.resizeHandler();
-          }, 10);
+    this.resizeObservable$ = fromEvent(window, 'resize');
+    this.resizeSubscription$ = this.resizeObservable$.subscribe((e) => {
+      clearTimeout(this.resizeId);
+      this.resizeId = setTimeout(() => {
+        this.resizeHandler();
+      }, 10);
     });
   }
 
@@ -45,25 +52,26 @@ export class MorenavComponent implements OnInit {
     const screenWidth = window.innerWidth;
     let size = null;
     let iw = null;
-    for ( let s in this.screen ) {
-          if ( screenWidth >= this.screen[ s ] ) size = s; iw = screenWidth;
+    for (let s in this.screen) {
+      if (screenWidth >= this.screen[s]) size = s;
+      iw = screenWidth;
     }
     this.mediaQuery(size!, iw!);
   }
 
-  public mediaQuery( size: string, iw: number ) {
-    switch ( size ) {
-          case "small":
-                this.renderMobileView(iw);
-                break;
-          case "medium":
-                this.renderTabletView(iw);
-                break;
-          case "large":
-                this.renderDesktopView(iw);
-                break;
-          default:
-                break;
+  public mediaQuery(size: string, iw: number) {
+    switch (size) {
+      case 'small':
+        this.renderMobileView(iw);
+        break;
+      case 'medium':
+        this.renderTabletView(iw);
+        break;
+      case 'large':
+        this.renderDesktopView(iw);
+        break;
+      default:
+        break;
     }
   }
 
@@ -73,25 +81,24 @@ export class MorenavComponent implements OnInit {
     this.mobileView = true;
   }
 
-
   // Se renderiza para aplicaciones tablet.
   renderTabletView(iw: number) {
-      //this.render(iw);
+    //this.render(iw);
   }
 
   // Se renderiza para aplicaciones desktop.
   renderDesktopView(iw: number) {
-      this.render(iw);
-      this.mobileView = false;
+    this.render(iw);
+    this.mobileView = false;
   }
 
   // Render
-  private render(iw:number) {
+  private render(iw: number) {
     const asIx78zum5 = this.asIx78zum5.nativeElement;
     const asIx10l6tqk = this.asIx10l6tqk.nativeElement;
     const asIxgf5ljw = this.asIxgf5ljw.nativeElement;
 
-    if ( iw < 1264 ) {
+    if (iw < 1264) {
       this.render2.removeClass(asIx78zum5, 'x91k8ka');
       this.render2.removeClass(asIx78zum5, 'x1anpbxc');
       this.render2.addClass(asIx78zum5, 'x11x68ut');
@@ -110,7 +117,6 @@ export class MorenavComponent implements OnInit {
       this.render2.removeClass(asIxgf5ljw, 'xqd3l62');
       this.render2.addClass(asIxgf5ljw, 'x1cu5jd9');
       this.render2.addClass(asIxgf5ljw, 'xr6gfmr');
-
     } else {
       this.render2.addClass(asIx78zum5, 'x91k8ka');
       this.render2.addClass(asIx78zum5, 'x1anpbxc');
@@ -130,12 +136,11 @@ export class MorenavComponent implements OnInit {
       this.render2.addClass(asIxgf5ljw, 'xdlhfag');
       this.render2.addClass(asIxgf5ljw, 'x1rbgqaq');
       this.render2.addClass(asIxgf5ljw, 'xqd3l62');
-    } 
+    }
   }
 
   logOut() {
-    console.log("Salir del sistema...");
-    alert("salirrr!!")
-    
+    console.log('Salir del sistema...');
+    alert('salirrr!!');
   }
 }
