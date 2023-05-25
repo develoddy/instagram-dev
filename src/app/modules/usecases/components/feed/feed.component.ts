@@ -1,6 +1,8 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from "@angular/core";
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { Router } from "@angular/router";
+import { AuthenticationService } from "@core/http/authentication.service";
+import { User } from "@data/models/User";
 
 @Component({
   selector: "app-feed",
@@ -20,11 +22,17 @@ export class FeedComponent implements OnInit {
       public temAsSummary: any;
       public tempAsSectionFeed: any;
       public username: string = '';
+      public user: User;
 
       constructor(
             private render2: Renderer2,
-            private router: Router
-      ) {}
+            private router: Router,
+            private authService: AuthenticationService
+      ) {
+            this.authService.getCurrentUser().subscribe((snapshot) => {
+                  this.user = snapshot;
+            });
+      }
 
       ngAfterViewInit() {
             this.loadWindows();

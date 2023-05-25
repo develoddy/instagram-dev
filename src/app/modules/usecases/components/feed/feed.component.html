@@ -23,7 +23,7 @@
 
                     <!-- === Summary Start  ==== -->
                         <div class="_aak6 _aak9" #asSummary>
-                            <app-linkprofile (usernameEvent)="this.gotToProfile($event)" ></app-linkprofile>
+                            <app-linkprofile (usernameEvent)="this.gotToProfile($event)" *ngIf="this.user"  [user]="this.user"></app-linkprofile>
                             <app-suggestions (usernameEvent)="this.gotToProfile($event)"></app-suggestions>
                             <!-- <app-privacy></app-privacy> -->
                         </div>

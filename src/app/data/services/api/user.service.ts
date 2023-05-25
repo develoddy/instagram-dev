@@ -16,7 +16,7 @@ export class UserService {
     * @returns Observable<any> 
     --------------------------- */
   fetchUser(uid: string): Observable<any> {
-    return this.firebase.collection('users').doc(uid).get(); // .snapshotChanges();
+    return this.firebase.collection('users').doc(uid).get(); 
   }
 
   /** ---------------------------
@@ -27,7 +27,6 @@ export class UserService {
   --------------------------- */
   fetchUserByUsername(username: string): Observable<any> {
     return this.firebase
-      .collection('users', (ref) => ref.where('username', '==', username))
-      .valueChanges();
+      .collection('users', (ref) => ref.where('username', '==', username)).valueChanges();
   }
 }
