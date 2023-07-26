@@ -5,7 +5,7 @@ import { User } from '@data/models/User';
 import { FiltroService } from '@data/services/api/filtro.service';
 import { ProfileService } from '@data/services/api/profile.service';
 import { UserService } from '@data/services/api/user.service';
-import { Subscription } from 'rxjs';
+import { Subscription, count } from 'rxjs';
 
 @Component({
   selector: 'app-progridposts',
@@ -18,6 +18,7 @@ export class ProgridpostsComponent implements OnInit {
   public infoPost: boolean;
   @Output() mouseOverEvent = new EventEmitter();
   public posts: Post[] = [];
+  public rows : number[] = [];
   public user: User;
   paramUsername: string;
 
@@ -67,8 +68,42 @@ export class ProgridpostsComponent implements OnInit {
             ...element.payload.doc.data(),
           });
         });
-      });
+        this.totalRows(this.posts);
+      });  
   }
+
+
+
+
+  totalRows(posts: Post[]) {
+    
+    /*let totalRows = Math.floor(posts.length / 3);
+    for (let i = 0; i <= totalRows; i++) {
+      this.rows.push(i);
+    }*/
+
+    let arr_posts : Post[] = [];
+    posts.forEach(function(item, index) {  
+      if ( index < 3 ) {
+        arr_posts.push(item);
+      } else {
+        
+      }
+    });
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   public mouseInfoPost(hover: boolean) {
     this.infoPost = hover;
@@ -84,7 +119,6 @@ export class ProgridpostsComponent implements OnInit {
   ngOnDestroy() {
     if (this.clientesSubscription) {
       this.clientesSubscription.unsubscribe();
-      console.log(this.clientesSubscription.unsubscribe);
     }
   }
 }
